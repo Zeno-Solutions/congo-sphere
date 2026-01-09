@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import  { useState } from "react";
 import { events } from "@/lib/data";
 import EventCard from "../ui/EventCard";
 import Contenaire from "../Contenaire";
