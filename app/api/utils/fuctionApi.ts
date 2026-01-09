@@ -14,5 +14,5 @@ export async function getEventById(id: string) {
 }
 
 export async function TestFunction() {
-    console.log("Test function called");
+    await console.log("Test function called");
 }

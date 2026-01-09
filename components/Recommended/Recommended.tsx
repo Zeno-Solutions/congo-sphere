@@ -1,8 +1,11 @@
 "use client";
-import  { useState } from "react";
+import React, { useState } from "react";
 import { events } from "@/lib/data";
 import EventCard from "../ui/EventCard";
 import Contenaire from "../Contenaire";
+import {TestFunction,getAllEvents} from "@/app/api/utils/fuctionApi";
+TestFunction();
+getAllEvents()
 export default function Recommended() {
   const [selectedCategory, setSelectedCategory] = useState("All");
 
