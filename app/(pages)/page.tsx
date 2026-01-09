@@ -10,11 +10,17 @@ export const metadata = {
     "Découvrez des événements uniques près de chez vous. Concerts, meetups, expositions — rejoignez une communauté passionnée.",
 };
 export default function Home() {
-  getAllEvents().then((data : unknown) => {
-    console.log("Fetched Events:", data);
-  }).catch((error : unknown) => {
-    console.error("Error fetching events:", error);
-  });
+  async function fetchEvents() {
+    try {
+      const data = await getAllEvents();
+      console.log("Fetched Events:", data);
+    } catch (error) {
+      console.error("Error fetching events:", error);
+    }
+  }
+
+  fetchEvents();
+
   return (
     <>
       <Hero />
