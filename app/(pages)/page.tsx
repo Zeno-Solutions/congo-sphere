@@ -11,8 +11,8 @@ export const metadata = {
 };
 export default async function Home() {
   await TestFunction();
-  await getAllEvents();
-
+  const datas = await getAllEvents();
+  console.log("Data from getAllEvents:", datas);
   return (
     <>
       <Hero />
