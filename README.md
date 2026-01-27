@@ -1,36 +1,107 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# CongoSphere
 
-## Getting Started
+## Description
 
-First, run the development server:
+CongoSphere est une plateforme complète d'événements qui connecte les habitants de la République du Congo aux expériences qui comptent. Des conférences et ateliers professionnels aux festivals culturels, concerts et rassemblements communautaires, CongoSphere facilite la découverte, la participation et la gestion d'événements, le tout sur une seule plateforme.
+
+Notre outil permet aux organisateurs de gérer facilement la billetterie, le suivi des participants et les analyses, tout en offrant aux participants une expérience fluide pour trouver, réserver et interagir avec les événements qui les intéressent.
+
+CongoSphere n'est pas seulement une application d'événements — c'est un hub dynamique où se rencontrent culture, connaissances et connexions, pour faire grandir les communautés et les professionnels.
+
+## Guide du Développeur
+
+### Prérequis
+
+Ce projet utilise [Next.js](https://nextjs.org) et [pnpm](https://pnpm.io) comme gestionnaire de paquets.
+
+### Cloner le projet
+
+Clonez le dépôt sur votre machine locale :
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/Zeno-Solutions/congo-sphere.git
+cd congo-sphere
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Installation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. **Installer pnpm globalement** (si ce n'est pas déjà fait) :
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm i -g pnpm
+```
 
-## Learn More
+2. **Installer les dépendances** :
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+pnpm install
+# ou
+pnpm i
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Démarrer le projet
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Pour lancer le serveur de développement :
 
-## Deploy on Vercel
+```bash
+pnpm dev
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Ouvrez [http://localhost:3000](http://localhost:3000) dans votre navigateur pour voir le résultat.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Vous pouvez commencer à éditer la page en modifiant `app/page.tsx`. La page se met à jour automatiquement au fur et à mesure que vous modifiez le fichier.
+
+## Comment Contribuer
+
+### Créer une branche
+
+Créez toujours une branche à partir de `main` avec un nom descriptif selon le type de modification :
+
+```bash
+git checkout -b <prefix>/<description>
+```
+
+**Préfixes disponibles :**
+
+- **ft/** : Pour ajouter une nouvelle fonctionnalité (feature)
+  - Exemple : `git checkout -b ft/ajout-page-evenements`
+- **bg/** : Pour corriger un bug (bug)
+  - Exemple : `git checkout -b bg/fix-affichage-image`
+- **hotfix/** : Pour une correction urgente en production
+  - Exemple : `git checkout -b hotfix/erreur-paiement-critique`
+- **docs/** : Pour la documentation
+  - Exemple : `git checkout -b docs/mise-a-jour-readme`
+- **chore/** : Pour les tâches de maintenance (mise à jour des dépendances, configuration, etc.)
+  - Exemple : `git checkout -b chore/mise-a-jour-dependances`
+- **refactor/** : Pour la restructuration du code sans changer son comportement
+  - Exemple : `git checkout -b refactor/optimisation-composant-carte`
+
+### Soumettre vos changements
+
+1. Développez votre fonctionnalité ou correction sur votre branche
+2. Committez vos changements avec des messages clairs
+3. Poussez votre branche vers le dépôt distant :
+
+```bash
+git push origin <nom-de-votre-branche>
+```
+
+4. Créez une **Pull Request** (PR) vers la branche `main`
+
+**Besoin d'aide pour créer une Pull Request ?** Regardez cette vidéo : [Comment créer une Pull Request sur GitHub](https://www.youtube.com/watch?v=jRLGobWwA3Y)
+
+### Bonnes pratiques
+
+- Assurez-vous que votre code fonctionne localement avant de créer une PR
+- Écrivez des messages de commit descriptifs
+- Gardez vos PR concentrées sur un seul sujet
+- Testez vos modifications avant de les soumettre
+
+---
+
+## Ressources
+
+Pour en savoir plus sur Next.js :
+
+- [Documentation Next.js](https://nextjs.org/docs)
+- [Tutoriel interactif Next.js](https://nextjs.org/learn)
