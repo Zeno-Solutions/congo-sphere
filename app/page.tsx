@@ -12,7 +12,7 @@ export default function Home() {
             width={100}
             height={100}
           />
-          <h1 className="text-3xl font-semibold">Comming Soon!</h1>
+          <h1 className="text-3xl font-semibold">Coming Soon!</h1>
         </div>
         <div />
       </main>
