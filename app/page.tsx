@@ -7,7 +7,7 @@ export default function Home() {
         <div />
         <div className="flex w-full h-full items-center flex-col justify-center">
           <Image src={"/icon.jpg"} alt={"Random name"} width={70} height={70} />
-          <h1 className="text-2xl font-semibold">Coming Soon!</h1>
+          <h1 className="text-2xl text-white font-semibold">Coming Soon!</h1>
         </div>
         <div />
       </main>
