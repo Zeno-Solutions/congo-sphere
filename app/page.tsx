@@ -6,8 +6,8 @@ export default function Home() {
       <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
         <div />
         <div className="flex w-full h-full items-center flex-col justify-center">
-          <Image src={"/icon.jpg"} alt={"Random name"} width={70} height={70} />
-          <h1 className="text-2xl text-white font-semibold">Coming Soon!</h1>
+          <Image src={"/logo.svg"} alt={"Random name"} width={70} height={70} />
+          <h1 className="text-2xl text-red-300 font-semibold">Coming Soon!</h1>
         </div>
         <div />
       </main>
