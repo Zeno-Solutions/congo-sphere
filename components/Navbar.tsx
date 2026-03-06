@@ -20,7 +20,7 @@ export default function Navbar() {
                         </div>
                         <div className="relative hidden md:flex items-center space-x-4">
                             <Search color="white" size={20} className="absolute left-3 top-1/2 transform -translate-y-1/2" />
-                            <input type="search" placeholder="Search..." className="px-3 py-2 rounded-2xl md:w-80 lg:w-96 text-sm bg-gray-700 text-white focus:outline-none focus:ring-1 focus:ring-offset-1 focus:ring-offset-gray-800 focus:ring-white pl-10" />
+                            <input type="search" placeholder="Search..." className="px-3 py-2 rounded-2xl md:w-80 lg:w-96 text-sm bg-gray-700 bg-opacity-10 text-white focus:outline-none focus:ring-1 focus:ring-offset-1 focus:ring-offset-gray-800 focus:ring-white pl-10" />
 
                         </div>
                         <div className="hidden md:flex">
