@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Congo Sphere - Create Event</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "inverse-surface": "#fcf8ff",
+              "on-surface": "#e9e6f7",
+              "inverse-primary": "#842cd3",
+              "surface-variant": "#242434",
+              "surface-tint": "#cc97ff",
+              "error-dim": "#d73357",
+              "on-tertiary-fixed": "#050061",
+              "secondary-fixed": "#ffc1d6",
+              "surface-container-low": "#12121e",
+              "secondary-dim": "#ff67ad",
+              "surface": "#0d0d18",
+              "surface-container-lowest": "#000000",
+              "surface-container-high": "#1e1e2d",
+              "primary": "#cc97ff",
+              "primary-fixed": "#c284ff",
+              "surface-bright": "#2b2a3c",
+              "on-primary-fixed-variant": "#430076",
+              "surface-dim": "#0d0d18",
+              "surface-container-highest": "#242434",
+              "primary-container": "#c284ff",
+              "on-tertiary-container": "#000000",
+              "outline-variant": "#474754",
+              "on-primary": "#47007c",
+              "secondary-container": "#aa0266",
+              "on-secondary-fixed": "#6b003e",
+              "on-primary-container": "#360061",
+              "tertiary": "#9093ff",
+              "on-background": "#e9e6f7",
+              "on-secondary-fixed-variant": "#9e005e",
+              "primary-dim": "#9c48ea",
+              "tertiary-container": "#7073ff",
+              "on-error-container": "#ffb2b9",
+              "inverse-on-surface": "#555461",
+              "on-tertiary": "#080079",
+              "surface-container": "#181826",
+              "outline": "#757482",
+              "on-surface-variant": "#aba9b9",
+              "tertiary-fixed": "#a6a9ff",
+              "tertiary-dim": "#6063ee",
+              "error": "#ff6e84",
+              "error-container": "#a70138",
+              "secondary-fixed-dim": "#ffaccb",
+              "tertiary-fixed-dim": "#9699ff",
+              "primary-fixed-dim": "#b971ff",
+              "on-secondary-container": "#ffe5ec",
+              "on-primary-fixed": "#000000",
+              "on-tertiary-fixed-variant": "#1e18b2",
+              "on-secondary": "#460027",
+              "secondary": "#ff67ad",
+              "background": "#0d0d18",
+              "on-error": "#490013"
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans"],
+              "body": ["Manrope"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #0d0d18;
+            color: #e9e6f7;
+            font-family: 'Manrope', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+            filter: invert(0.8) sepia(100%) saturate(200%) hue-rotate(240deg);
+            cursor: pointer;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full flex justify-between items-center px-6 py-4 bg-slate-950/50 backdrop-blur-xl z-50 shadow-[0_20px_40px_rgba(138,43,226,0.15)]">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-purple-400 dark:text-purple-300 scale-95 active:scale-90 transition-transform">bubble_chart</span>
+<h1 class="text-2xl font-black bg-gradient-to-r from-[#cc97ff] to-[#ff67ad] bg-clip-text text-transparent font-headline tracking-tight">Congo Sphere</h1>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full border border-primary/20 p-0.5 overflow-hidden">
+<img alt="User Profile" class="w-full h-full object-cover rounded-full" data-alt="Close-up portrait of a professional man with a friendly expression in soft cinematic studio lighting with dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiXVnVXUO1zlZs2ftQ2JavonHANC9Xj7O8YwNiB-cwyRbL5OoASL_WIDHomAV2igwgA7am7t5WGk2uBXQllcEJgw5m6tMSni4ExSxc9PknDl13kEwrE4b_THBaUQV6ty5dR8J9xRVqMISGX5r7WQll1ncP9GFIQCnlnSH9HbRRj45vBtItPSBPmnySl4_Ett7rxwPx3D4IRUG1g7CL5sr8r7FNcgBd6WszvZcSFbHEDtFGB3a24i6OdKpmOWLPN1eq_z5HrtO6hJ2a"/>
+</div>
+</div>
+</header>
+<main class="pt-28 px-4 sm:px-8 max-w-4xl mx-auto">
+<!-- Editorial Header Section -->
+<section class="mb-12">
+<span class="text-secondary font-bold font-label tracking-[0.2em] uppercase text-xs">Event Management</span>
+<h2 class="text-4xl md:text-6xl font-black font-headline text-on-surface mt-2 tracking-tighter">Create/Edit Event.</h2>
+<p class="text-on-surface-variant font-body mt-4 max-w-xl text-lg leading-relaxed">
+                Shape the future of the sphere. Fill in the details below to broadcast your event to the community.
+            </p>
+</section>
+<!-- Asymmetric Glass Form -->
+<form action="#" class="grid grid-cols-1 md:grid-cols-12 gap-8" method="POST">
+<!-- Left Column: Visuals -->
+<div class="md:col-span-5 space-y-8">
+<div class="group relative aspect-[4/5] bg-surface-container-low rounded-xl overflow-hidden border border-outline-variant/15 flex flex-col items-center justify-center text-center p-8 transition-all hover:bg-surface-container-high">
+<div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 pointer-events-none"></div>
+<span class="material-symbols-outlined text-5xl text-primary mb-4" style="font-variation-settings: 'FILL' 0;">cloud_upload</span>
+<h3 class="text-lg font-bold font-headline text-on-surface">Event Image</h3>
+<p class="text-sm text-on-surface-variant mt-2 font-body">Drag and drop or click to upload the cover art for your event.</p>
+<input accept="image/*" class="absolute inset-0 opacity-0 cursor-pointer" type="file"/>
+<!-- Decorative element -->
+<div class="mt-8 w-full h-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full w-1/3 bg-gradient-to-r from-primary to-secondary"></div>
+</div>
+</div>
+<div class="p-6 bg-surface-container-low rounded-xl border border-outline-variant/15">
+<h4 class="font-bold text-on-surface mb-2">Pro Tip</h4>
+<p class="text-sm text-on-surface-variant font-body">High-resolution images with 16:9 aspect ratio work best for the main discovery feed.</p>
+</div>
+</div>
+<!-- Right Column: Details -->
+<div class="md:col-span-7 space-y-6">
+<!-- Title Field -->
+<div class="space-y-2">
+<label class="block text-xs font-bold uppercase tracking-widest text-on-surface-variant ml-1">Event Title</label>
+<input class="w-full bg-surface-container-low border-none rounded-lg p-4 text-on-surface placeholder-outline focus:ring-2 focus:ring-primary/50 transition-all font-body text-lg" placeholder="e.g., Neon Nights: Digital Art Showcase" type="text"/>
+</div>
+<!-- Description Field -->
+<div class="space-y-2">
+<label class="block text-xs font-bold uppercase tracking-widest text-on-surface-variant ml-1">Description</label>
+<textarea class="w-full bg-surface-container-low border-none rounded-lg p-4 text-on-surface placeholder-outline focus:ring-2 focus:ring-primary/50 transition-all font-body resize-none" placeholder="Describe the atmosphere, artists, and what to expect..." rows="4"></textarea>
+</div>
+<!-- Location Field -->
+<div class="space-y-2">
+<label class="block text-xs font-bold uppercase tracking-widest text-on-surface-variant ml-1">Location / Venue</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-primary">location_on</span>
+<input class="w-full bg-surface-container-low border-none rounded-lg p-4 pl-12 text-on-surface placeholder-outline focus:ring-2 focus:ring-primary/50 transition-all font-body" placeholder="Enter address or virtual link" type="text"/>
+</div>
+</div>
+<!-- Date/Time Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="space-y-2">
+<label class="block text-xs font-bold uppercase tracking-widest text-on-surface-variant ml-1">Starts</label>
+<input class="w-full bg-surface-container-low border-none rounded-lg p-4 text-on-surface focus:ring-2 focus:ring-primary/50 transition-all font-body" type="datetime-local"/>
+</div>
+<div class="space-y-2">
+<label class="block text-xs font-bold uppercase tracking-widest text-on-surface-variant ml-1">Ends</label>
+<input class="w-full bg-surface-container-low border-none rounded-lg p-4 text-on-surface focus:ring-2 focus:ring-primary/50 transition-all font-body" type="datetime-local"/>
+</div>
+</div>
+<!-- Submit Section -->
+<div class="pt-8 flex flex-col sm:flex-row gap-4 items-center">
+<button class="w-full sm:w-auto px-12 py-4 rounded-full bg-gradient-to-r from-primary to-secondary text-on-primary-fixed font-black font-headline text-lg shadow-[0_10px_30px_rgba(204,151,255,0.3)] hover:shadow-[0_15px_40px_rgba(255,103,173,0.4)] transition-all active:scale-95 flex items-center justify-center gap-2" type="submit">
+                        Broadcast Event
+                        <span class="material-symbols-outlined">send</span>
+</button>
+<button class="w-full sm:w-auto px-10 py-4 rounded-full border border-outline-variant/30 text-on-surface font-bold font-label hover:bg-white/5 transition-all" type="button">
+                        Save as Draft
+                    </button>
+</div>
+</div>
+</form>
+</main>
+<!-- NavigationDrawer (Suppressed based on Transactional rule, but for demo of style) -->
+<!-- Suppressed: User is in a task-focused "Create/Edit" view -->
+<!-- BottomNavBar -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center pb-6 pt-3 px-4 bg-slate-950/80 backdrop-blur-2xl border-t border-white/5 shadow-[0_-10px_40px_rgba(0,0,0,0.5)] rounded-t-[3rem]">
+<div class="flex flex-col items-center justify-center text-slate-500 hover:text-purple-300 tap-highlight-transparent active:scale-95 transition-all">
+<span class="material-symbols-outlined">explore</span>
+<span class="text-[10px] uppercase font-bold tracking-widest Manrope mt-1">Explore</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#cc97ff] bg-purple-500/10 rounded-full px-4 py-1 tap-highlight-transparent active:scale-95 transition-all">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">event_available</span>
+<span class="text-[10px] uppercase font-bold tracking-widest Manrope mt-1">My Events</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-500 hover:text-purple-300 tap-highlight-transparent active:scale-95 transition-all">
+<span class="material-symbols-outlined">mail</span>
+<span class="text-[10px] uppercase font-bold tracking-widest Manrope mt-1">Inbox</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-500 hover:text-purple-300 tap-highlight-transparent active:scale-95 transition-all">
+<span class="material-symbols-outlined">person_pin</span>
+<span class="text-[10px] uppercase font-bold tracking-widest Manrope mt-1">Profile</span>
+</div>
+</nav>
+<!-- Desktop Navigation Anchors in TopAppBar (Simulated as described in shell rules) -->
+<div class="hidden md:flex fixed top-0 right-32 h-20 items-center gap-8 z-[60]">
+<a class="text-slate-400 hover:text-white font-label font-bold text-sm tracking-widest transition-colors" href="#">EXPLORE</a>
+<a class="text-white font-label font-bold text-sm tracking-widest transition-colors border-b-2 border-primary pt-1" href="#">MY EVENTS</a>
+<a class="text-slate-400 hover:text-white font-label font-bold text-sm tracking-widest transition-colors" href="#">INBOX</a>
+</div>
+</body></html>

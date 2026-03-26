@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Congo Sphere - Discover Events</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "inverse-surface": "#fcf8ff",
+              "on-surface": "#e9e6f7",
+              "inverse-primary": "#842cd3",
+              "surface-variant": "#242434",
+              "surface-tint": "#cc97ff",
+              "error-dim": "#d73357",
+              "on-tertiary-fixed": "#050061",
+              "secondary-fixed": "#ffc1d6",
+              "surface-container-low": "#12121e",
+              "secondary-dim": "#ff67ad",
+              "surface": "#0d0d18",
+              "surface-container-lowest": "#000000",
+              "surface-container-high": "#1e1e2d",
+              "primary": "#cc97ff",
+              "primary-fixed": "#c284ff",
+              "surface-bright": "#2b2a3c",
+              "on-primary-fixed-variant": "#430076",
+              "surface-dim": "#0d0d18",
+              "surface-container-highest": "#242434",
+              "primary-container": "#c284ff",
+              "on-tertiary-container": "#000000",
+              "outline-variant": "#474754",
+              "on-primary": "#47007c",
+              "secondary-container": "#aa0266",
+              "on-secondary-fixed": "#6b003e",
+              "on-primary-container": "#360061",
+              "tertiary": "#9093ff",
+              "on-background": "#e9e6f7",
+              "on-secondary-fixed-variant": "#9e005e",
+              "primary-dim": "#9c48ea",
+              "tertiary-container": "#7073ff",
+              "on-error-container": "#ffb2b9",
+              "inverse-on-surface": "#555461",
+              "on-tertiary": "#080079",
+              "surface-container": "#181826",
+              "outline": "#757482",
+              "on-surface-variant": "#aba9b9",
+              "tertiary-fixed": "#a6a9ff",
+              "tertiary-dim": "#6063ee",
+              "error": "#ff6e84",
+              "error-container": "#a70138",
+              "secondary-fixed-dim": "#ffaccb",
+              "tertiary-fixed-dim": "#9699ff",
+              "primary-fixed-dim": "#b971ff",
+              "on-secondary-container": "#ffe5ec",
+              "on-primary-fixed": "#000000",
+              "on-tertiary-fixed-variant": "#1e18b2",
+              "on-secondary": "#460027",
+              "secondary": "#ff67ad",
+              "background": "#0d0d18",
+              "on-error": "#490013"
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans"],
+              "body": ["Manrope"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #0d0d18;
+            color: #e9e6f7;
+            font-family: 'Manrope', sans-serif;
+            overflow-x: hidden;
+        }
+        .glass-panel {
+            background: rgba(30, 30, 45, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface selection:bg-primary/30 selection:text-white">
+<!-- TopAppBar -->
+<nav class="fixed top-0 w-full flex justify-between items-center px-6 py-4 bg-slate-950/50 backdrop-blur-xl z-50 shadow-[0_20px_40px_rgba(138,43,226,0.15)]">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-purple-400 dark:text-purple-300 text-3xl">bubble_chart</span>
+<span class="text-2xl font-black bg-gradient-to-r from-[#cc97ff] to-[#ff67ad] bg-clip-text text-transparent font-headline">Congo Sphere</span>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-white font-bold font-label text-sm transition-colors hover:text-primary" href="#">Explore</a>
+<a class="text-slate-400 font-label text-sm transition-colors hover:text-white" href="#">My Events</a>
+<a class="text-slate-400 font-label text-sm transition-colors hover:text-white" href="#">Inbox</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-slate-400 font-bold font-label text-sm px-4 py-2 hover:text-white transition-all active:scale-95">Login</button>
+<button class="bg-gradient-to-r from-primary to-secondary text-on-primary-fixed font-bold font-label text-sm px-6 py-2.5 rounded-full shadow-[0_0_20px_rgba(204,151,255,0.4)] hover:shadow-[0_0_30px_rgba(204,151,255,0.6)] transition-all active:scale-95">Register</button>
+</div>
+</nav>
+<main class="pt-24 pb-32 px-6 max-w-7xl mx-auto">
+<!-- Search Bar Section -->
+<section class="mb-12">
+<div class="relative max-w-2xl mx-auto">
+<span class="material-symbols-outlined absolute left-5 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full bg-surface-container-low border-none rounded-2xl py-5 pl-14 pr-6 text-on-surface placeholder:text-outline focus:ring-2 focus:ring-primary/50 transition-all font-body" placeholder="Search events, festivals, or categories..." type="text"/>
+</div>
+</section>
+<!-- Featured Events Carousel -->
+<section class="mb-16">
+<div class="flex items-end justify-between mb-8">
+<div>
+<h2 class="text-4xl font-extrabold font-headline tracking-tight text-white mb-2">Featured Experiences</h2>
+<p class="text-on-surface-variant font-body">Hand-picked events you shouldn't miss this month.</p>
+</div>
+<div class="hidden sm:flex gap-2">
+<button class="p-3 rounded-full bg-surface-container-high text-on-surface hover:bg-surface-container-highest transition-colors">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="p-3 rounded-full bg-surface-container-high text-on-surface hover:bg-surface-container-highest transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+<div class="flex gap-6 overflow-x-auto no-scrollbar pb-4 snap-x snap-mandatory">
+<!-- Card 1 -->
+<div class="min-w-[320px] md:min-w-[600px] h-[400px] rounded-xl relative overflow-hidden group snap-start flex-shrink-0">
+<img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Dazzling neon light show at a futuristic music festival with crowd silhouettes against deep purple and pink laser beams" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgcA9zRj_i9w9hJcRRbmjkw-zIfLvYAQ8K3Y2fHoNSbACA-AQ8NqsLaPQuHs6EKdiNIc_PxLFt8zjaEQSlgn02ghAud2JDqlEDHm9MG20zs1ue0xa05pXKsT_GIgHMovZg4J-Y14gIGKIvBXes7o1weP6GW4Wz4Af_wku5TnLE0VDHGvk0n5S8aE6kNy2_NMTVfThK_MSwnqa2rVBa8aBzkIorNJ5faHMRcoTuNr7WJvQEc6h9NW3IKyp1-8WCjnBv8DObt3RrUReB"/>
+<div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-8 w-full">
+<div class="flex items-center gap-2 mb-3">
+<span class="px-3 py-1 bg-primary/20 backdrop-blur-md border border-primary/30 rounded-full text-[10px] font-bold uppercase tracking-widest text-primary">Music Festival</span>
+<span class="text-white/60 text-xs font-body">• 24 Oct 2024</span>
+</div>
+<h3 class="text-3xl font-bold font-headline text-white mb-2 group-hover:text-primary transition-colors">Neon Horizon 2024</h3>
+<p class="text-slate-300 text-sm max-w-md line-clamp-2 mb-6">Experience the largest immersive electronic music gathering in the heart of Kinshasa with world-class light installations.</p>
+<button class="flex items-center gap-2 text-white font-bold font-label text-sm group/btn">
+                            Book Tickets 
+                            <span class="material-symbols-outlined text-sm transition-transform group-hover/btn:translate-x-1">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="min-w-[320px] md:min-w-[450px] h-[400px] rounded-xl relative overflow-hidden group snap-start flex-shrink-0">
+<img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Intimate jazz club setting with warm spotlighting, brass instruments, and sophisticated attendees in a dark velvet lounge atmosphere" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDh-cWBHqZidGDkvCd2JI0qFWxqBOu1RmL7xryzrStUj5GoUsPs53uuqak80rg71iNY3zdap-re1FQHx1Jt7VlDvch-Aiu1Ymgvbxiz5P4VtneG53mAQS6fPUprXJQT9bSLvviQiZg5z9n_vyH8I-X3mGjd5OVtkP6fh5esBbMSrnab60MtSQ-UeTgCWzd3Q3u_6pB-fNe13P7f0irraHx26A3Uf5Ppyojyb5795XdLXHTUd3uJkzgTTnwqLrDNd5FNs9-s75BvuKd"/>
+<div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-8">
+<span class="px-3 py-1 bg-secondary/20 backdrop-blur-md border border-secondary/30 rounded-full text-[10px] font-bold uppercase tracking-widest text-secondary mb-3 inline-block">Fine Arts</span>
+<h3 class="text-2xl font-bold font-headline text-white mb-2">Velvet Underground Jazz</h3>
+<p class="text-slate-300 text-sm line-clamp-2">A soulful night of acoustic jazz and classic cocktails in an exclusive underground venue.</p>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="min-w-[320px] md:min-w-[450px] h-[400px] rounded-xl relative overflow-hidden group snap-start flex-shrink-0">
+<img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Vibrant tech conference stage with high-definition screens displaying abstract digital patterns and professional speakers in dynamic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdfFVPajMywG28YWR_UATW681Vb_wCZqu1QZf66TzCMbGTQ9hmtImI-t7Z_K4GSGZsi93a94Sug7W0EqaHo-F_Qa6VvBAh2x-DydibrVKCrpuT0tGGzyDQ3yKsvnuYZ9Dzz6DxfVU3FflmediLnogfz2DgOOWQEmTNpTYFOywA6f-YNyimX-e2bMHBDtLE-T2meGEU-AZIPzTwBJmV_IVjSthm--xKbMPQ4_eaxq44f-cOZVapQQrw3i-VYryImzz1w_goK6Bz_Wxi"/>
+<div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-8">
+<span class="px-3 py-1 bg-tertiary/20 backdrop-blur-md border border-tertiary/30 rounded-full text-[10px] font-bold uppercase tracking-widest text-tertiary mb-3 inline-block">Technology</span>
+<h3 class="text-2xl font-bold font-headline text-white mb-2">Sphere Connect Summit</h3>
+<p class="text-slate-300 text-sm line-clamp-2">Networking and keynotes from global leaders in web3 and digital transformation.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- For You Section (Grid) -->
+<section>
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
+<h2 class="text-3xl font-bold font-headline text-white">Recommended For You</h2>
+<div class="flex gap-3 overflow-x-auto no-scrollbar">
+<button class="bg-primary text-on-primary-fixed px-5 py-2 rounded-full text-sm font-bold whitespace-nowrap">All Events</button>
+<button class="bg-surface-container-high text-on-surface-variant px-5 py-2 rounded-full text-sm font-bold whitespace-nowrap hover:bg-surface-container-highest transition-colors">Music</button>
+<button class="bg-surface-container-high text-on-surface-variant px-5 py-2 rounded-full text-sm font-bold whitespace-nowrap hover:bg-surface-container-highest transition-colors">Technology</button>
+<button class="bg-surface-container-high text-on-surface-variant px-5 py-2 rounded-full text-sm font-bold whitespace-nowrap hover:bg-surface-container-highest transition-colors">Lifestyle</button>
+</div>
+</div>
+<!-- Bento Grid inspired layout -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Event Item 1 -->
+<div class="bg-surface-container-low rounded-lg overflow-hidden flex flex-col group border border-white/5 hover:border-primary/30 transition-all shadow-xl">
+<div class="relative h-48 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Elegant garden party with string lights, white floral arrangements, and guests in cocktail attire during late twilight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1SnHWXjkF-ys44m-qQi0wGGfSc7Aah5telX0ZuyXAwBJUeLiRE6cqg5xwwnteC2_VBs9q7cbxFG8CffPftZXWRQzzoxkHFTq8qX53YMP5T2ESOtkhRaHIQ50_g-Fa-IUkpu5mJI06rRSYY_MlKIEZ2SaCztvhHga_2b1N5Snzg_nHb4Pykup4kqtnNO5PKwDCFz6YVBFUrqz57wPNvIwElak7kCbH_r_gqAjSJIwcWb41nv_0SwwFD8Z-K-ArrRfceyqCd-oKIlPr"/>
+<div class="absolute top-4 right-4 bg-slate-950/60 backdrop-blur-md px-3 py-1.5 rounded-xl text-white font-bold text-xs flex items-center gap-1.5">
+<span class="material-symbols-outlined text-xs text-primary" style="font-variation-settings: 'FILL' 1;">star</span>
+                            4.9
+                        </div>
+</div>
+<div class="p-6">
+<div class="flex items-center gap-2 text-primary text-xs font-bold uppercase tracking-wider mb-3">
+<span class="material-symbols-outlined text-[14px]">calendar_today</span>
+                            OCT 28, 19:00
+                        </div>
+<h4 class="text-xl font-bold font-headline text-white mb-2 leading-tight">Gala in the Garden: Autumn Soiree</h4>
+<div class="flex items-center gap-2 text-on-surface-variant text-sm mb-4">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+                            The Grand Conservatory, Kinshasa
+                        </div>
+<p class="text-on-surface-variant text-sm font-body line-clamp-2 mb-6">Join us for an evening of botanical wonders, live orchestral performances, and chef-curated tastings.</p>
+<div class="mt-auto pt-4 border-t border-white/5 flex items-center justify-between">
+<span class="text-white font-bold">$45.00</span>
+<button class="text-primary font-bold text-sm hover:underline">View Details</button>
+</div>
+</div>
+</div>
+<!-- Event Item 2 -->
+<div class="bg-surface-container-low rounded-lg overflow-hidden flex flex-col group border border-white/5 hover:border-primary/30 transition-all shadow-xl">
+<div class="relative h-48 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Minimalist technology workshop setup with sleek laptops, neon accent lighting, and diverse developers collaborating" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBxIO7edauSTElwBrE2okhdwxL2Mx0H53t1D7k1ZdiKW8IJvWcQ996tlyz7aMSNOkp1YJLDwh42JuhEivezc3nuUnYYHxT9XD0BHs9p6pQbVQuR3COcpT3cL2Z2jWm-G3sVX7LpDWnNRqj5ySzF_aqpmvUcJC5s2VNkXZn6DTyzlgH5SLrDlEHkJ_CujpJqYyD-v0dPqAjSQjs4VnHgP7tIZr63_-0fItSu939WpUQb8DZFaGQPrKsVd12t4NtmwQ3hkjpG3Ry2yFk"/>
+</div>
+<div class="p-6">
+<div class="flex items-center gap-2 text-primary text-xs font-bold uppercase tracking-wider mb-3">
+<span class="material-symbols-outlined text-[14px]">calendar_today</span>
+                            NOV 02, 10:00
+                        </div>
+<h4 class="text-xl font-bold font-headline text-white mb-2 leading-tight">Workshop: Future of UI/UX</h4>
+<div class="flex items-center gap-2 text-on-surface-variant text-sm mb-4">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+                            Sphere Digital Hub
+                        </div>
+<p class="text-on-surface-variant text-sm font-body line-clamp-2 mb-6">A deep dive into spatial computing, AI-driven design, and the next generation of user interfaces.</p>
+<div class="mt-auto pt-4 border-t border-white/5 flex items-center justify-between">
+<span class="text-white font-bold">Free</span>
+<button class="text-primary font-bold text-sm hover:underline">View Details</button>
+</div>
+</div>
+</div>
+<!-- Event Item 3 -->
+<div class="bg-surface-container-low rounded-lg overflow-hidden flex flex-col group border border-white/5 hover:border-primary/30 transition-all shadow-xl">
+<div class="relative h-48 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Exquisite plating of gourmet fusion cuisine in a dimly lit, modern restaurant with copper accents and warm backlighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8T7oBveJbK-IfBIPs9VXPRrbegn6EcYz5NdvnHvCXRVa9X091RRdBrpFlGUNPS1r3T8Y7lazOFAnk1dP1rc29a9xI7bfBmr1oGAljX79u-8evfxyRYr3wrybsrhDP6TaSNMJeLDwVlQxRNZUm4rFbgnzIl3-aMUffu05EoQi1HANdZ_cov_13nfZxuMkAoNmzd0Ggnu75fSDe_mKDfaGPCL-7M89sEWhF8t6muJy_9Q6L3xB-Hb6IFTivSUREmc-IylApga6Fimup"/>
+</div>
+<div class="p-6">
+<div class="flex items-center gap-2 text-primary text-xs font-bold uppercase tracking-wider mb-3">
+<span class="material-symbols-outlined text-[14px]">calendar_today</span>
+                            NOV 05, 20:00
+                        </div>
+<h4 class="text-xl font-bold font-headline text-white mb-2 leading-tight">Culinary Fusion: Dark Night Dinner</h4>
+<div class="flex items-center gap-2 text-on-surface-variant text-sm mb-4">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+                            Obsidian Kitchen
+                        </div>
+<p class="text-on-surface-variant text-sm font-body line-clamp-2 mb-6">An experimental multi-sensory dining experience where every dish is a work of edible art.</p>
+<div class="mt-auto pt-4 border-t border-white/5 flex items-center justify-between">
+<span class="text-white font-bold">$120.00</span>
+<button class="text-primary font-bold text-sm hover:underline">View Details</button>
+</div>
+</div>
+</div>
+<!-- Event Item 4 -->
+<div class="bg-surface-container-low rounded-lg overflow-hidden flex flex-col group border border-white/5 hover:border-primary/30 transition-all shadow-xl">
+<div class="relative h-48 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Action shot of extreme mountain biking on a rugged forest trail with sunlight filtering through tall redwood trees" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgOkBmSiQLx8633UxkFY-Vo0jkIr0-mOn7850lCVZKpw-hjkZRdfdKiUrdQRczwp2WY8A6rGs4hIxcGulNP2mj02KmALvakz14qzPv4M3SlT0pj9a8G5d_IuFVkUsmAPRT4C-V2WGizBRwBLrzJa8Ow-lx2mE_0rKcG86DiE8rVtgpnIIX4HziVcjgozn-ntejiwqbPqmq27mLZYdg7PRf8ZYWTNvfc2AKyaA1Tyh0yGMuRedm7kr_mQcIt6mOrbmoKDOSe7G-x5fB"/>
+</div>
+<div class="p-6">
+<div class="flex items-center gap-2 text-primary text-xs font-bold uppercase tracking-wider mb-3">
+<span class="material-symbols-outlined text-[14px]">calendar_today</span>
+                            NOV 12, 07:00
+                        </div>
+<h4 class="text-xl font-bold font-headline text-white mb-2 leading-tight">Wild Peaks: Adventure Weekend</h4>
+<div class="flex items-center gap-2 text-on-surface-variant text-sm mb-4">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+                            Highland Basecamp
+                        </div>
+<p class="text-on-surface-variant text-sm font-body line-clamp-2 mb-6">Experience the thrill of the wilderness with guided mountain biking, hiking, and fireside workshops.</p>
+<div class="mt-auto pt-4 border-t border-white/5 flex items-center justify-between">
+<span class="text-white font-bold">$85.00</span>
+<button class="text-primary font-bold text-sm hover:underline">View Details</button>
+</div>
+</div>
+</div>
+<!-- Event Item 5 -->
+<div class="bg-surface-container-low rounded-lg overflow-hidden flex flex-col group border border-white/5 hover:border-primary/30 transition-all shadow-xl">
+<div class="relative h-48 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Wide shot of a professional indoor sports arena with vibrant lighting, energetic fans, and sleek modern architecture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQP_evpb0UEzE_53zZ8e13iG89CZa4DoFRRAySCaNTHb_02thNVlKG4fRqMop8WUSQjyzpjA9rAW9YLd6Va-dXEl4wKhU1XK8sE7pYgldnJIQP3Q4AFyQV_AKrCkNy5pnkEtnOjGSAQ3md0HP0zA0erAI7lqG70De7Mnxt0OjAC3FJJFLdohj5TmtSymlKTb-p4879CHpKYTAQofQqCiNKH2Zn7BW92-Xrexe3PMzyaAOYEe9DRc5kwEyVrLSjsCs1Vb2x5Bl3DQIc"/>
+</div>
+<div class="p-6">
+<div class="flex items-center gap-2 text-primary text-xs font-bold uppercase tracking-wider mb-3">
+<span class="material-symbols-outlined text-[14px]">calendar_today</span>
+                            NOV 15, 18:30
+                        </div>
+<h4 class="text-xl font-bold font-headline text-white mb-2 leading-tight">Sphere E-Sports Championship</h4>
+<div class="flex items-center gap-2 text-on-surface-variant text-sm mb-4">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+                            Arena One
+                        </div>
+<p class="text-on-surface-variant text-sm font-body line-clamp-2 mb-6">Watch the nation's top players compete for the ultimate title in an electrifying stadium environment.</p>
+<div class="mt-auto pt-4 border-t border-white/5 flex items-center justify-between">
+<span class="text-white font-bold">$25.00</span>
+<button class="text-primary font-bold text-sm hover:underline">View Details</button>
+</div>
+</div>
+</div>
+<!-- Event Item 6 -->
+<div class="bg-surface-container-low rounded-lg overflow-hidden flex flex-col group border border-white/5 hover:border-primary/30 transition-all shadow-xl">
+<div class="relative h-48 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Crowded colorful street parade with elaborate costumes, floating lanterns, and blurred motion during a festive evening celebration" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQ13B_3ukzanYn3xNA-0HOtw0WuljDKsxP8XPlt3EqAZ_cMFmxS5jvnDNRVn5P1EW_ULiwT23o4xQoJohzH9X2ThWMxFJ9szhXes5QkOHPqTJqH1md2AjI6CKu9xexB06Q1wAOzAV_Mud4967iDAqU2x9gVm_3ajOJttmfJqsBmVrcIyiDdFyI2-B1k8ZT2Vc806qyp-jlap-OwO3tIuP8rufPPlMK_xQ8APgX6s_PkroRneKC0spW3yrHNPjIxTYGptZXcOtOV5-q"/>
+</div>
+<div class="p-6">
+<div class="flex items-center gap-2 text-primary text-xs font-bold uppercase tracking-wider mb-3">
+<span class="material-symbols-outlined text-[14px]">calendar_today</span>
+                            NOV 20, 16:00
+                        </div>
+<h4 class="text-xl font-bold font-headline text-white mb-2 leading-tight">Unity Parade: Cultural Festival</h4>
+<div class="flex items-center gap-2 text-on-surface-variant text-sm mb-4">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+                            Downtown Plaza
+                        </div>
+<p class="text-on-surface-variant text-sm font-body line-clamp-2 mb-6">A vibrant display of traditional music, dance, and food celebrating our diverse community roots.</p>
+<div class="mt-auto pt-4 border-t border-white/5 flex items-center justify-between">
+<span class="text-white font-bold">Free</span>
+<button class="text-primary font-bold text-sm hover:underline">View Details</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Newsletter Subscription (Asymmetric) -->
+<section class="mt-24 relative rounded-[3rem] overflow-hidden bg-slate-900 border border-white/5 shadow-2xl">
+<div class="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-secondary/10"></div>
+<div class="relative grid md:grid-cols-2 gap-12 p-12 md:p-20 items-center">
+<div>
+<h2 class="text-4xl font-extrabold font-headline text-white mb-6 leading-tight">Stay in the Orbit.</h2>
+<p class="text-on-surface-variant text-lg mb-8 max-w-md">Get exclusive access to pre-sale tickets, secret events, and monthly curated highlights delivered to your inbox.</p>
+<div class="flex flex-col sm:flex-row gap-4">
+<input class="bg-surface-container-highest border-none rounded-full px-6 py-4 flex-grow text-white placeholder:text-outline focus:ring-2 focus:ring-primary/50 font-body" placeholder="your@email.com" type="email"/>
+<button class="bg-gradient-to-r from-primary to-secondary text-on-primary-fixed font-bold font-label px-8 py-4 rounded-full transition-transform active:scale-95 shadow-lg shadow-primary/20">Subscribe</button>
+</div>
+<p class="text-[10px] text-outline mt-4 uppercase tracking-widest font-bold">No spam. Only magic. Unsubscribe anytime.</p>
+</div>
+<div class="hidden md:block relative">
+<img class="rounded-[2rem] w-full h-[300px] object-cover shadow-2xl rotate-3 scale-105 opacity-80 border border-white/10" data-alt="Abstract composition of swirling cosmic lights and neon trails against a deep black void in high-resolution photography style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDc79PFMhPlZTMZy-MYYzUNerf-kSmIDNXRaIalo_YN7DseMgCzhmxCp-8kDLIeZl-BMqkwlTsY71OW3BhtufsBVD8RQHlSXdr16fUXZ2R2X0Mim702UY_l4g-nEqMnuyaT2y7EPJDuoe0oLsrr7aOULOLjaWI6-x8WwXPyGUx4ieVcK6GpEa6Yxsv-pSi_gQiZzZg73i9a97yitS4WvpA8iowUfP9ANTaz5sMbAhJRCCf9dXVW3DRAfaawpyva6ufngjZhNEWzp0Tz"/>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 bg-slate-950/80 backdrop-blur-2xl border-t border-white/5 flex justify-around items-center pb-6 pt-3 px-4 shadow-[0_-10px_40px_rgba(0,0,0,0.5)] md:hidden">
+<a class="flex flex-col items-center justify-center text-[#cc97ff] bg-purple-500/10 rounded-full px-4 py-1 active:scale-95 transition-all" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">explore</span>
+<span class="text-[10px] uppercase font-bold tracking-widest Manrope mt-1">Explore</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 hover:text-purple-300 active:scale-95 transition-all" href="#">
+<span class="material-symbols-outlined">event_available</span>
+<span class="text-[10px] uppercase font-bold tracking-widest Manrope mt-1">My Events</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 hover:text-purple-300 active:scale-95 transition-all" href="#">
+<span class="material-symbols-outlined">mail</span>
+<span class="text-[10px] uppercase font-bold tracking-widest Manrope mt-1">Inbox</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 hover:text-purple-300 active:scale-95 transition-all" href="#">
+<span class="material-symbols-outlined">person_pin</span>
+<span class="text-[10px] uppercase font-bold tracking-widest Manrope mt-1">Profile</span>
+</a>
+</nav>
+<!-- Footer for Desktop -->
+<footer class="hidden md:block border-t border-white/5 pt-16 pb-12 px-6 max-w-7xl mx-auto">
+<div class="grid grid-cols-4 gap-12 mb-16">
+<div class="col-span-1">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary text-2xl">bubble_chart</span>
+<span class="text-xl font-black bg-gradient-to-r from-[#cc97ff] to-[#ff67ad] bg-clip-text text-transparent font-headline">Congo Sphere</span>
+</div>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-6">Designing the future of event discovery. One glow at a time.</p>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface hover:bg-primary transition-all" href="#">
+<span class="material-symbols-outlined text-lg">public</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface hover:bg-primary transition-all" href="#">
+<span class="material-symbols-outlined text-lg">podcasts</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface hover:bg-primary transition-all" href="#">
+<span class="material-symbols-outlined text-lg">share</span>
+</a>
+</div>
+</div>
+<div>
+<h5 class="text-white font-bold mb-6 font-headline">Explore</h5>
+<ul class="space-y-4 text-on-surface-variant text-sm font-body">
+<li><a class="hover:text-primary transition-colors" href="#">Popular Events</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Festivals</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Workshops</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Nightlife</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-white font-bold mb-6 font-headline">Support</h5>
+<ul class="space-y-4 text-on-surface-variant text-sm font-body">
+<li><a class="hover:text-primary transition-colors" href="#">Help Center</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Terms of Service</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Ticketing Policy</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-white font-bold mb-6 font-headline">Partners</h5>
+<ul class="space-y-4 text-on-surface-variant text-sm font-body">
+<li><a class="hover:text-primary transition-colors" href="#">Host an Event</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Brand Solutions</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Sponsorships</a></li>
+</ul>
+</div>
+</div>
+<div class="pt-8 border-t border-white/5 text-center text-[10px] uppercase tracking-[0.2em] font-bold text-outline">
+            © 2024 Congo Sphere Digital. Designed for the Void.
+        </div>
+</footer>
+</body></html>
