@@ -1,0 +1,1423 @@
+<!doctype html>
+<html lang="fr" class="h-full">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pulse - Vivez l'instant</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="/_sdk/element_sdk.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&amp;display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            box-sizing: border-box;
+        }
+
+        * {
+            font-family: 'Outfit', sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #8b5cf6, #6366f1);
+            border-radius: 4px;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .glass-strong {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(30px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #fff 0%, #c4b5fd 50%, #a78bfa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .gradient-purple {
+            background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 50%, #4f46e5 100%);
+        }
+
+        .gradient-glow {
+            background: linear-gradient(135deg, #7c3aed 0%, #8b5cf6 50%, #a78bfa 100%);
+            box-shadow: 0 0 40px rgba(139, 92, 246, 0.4);
+        }
+
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card-hover:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 25px 50px -12px rgba(139, 92, 246, 0.3);
+        }
+
+        .card-hover:hover .card-image {
+            transform: scale(1.1);
+        }
+
+        .card-image {
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+            box-shadow: 0 4px 20px rgba(139, 92, 246, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(139, 92, 246, 0.6);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(139, 92, 246, 0.5);
+        }
+
+        .hero-glow {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.3) 0%, transparent 70%);
+            filter: blur(80px);
+            animation: pulse-glow 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse-glow {
+
+            0%,
+            100% {
+                opacity: 0.5;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.8;
+                transform: scale(1.1);
+            }
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: -200% 0;
+            }
+
+            100% {
+                background-position: 200% 0;
+            }
+        }
+
+        .shimmer {
+            background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.1) 50%, transparent 100%);
+            background-size: 200% 100%;
+            animation: shimmer 3s infinite;
+        }
+
+        .tag {
+            background: rgba(139, 92, 246, 0.2);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .tag:hover {
+            background: rgba(139, 92, 246, 0.3);
+            border-color: rgba(139, 92, 246, 0.5);
+        }
+
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #8b5cf6, #a78bfa);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .like-btn {
+            transition: all 0.3s ease;
+        }
+
+        .like-btn:hover {
+            transform: scale(1.2);
+        }
+
+        .like-btn.liked svg {
+            fill: #ef4444;
+            color: #ef4444;
+        }
+
+        .participant-avatar {
+            transition: all 0.3s ease;
+        }
+
+        .participant-avatar:hover {
+            transform: scale(1.1) translateY(-4px);
+            z-index: 10;
+        }
+
+        .category-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .category-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.2);
+        }
+
+        .search-input {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(139, 92, 246, 0.5);
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.2);
+            outline: none;
+        }
+
+        .modal-overlay {
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(8px);
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(99, 102, 241, 0.05) 100%);
+            border: 1px solid rgba(139, 92, 246, 0.2);
+        }
+    </style>
+    <style>
+        @view-transition {
+            navigation: auto;
+        }
+    </style>
+    <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+</head>
+
+<body class="h-full bg-[#0a0a0f] text-white overflow-auto">
+    <div id="app" class="min-h-full w-full"><!-- Header -->
+        <header class="fixed top-0 left-0 right-0 z-50 glass-strong">
+            <div class="max-w-7xl mx-auto px-6 py-4">
+                <div class="flex items-center justify-between"><!-- Logo -->
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl gradient-glow flex items-center justify-center">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M13 10V3L4 14h7v7l9-11h-7z" />
+                            </svg>
+                        </div><span class="text-2xl font-bold gradient-text">Pulse</span>
+                    </div><!-- Navigation -->
+                    <nav class="hidden md:flex items-center gap-8"><a href="#events"
+                            class="nav-link text-white/80 hover:text-white font-medium">Événements</a> <a
+                            href="#explore" class="nav-link text-white/80 hover:text-white font-medium">Explorer</a> <a
+                            href="#categories"
+                            class="nav-link text-white/80 hover:text-white font-medium">Catégories</a> <a href="#about"
+                            class="nav-link text-white/80 hover:text-white font-medium">À propos</a>
+                    </nav><!-- Actions -->
+                    <div class="flex items-center gap-4"><button id="search-btn"
+                            class="p-2 rounded-xl glass hover:bg-white/10 transition-all">
+                            <svg class="w-5 h-5 text-white/80" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                            </svg></button> <button
+                            class="hidden sm:block px-4 py-2 text-sm font-medium text-white/80 hover:text-white transition-all">
+                            Connexion </button> <button
+                            class="btn-primary px-5 py-2.5 rounded-xl text-sm font-semibold text-white"> Inscription
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header><!-- Search Modal -->
+        <div id="search-modal" class="fixed inset-0 z-[100] hidden">
+            <div class="modal-overlay absolute inset-0" onclick="closeSearch()"></div>
+            <div class="relative z-10 max-w-2xl mx-auto mt-32 px-6">
+                <div class="glass-strong rounded-2xl p-6">
+                    <div class="flex items-center gap-4 mb-6">
+                        <svg class="w-6 h-6 text-violet-400" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                        </svg><input type="text" placeholder="Rechercher des événements, artistes, lieux..."
+                            class="search-input flex-1 px-4 py-3 rounded-xl text-white placeholder-white/40"> <button
+                            onclick="closeSearch()" class="p-2 hover:bg-white/10 rounded-lg transition-all">
+                            <svg class="w-5 h-5 text-white/60" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M6 18L18 6M6 6l12 12" />
+                            </svg></button>
+                    </div>
+                    <div class="space-y-3">
+                        <p class="text-sm text-white/40 uppercase tracking-wider">Recherches populaires</p>
+                        <div class="flex flex-wrap gap-2"><span
+                                class="tag px-3 py-1.5 rounded-full text-sm text-violet-300 cursor-pointer">Concerts</span>
+                            <span
+                                class="tag px-3 py-1.5 rounded-full text-sm text-violet-300 cursor-pointer">Festivals</span>
+                            <span
+                                class="tag px-3 py-1.5 rounded-full text-sm text-violet-300 cursor-pointer">Paris</span>
+                            <span class="tag px-3 py-1.5 rounded-full text-sm text-violet-300 cursor-pointer">Ce
+                                weekend</span> <span
+                                class="tag px-3 py-1.5 rounded-full text-sm text-violet-300 cursor-pointer">Gratuit</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- Hero Section -->
+        <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+            <!-- Background Effects -->
+            <div class="absolute inset-0 bg-gradient-to-b from-violet-950/20 via-transparent to-[#0a0a0f]"></div>
+            <div class="hero-glow top-1/4 left-1/4"></div>
+            <div class="hero-glow top-1/3 right-1/4" style="animation-delay: -2s;"></div><!-- Background Pattern -->
+            <div class="absolute inset-0 opacity-20">
+                <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <pattern id="grid" width="60" height="60" patternunits="userSpaceOnUse">
+                            <path d="M 60 0 L 0 0 0 60" fill="none" stroke="rgba(139,92,246,0.3)" stroke-width="0.5" />
+                        </pattern>
+                    </defs>
+                    <rect width="100%" height="100%" fill="url(#grid)" />
+                </svg>
+            </div><!-- Hero Content -->
+            <div class="relative z-10 max-w-6xl mx-auto px-6 text-center">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-8"><span
+                        class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span> <span
+                        class="text-sm text-white/70">+2,500 événements disponibles</span>
+                </div>
+                <h1 id="hero-title" class="text-5xl md:text-7xl lg:text-8xl font-extrabold mb-6 leading-tight"><span
+                        class="gradient-text">Vivez l'instant</span></h1>
+                <p id="hero-subtitle" class="text-xl md:text-2xl text-white/60 max-w-2xl mx-auto mb-10 leading-relaxed">
+                    Découvrez des événements uniques près de chez vous. Concerts, meetups, expositions — rejoignez une
+                    communauté passionnée.</p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"><button id="cta-primary"
+                        class="btn-primary px-8 py-4 rounded-2xl text-lg font-semibold flex items-center gap-3">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                        </svg> Découvrir les événements </button> <button id="cta-secondary"
+                        class="btn-secondary px-8 py-4 rounded-2xl text-lg font-semibold flex items-center gap-3">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                        </svg> Rejoindre la communauté </button>
+                </div><!-- Stats -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
+                    <div class="stat-card rounded-2xl p-4 text-center">
+                        <p class="text-3xl font-bold gradient-text">50K+</p>
+                        <p class="text-sm text-white/50">Utilisateurs actifs</p>
+                    </div>
+                    <div class="stat-card rounded-2xl p-4 text-center">
+                        <p class="text-3xl font-bold gradient-text">2.5K</p>
+                        <p class="text-sm text-white/50">Événements</p>
+                    </div>
+                    <div class="stat-card rounded-2xl p-4 text-center">
+                        <p class="text-3xl font-bold gradient-text">150+</p>
+                        <p class="text-sm text-white/50">Villes</p>
+                    </div>
+                    <div class="stat-card rounded-2xl p-4 text-center">
+                        <p class="text-3xl font-bold gradient-text">4.9</p>
+                        <p class="text-sm text-white/50">Note moyenne</p>
+                    </div>
+                </div>
+            </div><!-- Scroll Indicator -->
+            <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+                style="animation: float 2s ease-in-out infinite;">
+                <div class="w-8 h-12 rounded-full border-2 border-white/20 flex justify-center pt-2">
+                    <div class="w-1.5 h-3 bg-violet-400 rounded-full animate-bounce"></div>
+                </div>
+            </div>
+        </section><!-- Featured Event -->
+        <section id="featured" class="py-20 px-6">
+            <div class="max-w-7xl mx-auto">
+                <div class="flex items-center justify-between mb-10">
+                    <div>
+                        <h2 class="text-3xl md:text-4xl font-bold mb-2">Événement en vedette</h2>
+                        <p class="text-white/50">Ne manquez pas cet événement exceptionnel</p>
+                    </div>
+                    <div class="hidden md:flex items-center gap-2"><span
+                            class="px-3 py-1 rounded-full bg-red-500/20 text-red-400 text-sm font-medium flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-red-400 animate-pulse"></span> Presque complet </span>
+                    </div>
+                </div>
+                <div class="relative rounded-3xl overflow-hidden glass-strong card-hover cursor-pointer"
+                    onclick="openEventDetail()">
+                    <div class="grid md:grid-cols-2 gap-0"><!-- Image -->
+                        <div class="relative h-64 md:h-[500px] overflow-hidden">
+                            <div
+                                class="card-image absolute inset-0 bg-gradient-to-br from-violet-600 via-purple-700 to-indigo-800">
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <svg class="w-32 h-32 text-white/20" fill="currentColor" viewbox="0 0 24 24">
+                                        <path
+                                            d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent">
+                            </div>
+                            <div class="absolute top-6 left-6 flex gap-2"><span
+                                    class="tag px-3 py-1.5 rounded-full text-xs font-medium text-violet-300">Musique</span>
+                                <span
+                                    class="tag px-3 py-1.5 rounded-full text-xs font-medium text-violet-300">Électro</span>
+                            </div>
+                        </div><!-- Content -->
+                        <div class="p-8 md:p-12 flex flex-col justify-center">
+                            <div class="flex items-center gap-3 text-violet-400 mb-4">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg><span class="font-medium">Sam. 28 Juin 2025 • 22h00</span>
+                            </div>
+                            <h3 id="featured-title" class="text-3xl md:text-4xl font-bold mb-4">Nuit Électronique</h3>
+                            <div class="flex items-center gap-3 text-white/60 mb-6">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                </svg><span>Le Warehouse • Paris 11ème</span>
+                            </div>
+                            <p class="text-white/50 mb-8 leading-relaxed">Une nuit exceptionnelle avec les plus grands
+                                noms de la scène électronique française. Plongez dans une ambiance unique avec un son et
+                                des visuels de haute qualité.</p>
+                            <div class="flex items-center gap-4 mb-8">
+                                <div class="flex -space-x-3">
+                                    <div
+                                        class="participant-avatar w-10 h-10 rounded-full bg-gradient-to-br from-pink-500 to-rose-500 border-2 border-[#0a0a0f] flex items-center justify-center text-xs font-bold">
+                                        JD
+                                    </div>
+                                    <div
+                                        class="participant-avatar w-10 h-10 rounded-full bg-gradient-to-br from-violet-500 to-purple-500 border-2 border-[#0a0a0f] flex items-center justify-center text-xs font-bold">
+                                        ML
+                                    </div>
+                                    <div
+                                        class="participant-avatar w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 border-2 border-[#0a0a0f] flex items-center justify-center text-xs font-bold">
+                                        AS
+                                    </div>
+                                    <div
+                                        class="participant-avatar w-10 h-10 rounded-full bg-gradient-to-br from-emerald-500 to-teal-500 border-2 border-[#0a0a0f] flex items-center justify-center text-xs font-bold">
+                                        +47
+                                    </div>
+                                </div><span class="text-sm text-white/50">50 personnes intéressées</span>
+                            </div>
+                            <div class="flex items-center gap-4"><button
+                                    class="btn-primary flex-1 py-4 rounded-xl font-semibold flex items-center justify-center gap-2">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 110 4v3a2 2 0 002 2h14a2 2 0 002-2v-3a2 2 0 110-4V7a2 2 0 00-2-2H5z" />
+                                    </svg> Réserver — 35€ </button> <button
+                                    class="like-btn p-4 rounded-xl glass hover:bg-white/10"
+                                    onclick="event.stopPropagation(); toggleLike(this)">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                    </svg></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section><!-- Upcoming Events -->
+        <section id="events" class="py-20 px-6">
+            <div class="max-w-7xl mx-auto">
+                <div class="flex items-center justify-between mb-10">
+                    <div>
+                        <h2 id="upcoming-title" class="text-3xl md:text-4xl font-bold mb-2">Événements à venir</h2>
+                        <p class="text-white/50">Trouvez votre prochaine expérience</p>
+                    </div>
+                    <div class="flex items-center gap-2"><button
+                            class="px-4 py-2 rounded-xl glass text-sm font-medium text-white/70 hover:text-white hover:bg-white/10 transition-all">Tous</button>
+                        <button
+                            class="px-4 py-2 rounded-xl text-sm font-medium text-white/50 hover:text-white transition-all">Cette
+                            semaine</button> <button
+                            class="px-4 py-2 rounded-xl text-sm font-medium text-white/50 hover:text-white transition-all">Ce
+                            mois</button>
+                    </div>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"><!-- Event Card 1 -->
+                    <div class="glass rounded-2xl overflow-hidden card-hover cursor-pointer"
+                        onclick="openEventDetail()">
+                        <div class="relative h-48 overflow-hidden">
+                            <div
+                                class="card-image absolute inset-0 bg-gradient-to-br from-rose-500 via-pink-600 to-purple-700">
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <svg class="w-20 h-20 text-white/20" fill="currentColor" viewbox="0 0 24 24">
+                                        <path
+                                            d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div><span
+                                class="absolute top-4 left-4 tag px-3 py-1 rounded-full text-xs font-medium text-violet-300">Concert</span>
+                            <button class="absolute top-4 right-4 like-btn p-2 rounded-lg glass"
+                                onclick="event.stopPropagation(); toggleLike(this)">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                </svg></button>
+                        </div>
+                        <div class="p-5">
+                            <div class="flex items-center gap-2 text-violet-400 text-sm mb-2">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg><span>Ven. 20 Juin • 20h30</span>
+                            </div>
+                            <h3 class="text-lg font-bold mb-2">Jazz en Seine</h3>
+                            <div class="flex items-center gap-2 text-white/50 text-sm mb-4">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                </svg><span>Péniche Marcounet • Paris</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div class="flex -space-x-2">
+                                    <div
+                                        class="w-7 h-7 rounded-full bg-gradient-to-br from-amber-500 to-orange-500 border-2 border-[#0a0a0f]">
+                                    </div>
+                                    <div
+                                        class="w-7 h-7 rounded-full bg-gradient-to-br from-teal-500 to-cyan-500 border-2 border-[#0a0a0f]">
+                                    </div>
+                                    <div
+                                        class="w-7 h-7 rounded-full bg-gradient-to-br from-violet-500 to-purple-500 border-2 border-[#0a0a0f] flex items-center justify-center text-[10px] font-bold">
+                                        +12
+                                    </div>
+                                </div><span class="font-semibold text-violet-400">25€</span>
+                            </div>
+                        </div>
+                    </div><!-- Event Card 2 -->
+                    <div class="glass rounded-2xl overflow-hidden card-hover cursor-pointer"
+                        onclick="openEventDetail()">
+                        <div class="relative h-48 overflow-hidden">
+                            <div
+                                class="card-image absolute inset-0 bg-gradient-to-br from-blue-500 via-indigo-600 to-violet-700">
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <svg class="w-20 h-20 text-white/20" fill="currentColor" viewbox="0 0 24 24">
+                                        <path d="M12 14l9-5-9-5-9 5 9 5z" />
+                                        <path
+                                            d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div><span
+                                class="absolute top-4 left-4 tag px-3 py-1 rounded-full text-xs font-medium text-violet-300">Tech</span>
+                            <button class="absolute top-4 right-4 like-btn p-2 rounded-lg glass"
+                                onclick="event.stopPropagation(); toggleLike(this)">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                </svg></button>
+                        </div>
+                        <div class="p-5">
+                            <div class="flex items-center gap-2 text-violet-400 text-sm mb-2">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg><span>Sam. 21 Juin • 14h00</span>
+                            </div>
+                            <h3 class="text-lg font-bold mb-2">AI Meetup Paris</h3>
+                            <div class="flex items-center gap-2 text-white/50 text-sm mb-4">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                </svg><span>Station F • Paris 13ème</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div class="flex -space-x-2">
+                                    <div
+                                        class="w-7 h-7 rounded-full bg-gradient-to-br from-emerald-500 to-green-500 border-2 border-[#0a0a0f]">
+                                    </div>
+                                    <div
+                                        class="w-7 h-7 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 border-2 border-[#0a0a0f]">
+                                    </div>
+                                    <div
+                                        class="w-7 h-7 rounded-full bg-gradient-to-br from-rose-500 to-pink-500 border-2 border-[#0a0a0f] flex items-center justify-center text-[10px] font-bold">
+                                        +89
+                                    </div>
+                                </div><span class="font-semibold text-green-400">Gratuit</span>
+                            </div>
+                        </div>
+                    </div><!-- Event Card 3 -->
+                    <div class="glass rounded-2xl overflow-hidden card-hover cursor-pointer"
+                        onclick="openEventDetail()">
+                        <div class="relative h-48 overflow-hidden">
+                            <div
+                                class="card-image absolute inset-0 bg-gradient-to-br from-amber-500 via-orange-600 to-red-700">
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <svg class="w-20 h-20 text-white/20" fill="currentColor" viewbox="0 0 24 24">
+                                        <path
+                                            d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div><span
+                                class="absolute top-4 left-4 tag px-3 py-1 rounded-full text-xs font-medium text-violet-300">Art</span>
+                            <button class="absolute top-4 right-4 like-btn p-2 rounded-lg glass"
+                                onclick="event.stopPropagation(); toggleLike(this)">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                </svg></button>
+                        </div>
+                        <div class="p-5">
+                            <div class="flex items-center gap-2 text-violet-400 text-sm mb-2">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg><span>Dim. 22 Juin • 11h00</span>
+                            </div>
+                            <h3 class="text-lg font-bold mb-2">Expo Immersive</h3>
+                            <div class="flex items-center gap-2 text-white/50 text-sm mb-4">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                </svg><span>Atelier des Lumières • Paris</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div class="flex -space-x-2">
+                                    <div
+                                        class="w-7 h-7 rounded-full bg-gradient-to-br from-pink-500 to-rose-500 border-2 border-[#0a0a0f]">
+                                    </div>
+                                    <div
+                                        class="w-7 h-7 rounded-full bg-gradient-to-br from-indigo-500 to-violet-500 border-2 border-[#0a0a0f]">
+                                    </div>
+                                    <div
+                                        class="w-7 h-7 rounded-full bg-gradient-to-br from-amber-500 to-yellow-500 border-2 border-[#0a0a0f] flex items-center justify-center text-[10px] font-bold">
+                                        +34
+                                    </div>
+                                </div><span class="font-semibold text-violet-400">18€</span>
+                            </div>
+                        </div>
+                    </div><!-- Event Card 4 -->
+                    <div class="glass rounded-2xl overflow-hidden card-hover cursor-pointer"
+                        onclick="openEventDetail()">
+                        <div class="relative h-48 overflow-hidden">
+                            <div
+                                class="card-image absolute inset-0 bg-gradient-to-br from-emerald-500 via-teal-600 to-cyan-700">
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <svg class="w-20 h-20 text-white/20" fill="currentColor" viewbox="0 0 24 24">
+                                        <path
+                                            d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div><span
+                                class="absolute top-4 left-4 tag px-3 py-1 rounded-full text-xs font-medium text-violet-300">Littérature</span>
+                            <button class="absolute top-4 right-4 like-btn p-2 rounded-lg glass"
+                                onclick="event.stopPropagation(); toggleLike(this)">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                </svg></button>
+                        </div>
+                        <div class="p-5">
+                            <div class="flex items-center gap-2 text-violet-400 text-sm mb-2">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg><span>Lun. 23 Juin • 19h00</span>
+                            </div>
+                            <h3 class="text-lg font-bold mb-2">Club de Lecture</h3>
+                            <div class="flex items-center gap-2 text-white/50 text-sm mb-4">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                </svg><span>Shakespeare &amp; Co • Paris 5ème</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div class="flex -space-x-2">
+                                    <div
+                                        class="w-7 h-7 rounded-full bg-gradient-to-br from-violet-500 to-purple-500 border-2 border-[#0a0a0f]">
+                                    </div>
+                                    <div
+                                        class="w-7 h-7 rounded-full bg-gradient-to-br from-emerald-500 to-teal-500 border-2 border-[#0a0a0f]">
+                                    </div>
+                                    <div
+                                        class="w-7 h-7 rounded-full bg-gradient-to-br from-blue-500 to-indigo-500 border-2 border-[#0a0a0f] flex items-center justify-center text-[10px] font-bold">
+                                        +8
+                                    </div>
+                                </div><span class="font-semibold text-green-400">Gratuit</span>
+                            </div>
+                        </div>
+                    </div><!-- Event Card 5 -->
+                    <div class="glass rounded-2xl overflow-hidden card-hover cursor-pointer"
+                        onclick="openEventDetail()">
+                        <div class="relative h-48 overflow-hidden">
+                            <div
+                                class="card-image absolute inset-0 bg-gradient-to-br from-fuchsia-500 via-purple-600 to-violet-700">
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <svg class="w-20 h-20 text-white/20" fill="currentColor" viewbox="0 0 24 24">
+                                        <path
+                                            d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div><span
+                                class="absolute top-4 left-4 tag px-3 py-1 rounded-full text-xs font-medium text-violet-300">Cinéma</span>
+                            <button class="absolute top-4 right-4 like-btn p-2 rounded-lg glass"
+                                onclick="event.stopPropagation(); toggleLike(this)">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                </svg></button>
+                        </div>
+                        <div class="p-5">
+                            <div class="flex items-center gap-2 text-violet-400 text-sm mb-2">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg><span>Mar. 24 Juin • 21h00</span>
+                            </div>
+                            <h3 class="text-lg font-bold mb-2">Ciné en Plein Air</h3>
+                            <div class="flex items-center gap-2 text-white/50 text-sm mb-4">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                </svg><span>Parc de la Villette • Paris</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div class="flex -space-x-2">
+                                    <div
+                                        class="w-7 h-7 rounded-full bg-gradient-to-br from-rose-500 to-pink-500 border-2 border-[#0a0a0f]">
+                                    </div>
+                                    <div
+                                        class="w-7 h-7 rounded-full bg-gradient-to-br from-amber-500 to-orange-500 border-2 border-[#0a0a0f]">
+                                    </div>
+                                    <div
+                                        class="w-7 h-7 rounded-full bg-gradient-to-br from-cyan-500 to-blue-500 border-2 border-[#0a0a0f] flex items-center justify-center text-[10px] font-bold">
+                                        +156
+                                    </div>
+                                </div><span class="font-semibold text-green-400">Gratuit</span>
+                            </div>
+                        </div>
+                    </div><!-- Event Card 6 -->
+                    <div class="glass rounded-2xl overflow-hidden card-hover cursor-pointer"
+                        onclick="openEventDetail()">
+                        <div class="relative h-48 overflow-hidden">
+                            <div
+                                class="card-image absolute inset-0 bg-gradient-to-br from-cyan-500 via-blue-600 to-indigo-700">
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <svg class="w-20 h-20 text-white/20" fill="currentColor" viewbox="0 0 24 24">
+                                        <path
+                                            d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div><span
+                                class="absolute top-4 left-4 tag px-3 py-1 rounded-full text-xs font-medium text-violet-300">Sport</span>
+                            <button class="absolute top-4 right-4 like-btn p-2 rounded-lg glass"
+                                onclick="event.stopPropagation(); toggleLike(this)">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                </svg></button>
+                        </div>
+                        <div class="p-5">
+                            <div class="flex items-center gap-2 text-violet-400 text-sm mb-2">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg><span>Mer. 25 Juin • 18h30</span>
+                            </div>
+                            <h3 class="text-lg font-bold mb-2">Yoga au Coucher</h3>
+                            <div class="flex items-center gap-2 text-white/50 text-sm mb-4">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                </svg><span>Trocadéro • Paris 16ème</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div class="flex -space-x-2">
+                                    <div
+                                        class="w-7 h-7 rounded-full bg-gradient-to-br from-green-500 to-emerald-500 border-2 border-[#0a0a0f]">
+                                    </div>
+                                    <div
+                                        class="w-7 h-7 rounded-full bg-gradient-to-br from-purple-500 to-violet-500 border-2 border-[#0a0a0f]">
+                                    </div>
+                                    <div
+                                        class="w-7 h-7 rounded-full bg-gradient-to-br from-pink-500 to-rose-500 border-2 border-[#0a0a0f] flex items-center justify-center text-[10px] font-bold">
+                                        +23
+                                    </div>
+                                </div><span class="font-semibold text-violet-400">12€</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-12"><button
+                        class="btn-secondary px-8 py-4 rounded-xl font-semibold inline-flex items-center gap-3"> Voir
+                        tous les événements
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg></button>
+                </div>
+            </div>
+        </section><!-- Personalized Section -->
+        <section id="explore" class="py-20 px-6 bg-gradient-to-b from-transparent via-violet-950/10 to-transparent">
+            <div class="max-w-7xl mx-auto">
+                <div class="flex items-center justify-between mb-10">
+                    <div>
+                        <h2 id="personalized-title" class="text-3xl md:text-4xl font-bold mb-2">Pour vous</h2>
+                        <p class="text-white/50">Basé sur vos centres d'intérêt</p>
+                    </div><button class="flex items-center gap-2 text-violet-400 hover:text-violet-300 transition-all">
+                        <span class="text-sm font-medium">Personnaliser</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg></button>
+                </div>
+                <div class="flex gap-3 mb-8 overflow-x-auto pb-2"><button
+                        class="px-5 py-2.5 rounded-full gradient-purple text-sm font-medium whitespace-nowrap">Tous</button>
+                    <button
+                        class="px-5 py-2.5 rounded-full glass text-sm font-medium text-white/70 whitespace-nowrap hover:text-white hover:bg-white/10 transition-all">🎵
+                        Musique</button> <button
+                        class="px-5 py-2.5 rounded-full glass text-sm font-medium text-white/70 whitespace-nowrap hover:text-white hover:bg-white/10 transition-all">💻
+                        Tech</button> <button
+                        class="px-5 py-2.5 rounded-full glass text-sm font-medium text-white/70 whitespace-nowrap hover:text-white hover:bg-white/10 transition-all">🎨
+                        Art</button> <button
+                        class="px-5 py-2.5 rounded-full glass text-sm font-medium text-white/70 whitespace-nowrap hover:text-white hover:bg-white/10 transition-all">🏃
+                        Sport</button> <button
+                        class="px-5 py-2.5 rounded-full glass text-sm font-medium text-white/70 whitespace-nowrap hover:text-white hover:bg-white/10 transition-all">🍽️
+                        Food</button>
+                </div><!-- Horizontal Scroll Cards -->
+                <div class="flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory">
+                    <div class="min-w-[300px] glass rounded-2xl overflow-hidden card-hover cursor-pointer snap-start"
+                        onclick="openEventDetail()">
+                        <div class="relative h-40 overflow-hidden">
+                            <div class="card-image absolute inset-0 bg-gradient-to-br from-pink-500 to-violet-600">
+                            </div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                            <div class="absolute bottom-4 left-4 right-4"><span
+                                    class="tag px-2 py-1 rounded-full text-xs font-medium text-violet-300">Recommandé</span>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-bold mb-1">Festival Électro Summer</h3>
+                            <p class="text-sm text-white/50 mb-2">Ven. 27 Juin • La Défense</p>
+                            <div class="flex items-center justify-between"><span
+                                    class="text-violet-400 font-semibold">45€</span> <span
+                                    class="text-xs text-white/40">98% match</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="min-w-[300px] glass rounded-2xl overflow-hidden card-hover cursor-pointer snap-start"
+                        onclick="openEventDetail()">
+                        <div class="relative h-40 overflow-hidden">
+                            <div class="card-image absolute inset-0 bg-gradient-to-br from-emerald-500 to-cyan-600">
+                            </div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                            <div class="absolute bottom-4 left-4 right-4"><span
+                                    class="tag px-2 py-1 rounded-full text-xs font-medium text-violet-300">Nouveau</span>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-bold mb-1">Startup Weekend</h3>
+                            <p class="text-sm text-white/50 mb-2">Sam. 28 Juin • Campus 42</p>
+                            <div class="flex items-center justify-between"><span
+                                    class="text-green-400 font-semibold">Gratuit</span> <span
+                                    class="text-xs text-white/40">95% match</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="min-w-[300px] glass rounded-2xl overflow-hidden card-hover cursor-pointer snap-start"
+                        onclick="openEventDetail()">
+                        <div class="relative h-40 overflow-hidden">
+                            <div class="card-image absolute inset-0 bg-gradient-to-br from-amber-500 to-red-600"></div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                            <div class="absolute bottom-4 left-4 right-4"><span
+                                    class="tag px-2 py-1 rounded-full text-xs font-medium text-violet-300">Populaire</span>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-bold mb-1">Vernissage Galerie</h3>
+                            <p class="text-sm text-white/50 mb-2">Dim. 29 Juin • Le Marais</p>
+                            <div class="flex items-center justify-between"><span
+                                    class="text-violet-400 font-semibold">15€</span> <span
+                                    class="text-xs text-white/40">92% match</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="min-w-[300px] glass rounded-2xl overflow-hidden card-hover cursor-pointer snap-start"
+                        onclick="openEventDetail()">
+                        <div class="relative h-40 overflow-hidden">
+                            <div class="card-image absolute inset-0 bg-gradient-to-br from-blue-500 to-indigo-600">
+                            </div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-bold mb-1">Marathon Photo</h3>
+                            <p class="text-sm text-white/50 mb-2">Lun. 30 Juin • Montmartre</p>
+                            <div class="flex items-center justify-between"><span
+                                    class="text-violet-400 font-semibold">20€</span> <span
+                                    class="text-xs text-white/40">88% match</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section><!-- Categories -->
+        <section id="categories" class="py-20 px-6">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Explorez par catégorie</h2>
+                    <p class="text-white/50 max-w-xl mx-auto">Trouvez des événements qui correspondent à vos passions
+                    </p>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                    <div class="category-card glass rounded-2xl p-6 text-center cursor-pointer">
+                        <div
+                            class="w-14 h-14 mx-auto mb-4 rounded-xl bg-gradient-to-br from-pink-500 to-rose-600 flex items-center justify-center text-2xl">
+                            🎵
+                        </div>
+                        <h3 class="font-semibold mb-1">Musique</h3>
+                        <p class="text-xs text-white/40">324 événements</p>
+                    </div>
+                    <div class="category-card glass rounded-2xl p-6 text-center cursor-pointer">
+                        <div
+                            class="w-14 h-14 mx-auto mb-4 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-2xl">
+                            💻
+                        </div>
+                        <h3 class="font-semibold mb-1">Tech</h3>
+                        <p class="text-xs text-white/40">156 événements</p>
+                    </div>
+                    <div class="category-card glass rounded-2xl p-6 text-center cursor-pointer">
+                        <div
+                            class="w-14 h-14 mx-auto mb-4 rounded-xl bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center text-2xl">
+                            🎨
+                        </div>
+                        <h3 class="font-semibold mb-1">Art</h3>
+                        <p class="text-xs text-white/40">89 événements</p>
+                    </div>
+                    <div class="category-card glass rounded-2xl p-6 text-center cursor-pointer">
+                        <div
+                            class="w-14 h-14 mx-auto mb-4 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center text-2xl">
+                            🏃
+                        </div>
+                        <h3 class="font-semibold mb-1">Sport</h3>
+                        <p class="text-xs text-white/40">234 événements</p>
+                    </div>
+                    <div class="category-card glass rounded-2xl p-6 text-center cursor-pointer">
+                        <div
+                            class="w-14 h-14 mx-auto mb-4 rounded-xl bg-gradient-to-br from-red-500 to-pink-600 flex items-center justify-center text-2xl">
+                            🍽️
+                        </div>
+                        <h3 class="font-semibold mb-1">Food</h3>
+                        <p class="text-xs text-white/40">178 événements</p>
+                    </div>
+                    <div class="category-card glass rounded-2xl p-6 text-center cursor-pointer">
+                        <div
+                            class="w-14 h-14 mx-auto mb-4 rounded-xl bg-gradient-to-br from-violet-500 to-purple-600 flex items-center justify-center text-2xl">
+                            🎭
+                        </div>
+                        <h3 class="font-semibold mb-1">Théâtre</h3>
+                        <p class="text-xs text-white/40">67 événements</p>
+                    </div>
+                </div>
+            </div>
+        </section><!-- CTA Section -->
+        <section class="py-20 px-6">
+            <div class="max-w-4xl mx-auto">
+                <div class="relative rounded-3xl overflow-hidden">
+                    <div class="absolute inset-0 gradient-glow opacity-20"></div>
+                    <div class="relative glass-strong p-12 md:p-16 text-center">
+                        <div class="w-20 h-20 mx-auto mb-8 rounded-2xl gradient-glow flex items-center justify-center">
+                            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                            </svg>
+                        </div>
+                        <h2 class="text-3xl md:text-4xl font-bold mb-4">Créez votre événement</h2>
+                        <p class="text-white/60 max-w-xl mx-auto mb-8">Vous organisez un événement ? Rejoignez des
+                            milliers d'organisateurs et touchez une communauté passionnée.</p><button
+                            class="btn-primary px-8 py-4 rounded-xl font-semibold inline-flex items-center gap-3">
+                            Commencer gratuitement
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                            </svg></button>
+                    </div>
+                </div>
+            </div>
+        </section><!-- Footer -->
+        <footer id="about" class="py-16 px-6 border-t border-white/10">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid md:grid-cols-4 gap-12 mb-12">
+                    <div>
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="w-10 h-10 rounded-xl gradient-glow flex items-center justify-center">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                </svg>
+                            </div><span class="text-xl font-bold gradient-text">Pulse</span>
+                        </div>
+                        <p class="text-white/50 text-sm leading-relaxed mb-6">La plateforme qui connecte les passionnés
+                            aux événements qui comptent.</p>
+                        <div class="flex gap-4"><a href="#"
+                                class="w-10 h-10 rounded-xl glass flex items-center justify-center hover:bg-white/10 transition-all">
+                                <svg class="w-5 h-5 text-white/60" fill="currentColor" viewbox="0 0 24 24">
+                                    <path
+                                        d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
+                                </svg></a> <a href="#"
+                                class="w-10 h-10 rounded-xl glass flex items-center justify-center hover:bg-white/10 transition-all">
+                                <svg class="w-5 h-5 text-white/60" fill="currentColor" viewbox="0 0 24 24">
+                                    <path
+                                        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                                </svg></a> <a href="#"
+                                class="w-10 h-10 rounded-xl glass flex items-center justify-center hover:bg-white/10 transition-all">
+                                <svg class="w-5 h-5 text-white/60" fill="currentColor" viewbox="0 0 24 24">
+                                    <path
+                                        d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                                </svg></a>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold mb-4">Plateforme</h4>
+                        <ul class="space-y-3">
+                            <li><a href="#" class="text-white/50 hover:text-white text-sm transition-all">Découvrir</a>
+                            </li>
+                            <li><a href="#" class="text-white/50 hover:text-white text-sm transition-all">Catégories</a>
+                            </li>
+                            <li><a href="#" class="text-white/50 hover:text-white text-sm transition-all">Calendrier</a>
+                            </li>
+                            <li><a href="#" class="text-white/50 hover:text-white text-sm transition-all">Favoris</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold mb-4">Organisateurs</h4>
+                        <ul class="space-y-3">
+                            <li><a href="#" class="text-white/50 hover:text-white text-sm transition-all">Créer un
+                                    événement</a></li>
+                            <li><a href="#" class="text-white/50 hover:text-white text-sm transition-all">Tarifs</a>
+                            </li>
+                            <li><a href="#" class="text-white/50 hover:text-white text-sm transition-all">Outils</a>
+                            </li>
+                            <li><a href="#" class="text-white/50 hover:text-white text-sm transition-all">Support</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold mb-4">Entreprise</h4>
+                        <ul class="space-y-3">
+                            <li><a href="#" class="text-white/50 hover:text-white text-sm transition-all">À propos</a>
+                            </li>
+                            <li><a href="#" class="text-white/50 hover:text-white text-sm transition-all">Carrières</a>
+                            </li>
+                            <li><a href="#" class="text-white/50 hover:text-white text-sm transition-all">Blog</a></li>
+                            <li><a href="#" class="text-white/50 hover:text-white text-sm transition-all">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
+                    <p class="text-sm text-white/40">© 2025 Pulse. Tous droits réservés.</p>
+                    <div class="flex items-center gap-6"><a href="#"
+                            class="text-sm text-white/40 hover:text-white transition-all">Confidentialité</a> <a
+                            href="#" class="text-sm text-white/40 hover:text-white transition-all">CGU</a> <a href="#"
+                            class="text-sm text-white/40 hover:text-white transition-all">Cookies</a>
+                    </div>
+                </div>
+            </div>
+        </footer><!-- Event Detail Modal -->
+        <div id="event-modal" class="fixed inset-0 z-[100] hidden">
+            <div class="modal-overlay absolute inset-0" onclick="closeEventDetail()"></div>
+            <div class="relative z-10 h-full overflow-y-auto">
+                <div class="min-h-full flex items-start justify-center py-8 px-4">
+                    <div class="glass-strong rounded-3xl max-w-4xl w-full overflow-hidden relative"><button
+                            onclick="closeEventDetail()"
+                            class="absolute top-6 right-6 z-20 p-3 rounded-xl glass hover:bg-white/20 transition-all">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M6 18L18 6M6 6l12 12" />
+                            </svg></button> <!-- Hero Image -->
+                        <div class="relative h-72 md:h-96">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-br from-violet-600 via-purple-700 to-indigo-800">
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <svg class="w-32 h-32 text-white/10" fill="currentColor" viewbox="0 0 24 24">
+                                        <path
+                                            d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-[#0a0a0f] via-transparent to-transparent">
+                            </div>
+                            <div class="absolute bottom-6 left-6 right-6">
+                                <div class="flex gap-2 mb-4"><span
+                                        class="tag px-3 py-1.5 rounded-full text-xs font-medium text-violet-300">Musique</span>
+                                    <span
+                                        class="tag px-3 py-1.5 rounded-full text-xs font-medium text-violet-300">Électro</span>
+                                    <span
+                                        class="tag px-3 py-1.5 rounded-full text-xs font-medium text-violet-300">Live</span>
+                                </div>
+                                <h2 class="text-3xl md:text-4xl font-bold">Nuit Électronique</h2>
+                            </div>
+                        </div><!-- Content -->
+                        <div class="p-6 md:p-10">
+                            <div class="grid md:grid-cols-3 gap-8">
+                                <div class="md:col-span-2"><!-- Date & Location -->
+                                    <div class="flex flex-wrap gap-6 mb-8">
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-12 h-12 rounded-xl glass flex items-center justify-center">
+                                                <svg class="w-6 h-6 text-violet-400" fill="none" stroke="currentColor"
+                                                    viewbox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2"
+                                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                                </svg>
+                                            </div>
+                                            <div>
+                                                <p class="font-semibold">Samedi 28 Juin 2025</p>
+                                                <p class="text-sm text-white/50">22h00 - 06h00</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-12 h-12 rounded-xl glass flex items-center justify-center">
+                                                <svg class="w-6 h-6 text-violet-400" fill="none" stroke="currentColor"
+                                                    viewbox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2"
+                                                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                                </svg>
+                                            </div>
+                                            <div>
+                                                <p class="font-semibold">Le Warehouse</p>
+                                                <p class="text-sm text-white/50">Paris 11ème</p>
+                                            </div>
+                                        </div>
+                                    </div><!-- Description -->
+                                    <div class="mb-8">
+                                        <h3 class="text-xl font-bold mb-4">À propos</h3>
+                                        <p class="text-white/60 leading-relaxed mb-4">Plongez dans une nuit
+                                            exceptionnelle avec les plus grands noms de la scène électronique française.
+                                            Une expérience sensorielle unique avec un système son de dernière génération
+                                            et des visuels immersifs créés par des artistes internationaux.</p>
+                                        <p class="text-white/60 leading-relaxed">Au programme : 4 DJs sets, une
+                                            installation artistique interactive, et un espace lounge exclusif. Venez
+                                            vivre une nuit inoubliable dans l'un des lieux les plus emblématiques de la
+                                            capitale.</p>
+                                    </div><!-- Line-up -->
+                                    <div class="mb-8">
+                                        <h3 class="text-xl font-bold mb-4">Line-up</h3>
+                                        <div class="flex flex-wrap gap-3">
+                                            <div class="glass rounded-xl p-4 flex items-center gap-3">
+                                                <div
+                                                    class="w-12 h-12 rounded-full bg-gradient-to-br from-pink-500 to-violet-500">
+                                                </div>
+                                                <div>
+                                                    <p class="font-semibold">DJ Aurora</p>
+                                                    <p class="text-xs text-white/40">22h - 00h</p>
+                                                </div>
+                                            </div>
+                                            <div class="glass rounded-xl p-4 flex items-center gap-3">
+                                                <div
+                                                    class="w-12 h-12 rounded-full bg-gradient-to-br from-cyan-500 to-blue-500">
+                                                </div>
+                                                <div>
+                                                    <p class="font-semibold">Nexus</p>
+                                                    <p class="text-xs text-white/40">00h - 02h</p>
+                                                </div>
+                                            </div>
+                                            <div class="glass rounded-xl p-4 flex items-center gap-3">
+                                                <div
+                                                    class="w-12 h-12 rounded-full bg-gradient-to-br from-amber-500 to-red-500">
+                                                </div>
+                                                <div>
+                                                    <p class="font-semibold">Pulse</p>
+                                                    <p class="text-xs text-white/40">02h - 04h</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><!-- Participants -->
+                                    <div>
+                                        <h3 class="text-xl font-bold mb-4">Ils y seront</h3>
+                                        <div class="flex items-center gap-4">
+                                            <div class="flex -space-x-3">
+                                                <div
+                                                    class="participant-avatar w-12 h-12 rounded-full bg-gradient-to-br from-pink-500 to-rose-500 border-2 border-[#0a0a0f] flex items-center justify-center font-bold">
+                                                    JD
+                                                </div>
+                                                <div
+                                                    class="participant-avatar w-12 h-12 rounded-full bg-gradient-to-br from-violet-500 to-purple-500 border-2 border-[#0a0a0f] flex items-center justify-center font-bold">
+                                                    ML
+                                                </div>
+                                                <div
+                                                    class="participant-avatar w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 border-2 border-[#0a0a0f] flex items-center justify-center font-bold">
+                                                    AS
+                                                </div>
+                                                <div
+                                                    class="participant-avatar w-12 h-12 rounded-full bg-gradient-to-br from-emerald-500 to-teal-500 border-2 border-[#0a0a0f] flex items-center justify-center font-bold">
+                                                    PL
+                                                </div>
+                                                <div
+                                                    class="participant-avatar w-12 h-12 rounded-full bg-gradient-to-br from-amber-500 to-orange-500 border-2 border-[#0a0a0f] flex items-center justify-center font-bold">
+                                                    +46
+                                                </div>
+                                            </div><span class="text-white/50 text-sm">50 personnes intéressées</span>
+                                        </div>
+                                    </div>
+                                </div><!-- Sidebar -->
+                                <div>
+                                    <div class="glass rounded-2xl p-6 sticky top-6">
+                                        <div class="text-center mb-6">
+                                            <p class="text-sm text-white/40 mb-1">À partir de</p>
+                                            <p class="text-4xl font-bold gradient-text">35€</p>
+                                        </div>
+                                        <div class="space-y-3 mb-6">
+                                            <div class="flex items-center justify-between text-sm"><span
+                                                    class="text-white/60">Early Bird</span> <span
+                                                    class="line-through text-white/40">35€</span>
+                                            </div>
+                                            <div class="flex items-center justify-between text-sm"><span
+                                                    class="text-white/60">Standard</span> <span>45€</span>
+                                            </div>
+                                            <div class="flex items-center justify-between text-sm"><span
+                                                    class="text-white/60">VIP Lounge</span> <span>85€</span>
+                                            </div>
+                                        </div><button class="btn-primary w-full py-4 rounded-xl font-semibold mb-3">
+                                            Réserver maintenant </button> <button
+                                            class="btn-secondary w-full py-3 rounded-xl font-medium flex items-center justify-center gap-2">
+                                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                            </svg> Ajouter aux favoris </button>
+                                        <div class="mt-6 pt-6 border-t border-white/10">
+                                            <div class="flex items-center gap-3 mb-3">
+                                                <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor"
+                                                    viewbox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2"
+                                                        d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                                                </svg><span class="text-sm text-white/60">Paiement sécurisé</span>
+                                            </div>
+                                            <div class="flex items-center gap-3">
+                                                <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor"
+                                                    viewbox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2"
+                                                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                                </svg><span class="text-sm text-white/60">Annulation jusqu'à 48h
+                                                    avant</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Default config
+        const defaultConfig = {
+            hero_title: "Vivez l'instant",
+            hero_subtitle: "Découvrez des événements uniques près de chez vous. Concerts, meetups, expositions — rejoignez une communauté passionnée.",
+            cta_primary: "Découvrir les événements",
+            cta_secondary: "Rejoindre la communauté",
+            featured_title: "Nuit Électronique",
+            upcoming_title: "Événements à venir",
+            personalized_title: "Pour vous",
+            background_color: "#0a0a0f",
+            surface_color: "#ffffff0d",
+            text_color: "#ffffff",
+            primary_action: "#8b5cf6",
+            secondary_action: "#a78bfa",
+            font_family: "Outfit",
+            font_size: 16
+        };
+
+        let config = { ...defaultConfig };
+
+        // Element SDK initialization
+        if (window.elementSdk) {
+            window.elementSdk.init({
+                defaultConfig,
+                onConfigChange: async (newConfig) => {
+                    config = { ...config, ...newConfig };
+                    updateUI();
+                },
+                mapToCapabilities: (cfg) => ({
+                    recolorables: [
+                        {
+                            get: () => cfg.background_color || defaultConfig.background_color,
+                            set: (value) => window.elementSdk.setConfig({ background_color: value })
+                        },
+                        {
+                            get: () => cfg.surface_color || defaultConfig.surface_color,
+                            set: (value) => window.elementSdk.setConfig({ surface_color: value })
+                        },
+                        {
+                            get: () => cfg.text_color || defaultConfig.text_color,
+                            set: (value) => window.elementSdk.setConfig({ text_color: value })
+                        },
+                        {
+                            get: () => cfg.primary_action || defaultConfig.primary_action,
+                            set: (value) => window.elementSdk.setConfig({ primary_action: value })
+                        },
+                        {
+                            get: () => cfg.secondary_action || defaultConfig.secondary_action,
+                            set: (value) => window.elementSdk.setConfig({ secondary_action: value })
+                        }
+                    ],
+                    borderables: [],
+                    fontEditable: {
+                        get: () => cfg.font_family || defaultConfig.font_family,
+                        set: (value) => window.elementSdk.setConfig({ font_family: value })
+                    },
+                    fontSizeable: {
+                        get: () => cfg.font_size || defaultConfig.font_size,
+                        set: (value) => window.elementSdk.setConfig({ font_size: value })
+                    }
+                }),
+                mapToEditPanelValues: (cfg) => new Map([
+                    ["hero_title", cfg.hero_title || defaultConfig.hero_title],
+                    ["hero_subtitle", cfg.hero_subtitle || defaultConfig.hero_subtitle],
+                    ["cta_primary", cfg.cta_primary || defaultConfig.cta_primary],
+                    ["cta_secondary", cfg.cta_secondary || defaultConfig.cta_secondary],
+                    ["featured_title", cfg.featured_title || defaultConfig.featured_title],
+                    ["upcoming_title", cfg.upcoming_title || defaultConfig.upcoming_title],
+                    ["personalized_title", cfg.personalized_title || defaultConfig.personalized_title]
+                ])
+            });
+        }
+
+        function updateUI() {
+            const fontFamily = config.font_family || defaultConfig.font_family;
+            const fontSize = config.font_size || defaultConfig.font_size;
+            const baseFontStack = "'Outfit', sans-serif";
+
+            // Update text content
+            document.getElementById('hero-title').innerHTML = `<span class="gradient-text">${config.hero_title || defaultConfig.hero_title}</span>`;
+            document.getElementById('hero-subtitle').textContent = config.hero_subtitle || defaultConfig.hero_subtitle;
+            document.getElementById('cta-primary').innerHTML = `<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>${config.cta_primary || defaultConfig.cta_primary}`;
+            document.getElementById('cta-secondary').innerHTML = `<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>${config.cta_secondary || defaultConfig.cta_secondary}`;
+            document.getElementById('featured-title').textContent = config.featured_title || defaultConfig.featured_title;
+            document.getElementById('upcoming-title').textContent = config.upcoming_title || defaultConfig.upcoming_title;
+            document.getElementById('personalized-title').textContent = config.personalized_title || defaultConfig.personalized_title;
+
+            // Update fonts
+            document.body.style.fontFamily = `${fontFamily}, ${baseFontStack}`;
+
+            // Update font sizes proportionally
+            const heroTitle = document.getElementById('hero-title');
+            heroTitle.style.fontSize = `${fontSize * 4}px`;
+
+            const heroSubtitle = document.getElementById('hero-subtitle');
+            heroSubtitle.style.fontSize = `${fontSize * 1.25}px`;
+
+            // Update colors via CSS variables
+            document.documentElement.style.setProperty('--bg-color', config.background_color || defaultConfig.background_color);
+            document.documentElement.style.setProperty('--primary-action', config.primary_action || defaultConfig.primary_action);
+
+            // Apply background color
+            document.body.style.backgroundColor = config.background_color || defaultConfig.background_color;
+            document.body.style.color = config.text_color || defaultConfig.text_color;
+        }
+
+        // Search modal functions
+        function openSearch() {
+            document.getElementById('search-modal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeSearch() {
+            document.getElementById('search-modal').classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+
+        document.getElementById('search-btn').addEventListener('click', openSearch);
+
+        // Event detail modal functions
+        function openEventDetail() {
+            document.getElementById('event-modal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeEventDetail() {
+            document.getElementById('event-modal').classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+
+        // Like button toggle
+        function toggleLike(btn) {
+            btn.classList.toggle('liked');
+        }
+
+        // Smooth scroll for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeSearch();
+                closeEventDetail();
+            }
+        });
+
+        // Initial UI update
+        updateUI();
+    </script>
+    <script>(function () { function c() { var b = a.contentDocument || a.contentWindow.document; if (b) { var d = b.createElement('script'); d.innerHTML = "window.__CF$cv$params={r:'9e6c65ada6f23e9a',t:'MTc3NTI2NDY0OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);"; b.getElementsByTagName('head')[0].appendChild(d) } } if (document.body) { var a = document.createElement('iframe'); a.height = 1; a.width = 1; a.style.position = 'absolute'; a.style.top = 0; a.style.left = 0; a.style.border = 'none'; a.style.visibility = 'hidden'; document.body.appendChild(a); if ('loading' !== document.readyState) c(); else if (window.addEventListener) document.addEventListener('DOMContentLoaded', c); else { var e = document.onreadystatechange || function () { }; document.onreadystatechange = function (b) { e(b); 'loading' !== document.readyState && (document.onreadystatechange = e, c()) } } } })();</script>
+</body>
+
+</html>
