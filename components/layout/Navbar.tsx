@@ -9,9 +9,9 @@ export default function Navbar() {
         { name: 'Contact', href: '#' }
     ]
     return (
-        <div>
+        <div className='sticky top-0 left-0 z-100'>
             <nav
-                className="fixed top-0 w-full flex justify-evenly items-center px-6 py-4 bg-slate-950/50 backdrop-blur-xl z-50 shadow-[0_20px_40px_rgba(138,43,226,0.15)]">
+                className=" w-full flex justify-evenly items-center px-6 py-4 bg-slate-950/50 backdrop-blur-xl z-50 shadow-[0_20px_40px_rgba(138,43,226,0.15)]">
                 <div className="flex items-center gap-3">
                     <span
                         className="text-2xl font-black bg-linear-to-r from-[#cc97ff] to-[#ff67ad] bg-clip-text text-transparent font-headline">
