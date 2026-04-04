@@ -9,6 +9,7 @@ body {
 
 body {
   box-sizing: border-box;
+  background-color: bg-slate-900/50;
 }
 
 * {

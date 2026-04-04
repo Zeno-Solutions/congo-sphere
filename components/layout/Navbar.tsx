@@ -22,7 +22,7 @@ export default function Navbar() {
                     <ul className="flex items-center gap-6">
                         {menu.map((item, index) => (
                             <li key={index}>
-                                <a className="text-slate-400 font-label text-sm transition-colors hover:text-white" href={item.href}>
+                                <a className="text-slate-400 font-bold text-sm transition-colors hover:text-white" href={item.href}>
                                     {item.name}
                                 </a>
                             </li>

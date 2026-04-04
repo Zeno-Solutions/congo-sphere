@@ -1,9 +1,10 @@
 import React from 'react'
-
+import SearchBar from '../SearchBar/SearchBar'
 export default function Hero() {
     return (
         <section className="relative min-h-screen bg-[#06060c] flex items-center justify-center overflow-hidden pt-20">
             {/* <!-- Background Effects --> */}
+            <SearchBar />
             <div className="absolute inset-0 bg-linear-to-b from-violet-950/20 via-transparent to-[#0a0a0f]"></div>
             <div className="hero-glow top-1/4 left-1/4"></div>
             <div className="hero-glow top-1/3 right-1/4" style={{ animationDelay: '-2s' }}></div>
@@ -19,8 +20,9 @@ export default function Hero() {
                 </svg>
             </div>
             {/* <!-- Hero Content --> */}
-
-
+            <div>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum hic maiores quos at quidem tempora consectetur sapiente error nam est.</p>
+            </div>
 
             {/* <!-- Scroll Indicator --> */}
             <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
