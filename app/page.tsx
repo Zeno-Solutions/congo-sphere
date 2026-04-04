@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <main className="bg-slate-950 text-white px-10">
+      <main className="bg-slate-950 text-white px">
         <Slider />
         <Recommended />
         <Newsletter />
