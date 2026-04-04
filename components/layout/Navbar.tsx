@@ -33,7 +33,7 @@ export default function Navbar() {
                     <button
                         className="text-slate-400 font-bold font-label text-sm px-4 py-2 hover:text-white transition-all active:scale-95">Login</button>
                     <button
-                        className="bg-linear-to-r from-primary to-secondary text-on-primary-fixed font-bold font-label text-sm px-6 py-2.5 rounded-full shadow-[0_0_20px_rgba(204,151,255,0.4)] hover:shadow-[0_0_30px_rgba(204,151,255,0.6)] transition-all active:scale-95">Register</button>
+                        className="text-white bg-linear-to-r from-primary to-secondary text-on-primary-fixed font-bold font-label text-sm px-6 py-2.5 rounded-full shadow-[0_0_20px_rgba(204,151,255,0.4)] hover:shadow-[0_0_30px_rgba(204,151,255,0.6)] transition-all active:scale-95">Register</button>
                 </div>
             </nav>
         </div>
