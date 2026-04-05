@@ -48,16 +48,16 @@ export default function EventCard({ event, className = '' }: EventCardProps) {
                     </div>
                     <div className="flex items-center gap-1">
                         <MapPin size={16} />
-                        <span className="max-w-50 truncate">{event.location}</span>
+                        <span className="max-w-30 text-[9px]">{event.location}</span>
                     </div>
                 </div>
-                <h4 className="text-xl font-bold font-headline text-white mb-2 leading-tight">{event.title}</h4>
+                <h4 className="text-xl line-clamp-2 overflow-hidden font-bold font-headline text-white mb-4 leading-tight">{event.title}</h4>
                 <div className="flex items-center gap-2 text-on-surface-variant text-sm mb-4">
 
                     {event.tags.map((tag, index) => (
                         <span
                             key={index}
-                            className="px-2 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-tighter"
+                            className="px-2 py-1 max-w-50 overflow-hidden rounded-full bg-primary/10 text-primary text-[10px] font-bold uppercase tracking-tighter"
                         >
                             {tag}
                         </span>
@@ -71,9 +71,9 @@ export default function EventCard({ event, className = '' }: EventCardProps) {
                         Free
                     </Badge>}</span>
 
-                    <button className="cursor-pointer text-[#cc97ff] font-bold text-sm hover:underline">
+                    <span className="text-[#cc97ff] font-bold text-sm">
                         {event.availableTickets} left
-                    </button>
+                    </span>
                 </div>
             </div>
         </Link>
