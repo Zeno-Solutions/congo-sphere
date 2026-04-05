@@ -8,12 +8,14 @@ type Option = {
 type CustomSelectProps = {
   options: Option[];
   placeholder?: string;
+  value?: string;
   onChange?: (value: string) => void;
 };
 
 export function Select({
   options,
   placeholder = "Sélectionner...",
+  value,
   onChange,
 }: CustomSelectProps) {
   const [open, setOpen] = useState<boolean>(false);
@@ -32,6 +34,16 @@ export function Select({
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  // Sync selected with value prop
+  useEffect(() => {
+    if (value) {
+      const option = options.find(opt => opt.value === value);
+      setSelected(option || null);
+    } else {
+      setSelected(null);
+    }
+  }, [value, options]);
+
   const handleSelect = (option: Option) => {
     setSelected(option);
     setOpen(false);
@@ -39,13 +51,13 @@ export function Select({
   };
 
   return (
-    <div ref={ref} className="relative w-72">
+    <div ref={ref} className="relative w-full">
       {/* Trigger */}
       <button
         onClick={() => setOpen(!open)}
-        className="w-full flex items-center justify-between px-4 py-3 bg-white border border-gray-300 rounded-xl shadow-sm hover:border-gray-400 focus:ring-2 focus:ring-blue-400 transition"
+        className="w-full flex items-center justify-between px-6 py-4 bg-surface-container-low border border-purple-600 rounded-xl shadow-sm hover:border-primary focus:ring-2 focus:ring-primary/50 transition-all text-on-surface"
       >
-        <span className={selected ? "text-gray-800" : "text-gray-400"}>
+        <span className={selected ? "text-on-surface" : "text-on-surface-variant"}>
           {selected ? selected.label : placeholder}
         </span>
 
@@ -62,14 +74,14 @@ export function Select({
 
       {/* Dropdown */}
       {open && (
-        <ul className="absolute z-50 mt-2 w-full bg-white border border-gray-200 rounded-xl shadow-lg max-h-60 overflow-y-auto animate-fadeIn">
+        <ul className="absolute z-50 mt-2 w-full bg-surface-container-low border border-purple-600 rounded-xl shadow-lg max-h-60 overflow-y-auto">
           {options.map((option) => (
             <li
               key={option.value}
               onClick={() => handleSelect(option)}
               className={`px-4 py-3 cursor-pointer transition ${selected?.value === option.value
-                ? "bg-blue-100 text-blue-700"
-                : "hover:bg-blue-50 hover:text-blue-600"
+                ? "bg-primary/10 text-primary"
+                : "hover:bg-primary/5 hover:text-primary text-on-surface"
                 }`}
             >
               {option.label}

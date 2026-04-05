@@ -5,7 +5,6 @@ export default function Navbar() {
     let menu = [
         { name: 'Accueil', href: '/' },
         { name: 'Événements', href: '/events' },
-        { name: 'Explorer', href: '/explore' },
         { name: 'A propos', href: '/about' },
         { name: 'FAQ', href: '/faq' },
         { name: 'Contact', href: '/contact' }

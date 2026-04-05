@@ -1,4 +1,3 @@
-import Footer from "@/components/Footer/Footer";
 import BottomNav from "@/components/BottomNav/BottomNav";
 
 export const metadata = {
@@ -50,7 +49,6 @@ export default function FAQ() {
                         </div>
                     </div>
                 </div>
-                <Footer />
             </main>
             <BottomNav />
         </>

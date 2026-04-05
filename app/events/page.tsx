@@ -15,6 +15,7 @@ export default function EventsPage() {
     const [isLoading, setIsLoading] = useState(false)
 
     const categories = ['All', ...new Set(events.map(event => event.category))]
+    const categoryOptions = categories.map(cat => ({ label: cat, value: cat }))
 
     const filteredEvents = useMemo(() => {
         let filtered = events
@@ -42,15 +43,10 @@ export default function EventsPage() {
 
     return (
         <div className="min-h-screen bg-surface text-on-surface font-body selection:bg-primary/30 overflow-x-hidden">
-            {/* Global Background Decorative Elements */}
-
-            <div className="fixed inset-0 bg-mesh z-0 pointer-events-none"></div>
-            <div className="fixed -top-[20%] -left-[10%] w-[60%] h-[60%] bg-primary/10 blur-[120px] rounded-full pointer-events-none"></div>
-            <div className="fixed -bottom-[20%] -right-[10%] w-[60%] h-[60%] bg-secondary/10 blur-[120px] rounded-full pointer-events-none"></div>
 
             {/* Top Navigation */}
 
-            <main className="pt-24 pb-32 px-6">
+            <main className="pt-24 pb-32 px-6 bg-slate-950">
                 <div className="max-w-7xl w-full px-10">
                     {/* Header */}
                     <div className="mb-12 ml-20 ">
@@ -75,15 +71,12 @@ export default function EventsPage() {
                             />
                         </div>
                         <div className="md:col-span-4">
-                            <select
-                                className="w-full bg-surface-container-low focus:outline-none border border-purple-600 rounded-xl py-4 px-6 text-on-surface focus:ring-2 focus:ring-primary/50 transition-all appearance-none"
+                            <Select
+                                options={categoryOptions}
                                 value={selectedCategory}
-                                onChange={(e) => handleCategoryChange(e.target.value)}
-                            >
-                                {categories.map(category => (
-                                    <option className='w-full bg-[#0f113b] focus:outline-none border border-purple-600 rounded-xl py-4 px-6 text-on-surface focus:ring-2 focus:ring-primary/50 transition-all appearance-none' key={category} value={category}>{category}</option>
-                                ))}
-                            </select>
+                                onChange={handleCategoryChange}
+                                placeholder="All Categories"
+                            />
                         </div>
                     </div>
 
@@ -93,7 +86,7 @@ export default function EventsPage() {
                             <Loader size="lg" />
                         </div>
                     ) : (
-                        <div className="grid grid-cols-1  px-5 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div className="grid grid-cols-1 px-5 md:grid-cols-2 lg:grid-cols-3 gap-6">
                             {filteredEvents.map((event) => (
                                 <EventCard key={event.id} event={event} />
                             ))}
@@ -109,26 +102,8 @@ export default function EventsPage() {
                     )}
                 </div>
             </main>
-
             {/* Bottom Navigation (Mobile Only) */}
-            <nav className="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center pb-6 pt-3 px-4 bg-slate-950/80 backdrop-blur-2xl border-t border-white/5 shadow-[0_-10px_40px_rgba(0,0,0,0.5)]">
-                <Link href="/" className="flex flex-col items-center justify-center text-slate-500 hover:text-purple-300 transition-all">
-                    <span className="material-symbols-outlined">explore</span>
-                    <span className="text-[10px] uppercase font-bold tracking-widest font-label mt-1">Explore</span>
-                </Link>
-                <div className="flex flex-col items-center justify-center text-[#cc97ff] bg-purple-500/10 rounded-full px-4 py-1">
-                    <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>event_available</span>
-                    <span className="text-[10px] uppercase font-bold tracking-widest font-label mt-1">Events</span>
-                </div>
-                <Link href="/user-profile" className="flex flex-col items-center justify-center text-slate-500 hover:text-purple-300 transition-all">
-                    <span className="material-symbols-outlined">person_pin</span>
-                    <span className="text-[10px] uppercase font-bold tracking-widest font-label mt-1">Profile</span>
-                </Link>
-                <Link href="#" className="flex flex-col items-center justify-center text-slate-500 hover:text-purple-300 transition-all">
-                    <span className="material-symbols-outlined">mail</span>
-                    <span className="text-[10px] uppercase font-bold tracking-widest font-label mt-1">Inbox</span>
-                </Link>
-            </nav>
+
         </div>
     )
 }
