@@ -1,16 +1,18 @@
 import React from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 export default function Navbar() {
     let menu = [
-        { name: 'Accueil', href: '#' },
-        { name: 'Événements', href: '#' },
-        { name: 'Explorer', href: '#' },
-        { name: 'A propos', href: '#' },
-        { name: 'Contact', href: '#' }
+        { name: 'Accueil', href: '/' },
+        { name: 'Événements', href: '/events' },
+        { name: 'Explorer', href: '/explore' },
+        { name: 'A propos', href: '/about' },
+        { name: 'FAQ', href: '/faq' },
+        { name: 'Contact', href: '/contact' }
     ]
     return (
-        <div className='sticky top-0 left-0 z-100'>
-            <nav
+        <nav className='sticky top-0 left-0 z-100'>
+            <div
                 className=" w-full flex justify-evenly items-center px-6 py-4 bg-slate-950/50 backdrop-blur-xl z-50 shadow-[0_20px_40px_rgba(138,43,226,0.15)]">
                 <div className="flex items-center gap-3">
                     <span
@@ -30,12 +32,14 @@ export default function Navbar() {
                     </ul>
                 </div>
                 <div className="flex items-center gap-4">
-                    <button
-                        className="text-slate-400 font-bold font-label text-sm px-4 py-2 hover:text-white transition-all active:scale-95">Login</button>
-                    <button
-                        className="text-white bg-linear-to-r from-primary to-secondary text-on-primary-fixed font-bold font-label text-sm px-6 py-2.5 rounded-full shadow-[0_0_20px_rgba(204,151,255,0.4)] hover:shadow-[0_0_30px_rgba(204,151,255,0.6)] transition-all active:scale-95">Register</button>
+                    <Link href="/login">
+                        <button className="text-slate-400 font-bold font-label text-sm px-4 py-2 hover:text-white transition-all active:scale-95">Login</button>
+                    </Link>
+                    <Link href="/register">
+                        <button className="text-white text-on-primary-fixed font-bold font-label text-sm px-6 py-2.5 rounded-full shadow-[0_0_20px_rgba(204,151,255,0.4)] hover:shadow-[0_0_30px_rgba(204,151,255,0.6)] transition-all active:scale-95">Register</button>
+                    </Link>
                 </div>
-            </nav>
-        </div>
+            </div>
+        </nav>
     )
 }

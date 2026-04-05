@@ -4,8 +4,9 @@ import "./globals.css";
 import type { ReactNode } from "react";
 import Navbar from "@/components/layout/Navbar";
 import { cn } from "@/lib/utils";
+import Footer from "@/components/Footer/Footer";
 
-const geist = Geist({subsets:['latin'],variable:'--font-sans'});
+const geist = Geist({ subsets: ['latin'], variable: '--font-sans' });
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   variable: "--font-plus-jakarta-sans",
@@ -42,6 +43,7 @@ export default function RootLayout({
       >
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );

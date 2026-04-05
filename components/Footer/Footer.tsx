@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Footer() {
     return (
-        <footer className="hidden md:block border-t border-white/5 pt-16 pb-12 px-6 max-w-7xl mx-auto">
+        <footer className="hidden bg-slate-950 md:block border-t border-white/5 pt-16 pb-12 px-6 max-w-7xl mx-auto">
             <div className="grid grid-cols-4 gap-12 mb-16">
                 <div className="col-span-1">
                     <div className="flex items-center gap-3 mb-6">
