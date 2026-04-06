@@ -4,7 +4,9 @@ export default function Hero() {
     return (
         <section className="relative min-h-screen bg-[#06060c] flex items-center justify-center overflow-hidden pt-20">
             {/* <!-- Background Effects --> */}
-            <SearchBar />
+            <SearchBar placeholder='
+Search events, festivals, or categories...
+' />
             <div className="absolute inset-0 bg-linear-to-b from-violet-950/20 via-transparent to-[#0a0a0f]"></div>
             <div className="hero-glow top-1/4 left-1/4"></div>
             <div className="hero-glow top-1/3 right-1/4" style={{ animationDelay: '-2s' }}></div>

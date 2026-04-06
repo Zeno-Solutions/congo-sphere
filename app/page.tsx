@@ -2,7 +2,6 @@ import Hero from "@/components/Hero/Hero";
 import Slider from "@/components/Slider/Slider";
 import Recommended from "@/components/Recommended/Recommended";
 import Newsletter from "@/components/Newsletter/Newsletter";
-import Footer from "@/components/Footer/Footer";
 import BottomNav from "@/components/BottomNav/BottomNav";
 export const metadata = {
   title: 'Congo Sphere - Explorez les événements près de chez vous',

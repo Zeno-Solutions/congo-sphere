@@ -1,5 +1,5 @@
 'use client'
-
+import SearchBar from '@/components/SearchBar/SearchBar'
 import React, { useState, useMemo } from 'react'
 import Link from 'next/link'
 import { Calendar, MapPin, Filter, Search } from 'lucide-react'
@@ -61,14 +61,16 @@ export default function EventsPage() {
                     {/* Filters */}
                     <div className="grid grid-cols-1 md:grid-cols-12 gap-4 mb-8 px-10">
                         <div className="md:col-span-8 relative">
-                            <Search size={20} className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500" />
+                            <Search className="material-symbols-outlined z-10 absolute left-5 top-1/2 transform -translate-y-1/2 " />
                             <input
-                                className="w-full bg-surface-container-low border focus:outline-none border-purple-600 rounded-xl py-4 pl-12 pr-4 text-on-surface focus:ring-2 focus:ring-primary/50 transition-all placeholder:text-slate-600"
+                                className="w-full bg-surface-container-low border focus:outline-none border-purple-600 rounded-[40px] py-4 pl-12 pr-4 text-on-surface focus:ring-2 focus:ring-primary/50 transition-all placeholder:text-slate-600"
                                 placeholder="Search events..."
                                 type="text"
                                 value={searchTerm}
                                 onChange={(e) => setSearchTerm(e.target.value)}
                             />
+
+
                         </div>
                         <div className="md:col-span-4">
                             <Select

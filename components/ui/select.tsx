@@ -55,9 +55,9 @@ export function Select({
       {/* Trigger */}
       <button
         onClick={() => setOpen(!open)}
-        className="w-full flex items-center justify-between px-6 py-4 bg-surface-container-low border border-purple-600 rounded-xl shadow-sm hover:border-primary focus:ring-2 focus:ring-primary/50 transition-all text-on-surface"
+        className="w-full flex items-center justify-between px-6 py-4 bg-surface-container-low border border-purple-600 rounded-[40px] shadow-sm  focus:ring-2 focus:ring-primary/50 transition-all text-on-surface"
       >
-        <span className={selected ? "text-on-surface" : "text-on-surface-variant"}>
+        <span className={selected ? "text-on-surface" : "text-on-surface-variant "}>
           {selected ? selected.label : placeholder}
         </span>
 
@@ -74,14 +74,14 @@ export function Select({
 
       {/* Dropdown */}
       {open && (
-        <ul className="absolute z-50 mt-2 w-full bg-surface-container-low border border-purple-600 rounded-xl shadow-lg max-h-60 overflow-y-auto">
+        <ul className="absolute z-50 mt-2 px-2 w-full bg-slate-950 shadow-[-2px_12px_18px_-5px_#111d39] border border-purple-600 rounded-xl max-h-60 overflow-y-auto">
           {options.map((option) => (
             <li
               key={option.value}
               onClick={() => handleSelect(option)}
               className={`px-4 py-3 cursor-pointer transition ${selected?.value === option.value
                 ? "bg-primary/10 text-primary"
-                : "hover:bg-primary/5 hover:text-primary text-on-surface"
+                : "hover:bg-[#050309d1] hover:text-primary rounded-2xl mx-2 text-on-surface"
                 }`}
             >
               {option.label}

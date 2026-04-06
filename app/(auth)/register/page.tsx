@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import Link from 'next/link'
 import { Eye, EyeOff, Upload, ArrowRight, Apple } from 'lucide-react'
 
-export default function AuthPage() {
+export default function RegisterPage() {
     const [showPassword, setShowPassword] = useState(false)
     const [isLogin, setIsLogin] = useState(false)
 
