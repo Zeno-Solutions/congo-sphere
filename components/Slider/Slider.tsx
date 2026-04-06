@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import { ChevronRight, ChevronLeft } from 'lucide-react';
 interface CarouselCard {
     id: number
@@ -51,13 +51,26 @@ const carouselCards: CarouselCard[] = [
 
 export default function Slider() {
     const [currentIndex, setCurrentIndex] = useState(0)
+    const carouselContainerRef = useRef<HTMLDivElement>(null)
+
+    const scrollToCard = (index: number) => {
+        const container = carouselContainerRef.current
+        const card = container?.children[index] as HTMLElement | undefined
+        if (card) {
+            card.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' })
+        }
+    }
 
     const handlePrev = () => {
-        setCurrentIndex((prev) => (prev === 0 ? carouselCards.length - 1 : prev - 1))
+        const nextIndex = currentIndex === 0 ? carouselCards.length - 1 : currentIndex - 1
+        setCurrentIndex(nextIndex)
+        scrollToCard(nextIndex)
     }
 
     const handleNext = () => {
-        setCurrentIndex((prev) => (prev === carouselCards.length - 1 ? 0 : prev + 1))
+        const nextIndex = currentIndex === carouselCards.length - 1 ? 0 : currentIndex + 1
+        setCurrentIndex(nextIndex)
+        scrollToCard(nextIndex)
     }
 
     return (
@@ -89,11 +102,16 @@ export default function Slider() {
                 </div>
             </div>
 
-            <div className="flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory hide-scrollbar" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
-                {carouselCards.map((card) => (
+            <div
+                ref={carouselContainerRef}
+                className="flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory scroll-smooth hide-scrollbar"
+                style={{ scrollbarWidth: 'none', msOverflowStyle: 'none', scrollBehavior: 'smooth' }}
+            >
+                {carouselCards.map((card, index) => (
                     <div
                         key={card.id}
-                        className="min-w-[320px] md:min-w-[400px] md:w-[600px] h-[350px] rounded-2xl relative overflow-hidden group snap-start flex-shrink-0 transition-transform duration-300"
+                        className={`min-w-[320px]  md:w-150 h-87.5 rounded-2xl relative overflow-hidden group snap-center shrink-0 transition-transform duration-500 ease-out ${index === currentIndex ? 'scale-100' : 'scale-95'
+                            }`}
                     >
                         <img
                             className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
