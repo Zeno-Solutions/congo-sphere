@@ -39,7 +39,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={` ${plusJakartaSans.variable} ${manrope.variable} antialiased`}
+        className={`bg-slate-950 ${plusJakartaSans.variable} ${manrope.variable} antialiased`}
       >
         <Navbar />
         {children}

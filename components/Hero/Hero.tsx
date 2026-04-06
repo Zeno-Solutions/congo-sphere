@@ -2,7 +2,7 @@ import React from 'react'
 import SearchBar from '../SearchBar/SearchBar'
 export default function Hero() {
     return (
-        <section className="relative min-h-screen bg-[#06060c] flex items-center justify-center overflow-hidden pt-20">
+        <section className="relative px-6 min-h-screen bg-[#06060c] flex items-center justify-center overflow-hidden pt-20">
             {/* <!-- Background Effects --> */}
             <SearchBar placeholder='
 Search events, festivals, or categories...
