@@ -1,16 +1,22 @@
-import Image from "next/image";
-
+import Hero from "@/components/Hero/Hero";
+import Slider from "@/components/Slider/Slider";
+import Recommended from "@/components/Recommended/Recommended";
+import Newsletter from "@/components/Newsletter/Newsletter";
+import BottomNav from "@/components/BottomNav/BottomNav";
+export const metadata = {
+  title: 'Congo Sphere - Explorez les événements près de chez vous',
+  description: 'Découvrez des événements uniques près de chez vous. Concerts, meetups, expositions — rejoignez une communauté passionnée.',
+}
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <div />
-        <div className="flex w-full h-full items-center flex-col justify-center">
-          <Image src={"/logo.svg"} alt={"Random name"} width={70} height={70} />
-          <h1 className="text-2xl text-red-300 font-semibold">Coming Soon!</h1>
-        </div>
-        <div />
+    <>
+      <Hero />
+      <main className="bg-slate-950 max-w-full pb-10 text-white px-6">
+        <Slider />
+        <Recommended />
+        <Newsletter />
       </main>
-    </div>
+      <BottomNav />
+    </>
   );
 }
