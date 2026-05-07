@@ -11,11 +11,11 @@ export default function Newsletter() {
                         <p className="text-on-surface-variant text-lg mb-8 max-w-md">Get exclusive access to pre-sale tickets, secret events, and monthly curated highlights delivered to your inbox.</p>
                         <div className="flex flex-col sm:flex-row gap-4">
                             <input
-                                className="bg-surface-container-highest border-none rounded-full px-6 py-4 grow text-white placeholder:text-outline focus:ring-2 focus:ring-primary/50 font-body"
+                                className="bg-surface-container-highest border-none rounded-full px-6 py-4 grow text-white placeholder:text-outline ring-2 ring-primary/50 font-body "
                                 placeholder="your@email.com"
                                 type="email"
                             />
-                            <button className="bg-linear-to-r from-primary to-secondary text-on-primary-fixed font-bold font-label px-8 py-4 rounded-full transition-transform active:scale-95 shadow-lg shadow-primary/20">
+                            <button className="text-on-primary-fixed font-bold font-label px-8 py-4 rounded-full shadow-[0_0_20px_rgba(204,151,255,0.4)] hover:shadow-[0_0_30px_rgba(204,151,255,0.6)] transition-all active:scale-95 cursor-pointer">
                                 Subscribe
                             </button>
                         </div>
