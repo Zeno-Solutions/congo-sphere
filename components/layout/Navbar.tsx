@@ -33,7 +33,8 @@ export default function Navbar() {
                             ))}
                         </ul>
                     </div>
-                    <div className="flex items-center gap-4">
+                    {/* mobile navigation*/}
+                    <div className="flex items-center gap-4 px-10">
                         <Link href="/login">
                             <button className="text-slate-400 font-bold font-label text-sm px-4 py-2 hover:text-white transition-all active:scale-95">Login</button>
                         </Link>
