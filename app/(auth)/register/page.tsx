@@ -2,15 +2,15 @@
 
 import React, { useState } from 'react'
 import Link from 'next/link'
-import { Eye, EyeOff, Upload, ArrowRight, Apple } from 'lucide-react'
+import { Eye, EyeOff, Upload, ArrowRight, Apple, Mail } from 'lucide-react'
 
-export default function RegisterPage() {
+export default function Page() {
     const [showPassword, setShowPassword] = useState(false)
-    const [isLogin, setIsLogin] = useState(false)
+
 
     return (
         <div className="min-h-screen bg-surface text-on-surface font-body selection:bg-primary/30 overflow-x-hidden relative">
-            {/* Global Background Decorative Elements */}
+            {/* Global Bfackground Decorative Elements */}
             <div className="fixed inset-0 bg-mesh z-0 pointer-events-none"></div>
             <div className="fixed -top-[20%] -left-[10%] w-[60%] h-[60%] bg-primary/10 blur-[120px] rounded-full pointer-events-none"></div>
             <div className="fixed -bottom-[20%] -right-[10%] w-[60%] h-[60%] bg-secondary/10 blur-[120px] rounded-full pointer-events-none"></div>
@@ -21,7 +21,7 @@ export default function RegisterPage() {
                     <div className="hidden lg:flex flex-col space-y-8">
                         <div className="flex items-center space-x-3">
                             <span className="material-symbols-outlined text-4xl text-primary">bubble_chart</span>
-                            <h1 className="text-3xl font-black bg-gradient-to-r from-[#cc97ff] to-[#ff67ad] bg-clip-text text-transparent font-headline">
+                            <h1 className="text-3xl font-black bg-linear-to-r from-[#cc97ff] to-[#ff67ad] bg-clip-text text-transparent font-headline">
                                 Congo Sphere
                             </h1>
                         </div>
@@ -44,7 +44,7 @@ export default function RegisterPage() {
                                     className="w-full h-full object-cover"
                                     src="https://lh3.googleusercontent.com/aida-public/AB6AXuDaPkmhMexwJDUlFEMC-V7k3eyjOKVEzpnDAfYHEezDbMXes7sjptjZarFR26Z6NTWW_QoT8oAwVzXXxVWqpSv7iktc_dM3g6S2s2fiNw_p7pcFfAyk1oJs0fGcLwWQCS2B5WBfTVaByxe6DccKlCTUWge4B_57LKbSqpkMJwWFh7DYpdxJ-3PneVKx4dqxZJb0FYq0yad0uCPVDPol19gwP9YLVnrXF3iU8E3hEaz5hiDov5BDA6SyUNlQTOQSZ4mSD-Nfgy7rnfd-"
                                 />
-                                <div className="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent"></div>
+                                <div className="absolute inset-0 bg-linear-to-t from-surface via-transparent to-transparent"></div>
                                 <div className="absolute bottom-6 left-6 right-6">
                                     <p className="text-xs uppercase tracking-widest font-bold text-secondary mb-1 font-label">Coming Tonight</p>
                                     <p className="text-xl font-bold font-headline">The Neon Convergence Gala</p>
@@ -62,66 +62,47 @@ export default function RegisterPage() {
                                     <span className="material-symbols-outlined text-5xl text-primary">bubble_chart</span>
                                 </div>
                                 <h3 className="text-3xl font-bold font-headline mb-2">
-                                    {isLogin ? 'Welcome Back' : 'Create Account'}
+                                    Create Account
                                 </h3>
                                 <p className="text-on-surface-variant">
-                                    {isLogin ? 'New here?' : 'Already a member?'}{' '}
-                                    <button
-                                        onClick={() => setIsLogin(!isLogin)}
-                                        className="text-secondary font-semibold hover:underline"
+                                    Already a member?
+                                    <Link
+                                        href={"/login"}
+                                        className="text-purple-500 font-semibold hover:underline"
                                     >
-                                        {isLogin ? 'Create account' : 'Sign in'}
-                                    </button>
+                                        Sign in
+                                    </Link>
                                 </p>
                             </div>
 
                             <form className="space-y-6">
-                                {/* Avatar Upload State - Only for registration */}
-                                {!isLogin && (
-                                    <div className="flex flex-col items-center justify-center mb-8">
-                                        <div className="relative group cursor-pointer">
-                                            <div className="w-24 h-24 rounded-full bg-surface-container-high border-2 border-dashed border-outline-variant flex items-center justify-center overflow-hidden group-hover:border-primary transition-colors">
-                                                <Upload className="text-outline-variant text-3xl group-hover:text-primary" />
-                                            </div>
-                                            <div className="absolute -bottom-1 -right-1 bg-primary p-2 rounded-full shadow-lg">
-                                                <span className="material-symbols-outlined text-sm text-on-primary font-bold">edit</span>
-                                            </div>
-                                            <input className="absolute inset-0 opacity-0 cursor-pointer" type="file" />
-                                        </div>
-                                        <p className="text-xs text-on-surface-variant mt-3 font-medium font-label uppercase tracking-wider">
-                                            Profile Picture
-                                        </p>
+                                <div className="grid grid-cols-2b gap-4">
+                                    {/* Name Field */}
+                                    <div className="space-y-2">
+                                        <label className="text-xs font-bold font-label uppercase tracking-widest text-on-surface-variant ml-1">
+                                            Full Name
+                                        </label>
+                                        <input
+                                            className="w-full bg-surface-container-low border-0 rounded-lg px-4 py-3 text-on-surface placeholder:text-outline ring-2 ring-primary/50 transition-all outline-none"
+                                            name="name"
+                                            placeholder="John Doe"
+                                            type="text" required
+                                        />
                                     </div>
-                                )}
+                                    {/* Username Field */}
+                                    <div className="space-y-2">
+                                        <label className="text-xs font-bold font-label uppercase tracking-widest text-on-surface-variant ml-1">
+                                            Username
+                                        </label>
+                                        <input
+                                            className="w-full bg-surface-container-low border-0 rounded-lg px-4 py-3 text-on-surface placeholder:text-outline ring-2 ring-primary/50 transition-all outline-none"
+                                            name="username"
+                                            placeholder="johndoe"
+                                            type="text" required
+                                        />
+                                    </div>
+                                </div>
 
-                                {!isLogin && (
-                                    <div className="grid grid-cols-2 gap-4">
-                                        {/* Name Field */}
-                                        <div className="space-y-2">
-                                            <label className="text-xs font-bold font-label uppercase tracking-widest text-on-surface-variant ml-1">
-                                                Full Name
-                                            </label>
-                                            <input
-                                                className="w-full bg-surface-container-low border-0 rounded-lg px-4 py-3 text-on-surface placeholder:text-outline focus:ring-2 focus:ring-primary/50 transition-all outline-none"
-                                                name="name"
-                                                placeholder="John Doe"
-                                                type="text"
-                                            />
-                                        </div>
-                                        {/* Username Field */}
-                                        <div className="space-y-2">
-                                            <label className="text-xs font-bold font-label uppercase tracking-widest text-on-surface-variant ml-1">
-                                                Username
-                                            </label>
-                                            <input
-                                                className="w-full bg-surface-container-low border-0 rounded-lg px-4 py-3 text-on-surface placeholder:text-outline focus:ring-2 focus:ring-primary/50 transition-all outline-none"
-                                                name="username"
-                                                placeholder="johndoe"
-                                                type="text"
-                                            />
-                                        </div>
-                                    </div>
-                                )}
 
                                 {/* Email Field */}
                                 <div className="space-y-2">
@@ -130,13 +111,13 @@ export default function RegisterPage() {
                                     </label>
                                     <div className="relative">
                                         <input
-                                            className="w-full bg-surface-container-low border-0 rounded-lg px-4 py-3 text-on-surface placeholder:text-outline focus:ring-2 focus:ring-primary/50 transition-all outline-none"
+                                            className="w-full bg-surface-container-low border-0 rounded-lg px-4 py-3 text-on-surface placeholder:text-outline ring-2 ring-primary/50 transition-all outline-none"
                                             name="email"
                                             placeholder="john@example.com"
-                                            type="email"
+                                            type="email" required
                                         />
                                         <span className="absolute right-4 top-1/2 -translate-y-1/2 material-symbols-outlined text-tertiary text-xl">
-                                            alternate_email
+                                            <Mail />
                                         </span>
                                     </div>
                                 </div>
@@ -147,18 +128,14 @@ export default function RegisterPage() {
                                         <label className="text-xs font-bold font-label uppercase tracking-widest text-on-surface-variant">
                                             Password
                                         </label>
-                                        {isLogin && (
-                                            <Link href="#" className="text-[10px] font-bold text-secondary uppercase tracking-tighter hover:text-secondary-fixed transition-colors">
-                                                Forgot?
-                                            </Link>
-                                        )}
+
                                     </div>
                                     <div className="relative">
                                         <input
-                                            className="w-full bg-surface-container-low border-0 rounded-lg px-4 py-3 text-on-surface placeholder:text-outline focus:ring-2 focus:ring-primary/50 transition-all outline-none"
+                                            className="w-full bg-surface-container-low border-0 rounded-lg px-4 py-3 text-on-surface placeholder:text-outline ring-2 ring-primary/50 transition-all outline-none"
                                             name="password"
                                             placeholder="••••••••"
-                                            type={showPassword ? "text" : "password"}
+                                            type={showPassword ? "text" : "password"} required
                                         />
                                         <button
                                             type="button"
@@ -172,11 +149,11 @@ export default function RegisterPage() {
 
                                 {/* Submit Button */}
                                 <button
-                                    className="w-full signature-gradient text-on-primary-fixed font-bold py-4 rounded-full shadow-xl shadow-primary/20 hover:shadow-primary/40 active:scale-[0.98] transition-all flex items-center justify-center space-x-2 mt-4"
+                                    className="w-full signature-gradient text-on-primary-fixed font-bold py-4 rounded-full shadow-[0_0_20px_rgba(204,151,255,0.4)] hover:shadow-[0_0_30px_rgba(204,151,255,0.6)]  hover:shadow-primary/40 active:scale-[0.98] transition-all flex items-center justify-center space-x-2 mt-4"
                                     type="submit"
                                 >
                                     <span className="font-headline tracking-wide">
-                                        {isLogin ? 'Enter Sphere' : 'Launch into Sphere'}
+                                        Launch into Sphere
                                     </span>
                                     <ArrowRight size={20} />
                                 </button>
