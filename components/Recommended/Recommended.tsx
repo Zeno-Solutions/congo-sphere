@@ -41,7 +41,7 @@ export default function Recommended() {
                                 key={option.value}
                                 onClick={() => setSelectedCategory(option.value)}
                                 className={`px-3 py-2 cursor-pointer hover:bg-[#00000049] rounded-full text-[12px] font-bold whitespace-nowrap transition-colors ${option.value === selectedCategory
-                                    ? 'text-on-primary-fixed bg-blue-500 hover:bg-blue-500'
+                                    ? 'text-on-primary-fixed bg-purple-500'
                                     : 'bg-[#000000af] text-on-surface-variant hover:bg-surface-container-highest'
                                     }`}
                             >

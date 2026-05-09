@@ -83,7 +83,7 @@ export default function Page() {
                                             Full Name
                                         </label>
                                         <input
-                                            className="w-full bg-surface-container-low border-0 rounded-lg px-4 py-3 text-on-surface placeholder:text-outline ring-2 ring-primary/50 transition-all outline-none"
+                                            className="w-full bg-surface-container-low border-0 rounded-3xl px-4 py-3 text-on-surface placeholder:text-outline ring-2 ring-primary/50 transition-all outline-none"
                                             name="name"
                                             placeholder="John Doe"
                                             type="text" required
@@ -95,7 +95,7 @@ export default function Page() {
                                             Username
                                         </label>
                                         <input
-                                            className="w-full bg-surface-container-low border-0 rounded-lg px-4 py-3 text-on-surface placeholder:text-outline ring-2 ring-primary/50 transition-all outline-none"
+                                            className="w-full rounded-3xl border border-slate-700 bg-slate-950/80 px-4 py-3 text-white outline-none focus:border-purple-400 focus:ring-2 focus:ring-purple-500/20"
                                             name="username"
                                             placeholder="johndoe"
                                             type="text" required
@@ -111,7 +111,7 @@ export default function Page() {
                                     </label>
                                     <div className="relative">
                                         <input
-                                            className="w-full bg-surface-container-low border-0 rounded-lg px-4 py-3 text-on-surface placeholder:text-outline ring-2 ring-primary/50 transition-all outline-none"
+                                            className="w-full rounded-3xl border border-slate-700 bg-slate-950/80 px-4 py-3 text-white outline-none focus:border-purple-400 focus:ring-2 focus:ring-purple-500/20"
                                             name="email"
                                             placeholder="john@example.com"
                                             type="email" required
@@ -132,7 +132,7 @@ export default function Page() {
                                     </div>
                                     <div className="relative">
                                         <input
-                                            className="w-full bg-surface-container-low border-0 rounded-lg px-4 py-3 text-on-surface placeholder:text-outline ring-2 ring-primary/50 transition-all outline-none"
+                                            className="w-full rounded-3xl border border-slate-700 bg-slate-950/80 px-4 py-3 text-white outline-none focus:border-purple-400 focus:ring-2 focus:ring-purple-500/20"
                                             name="password"
                                             placeholder="••••••••"
                                             type={showPassword ? "text" : "password"} required

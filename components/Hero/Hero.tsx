@@ -25,7 +25,7 @@ Search events, festivals, or categories...
             <section className="relative z-10 text-center px-4">
                 <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">Discover Your Next Adventure</h1>
                 <p className="text-lg md:text-2xl text-gray-300 mb-8">Explore events, festivals, and categories around you.</p>
-                <button className="px-8 py-4 bg-violet-500 hover:bg-violet-600 text-white rounded-full transition-colors">Get Started</button>
+                <button className="px-8 py-4 cursor-pointer bg-purple-500 hover:bg-purple-600 text-white rounded-full transition-colors">Get Started</button>
             </section>
 
 

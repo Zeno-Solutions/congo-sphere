@@ -42,11 +42,11 @@ export default function Contact() {
                                 </div>
                                 <div className="rounded-3xl border border-white/10 bg-slate-950/70 p-6">
                                     <p className="text-purple-300 uppercase tracking-[0.4em] text-xs mb-2">Téléphone</p>
-                                    <p className="text-white font-semibold">+243 815 000 000</p>
+                                    <p className="text-white font-semibold">+242 06 000 00 00</p>
                                 </div>
                                 <div className="rounded-3xl border border-white/10 bg-slate-950/70 p-6">
                                     <p className="text-purple-300 uppercase tracking-[0.4em] text-xs mb-2">Adresse</p>
-                                    <p className="text-white font-semibold">Kinshasa, République Démocratique du Congo</p>
+                                    <p className="text-white font-semibold">Brazzaville, République du Congo</p>
                                 </div>
                             </div>
                         </div>
@@ -70,7 +70,7 @@ export default function Contact() {
                                     <label className="block text-sm font-medium mb-2 text-slate-300">Message</label>
                                     <textarea rows={5} placeholder="Écrivez votre message ici..." className="w-full rounded-3xl border border-slate-700 bg-slate-950/80 px-4 py-3 text-white outline-none focus:border-purple-400 focus:ring-2 focus:ring-purple-500/20"></textarea>
                                 </div>
-                                <button type="submit" className="w-full rounded-full bg-purple-500 px-6 py-3 text-white font-bold shadow-[0_20px_40px_rgba(204,151,255,0.25)] hover:bg-purple-400 transition-all">Envoyer le message</button>
+                                <button type="submit" className="w-full rounded-full shadow-[0_0_20px_rgba(204,151,255,0.4)] hover:shadow-[0_0_30px_rgba(204,151,255,0.6)]  px-6 py-3 text-white font-bold cursor-pointer transition-all active:scale-95">Envoyer le message</button>
                             </form>
                         </div>
                     </section>
