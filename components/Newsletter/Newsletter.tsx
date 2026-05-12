@@ -5,8 +5,8 @@ export default function Newsletter() {
     <Contenaire className="mt-10">
       <section className=" relative rounded-[3rem] overflow-hidden bg-slate-900 border border-white/5 shadow-2xl ">
         <div className="absolute inset-0 bg-linear-to-br from-primary/10 via-transparent to-secondary/10"></div>
-        <div className="relative grid md:grid-cols-2 gap-12 p-12 md:p-20 items-center">
-          <div>
+        <div className="relative grid lg:grid-cols-2 gap-12 p-12 md:p-20 items-center">
+          <div className="md:w-full bg-amber-300">
             <h2 className="text-4xl font-extrabold font-headline text-white mb-6 leading-tight">
               Stay in the Orbit.
             </h2>
@@ -16,7 +16,7 @@ export default function Newsletter() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <input
-                className="rounded-full px-6 py-4 grow w-full  border border-slate-700 bg-slate-950/80 text-white outline-none focus:border-purple-400 focus:ring-2 focus:ring-purple-500/20"
+                className="bg-surface-container-highest border-none rounded-full px-6 py-4 grow text-white placeholder:text-outline ring-2 ring-primary/50 font-body "
                 placeholder="your@email.com"
                 type="email"
               />
