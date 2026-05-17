@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { Eye, EyeOff, Upload, ArrowRight, Apple, Mail } from "lucide-react";
+import { Eye, EyeOff, ArrowRight, Apple, Mail } from "lucide-react";
 
 export default function Page() {
   const [showPassword, setShowPassword] = useState(false);

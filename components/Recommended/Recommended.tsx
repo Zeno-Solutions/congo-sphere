@@ -6,15 +6,6 @@ import Contenaire from "../Contenaire";
 export default function Recommended() {
   const [selectedCategory, setSelectedCategory] = useState("All");
 
-  const formatDate = (dateString: string) => {
-    const date = new Date(dateString);
-    return date.toLocaleDateString("en-US", {
-      month: "short",
-      day: "numeric",
-      year: "numeric",
-    });
-  };
-
   const filterOptions = [
     { label: "All Events", value: "All" },
     ...events
