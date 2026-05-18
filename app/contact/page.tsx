@@ -1,5 +1,5 @@
 import BottomNav from "@/components/BottomNav/BottomNav";
-
+import Input from "@/components/ui/input";
 export const metadata = {
   title: "Contact - Congo Sphere",
   description:
@@ -95,30 +95,26 @@ export default function Contact() {
                   <label className="block text-sm font-medium mb-2 text-slate-300">
                     Nom complet
                   </label>
-                  <input
-                    type="text"
-                    placeholder="Votre nom"
-                    className="w-full rounded-3xl border border-slate-700 bg-slate-950/80 px-4 py-3 text-white outline-none focus:border-purple-400 focus:ring-2 focus:ring-purple-500/20"
-                  />
+                  <Input type="text" placeholder="Votre nom" name="name" />
                 </div>
                 <div>
                   <label className="block text-sm font-medium mb-2 text-slate-300">
                     Adresse email
                   </label>
-                  <input
+                  <Input
                     type="email"
                     placeholder="vous@example.com"
-                    className="w-full rounded-3xl border border-slate-700 bg-slate-950/80 px-4 py-3 text-white outline-none focus:border-purple-400 focus:ring-2 focus:ring-purple-500/20"
+                    name="email"
                   />
                 </div>
                 <div>
                   <label className="block text-sm font-medium mb-2 text-slate-300">
                     Sujet
                   </label>
-                  <input
+                  <Input
                     type="text"
                     placeholder="Sujet de votre message"
-                    className="w-full rounded-3xl border border-slate-700 bg-slate-950/80 px-4 py-3 text-white outline-none focus:border-purple-400 focus:ring-2 focus:ring-purple-500/20"
+                    name="subject"
                   />
                 </div>
                 <div>
@@ -127,6 +123,7 @@ export default function Contact() {
                   </label>
                   <textarea
                     rows={5}
+                    name="message"
                     placeholder="Écrivez votre message ici..."
                     className="w-full resize-none rounded-3xl border border-slate-700 bg-slate-950/80 px-4 py-3 text-white outline-none focus:border-purple-400 focus:ring-2 focus:ring-purple-500/20"
                   ></textarea>
