@@ -3,6 +3,7 @@ import Image from "next/image";
 import React, { useState } from "react";
 import Link from "next/link";
 import { Eye, EyeOff, ArrowRight, Apple, Mail } from "lucide-react";
+import Input from "@/components/ui/input";
 
 export default function Page() {
   const [showPassword, setShowPassword] = useState(false);
@@ -92,8 +93,7 @@ export default function Page() {
                     <label className="text-xs font-bold font-label uppercase tracking-widest text-on-surface-variant ml-1">
                       Full Name
                     </label>
-                    <input
-                      className="w-full rounded-3xl border border-slate-700 bg-slate-950/80 px-4 py-3 text-white outline-none focus:border-purple-400 focus:ring-2 focus:ring-purple-500/20"
+                    <Input
                       name="name"
                       placeholder="John Doe"
                       type="text"
@@ -105,8 +105,7 @@ export default function Page() {
                     <label className="text-xs font-bold font-label uppercase tracking-widest text-on-surface-variant ml-1">
                       Username
                     </label>
-                    <input
-                      className="w-full rounded-3xl border border-slate-700 bg-slate-950/80 px-4 py-3 text-white outline-none focus:border-purple-400 focus:ring-2 focus:ring-purple-500/20"
+                    <Input
                       name="username"
                       placeholder="johndoe"
                       type="text"
@@ -121,8 +120,7 @@ export default function Page() {
                     Email Address
                   </label>
                   <div className="relative">
-                    <input
-                      className="w-full rounded-3xl border border-slate-700 bg-slate-950/80 px-4 py-3 text-white outline-none focus:border-purple-400 focus:ring-2 focus:ring-purple-500/20"
+                    <Input
                       name="email"
                       placeholder="john@example.com"
                       type="email"
@@ -142,8 +140,7 @@ export default function Page() {
                     </label>
                   </div>
                   <div className="relative">
-                    <input
-                      className="w-full rounded-3xl border border-slate-700 bg-slate-950/80 px-4 py-3 text-white outline-none focus:border-purple-400 focus:ring-2 focus:ring-purple-500/20"
+                    <Input
                       name="password"
                       placeholder="••••••••"
                       type={showPassword ? "text" : "password"}

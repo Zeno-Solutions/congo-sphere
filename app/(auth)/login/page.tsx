@@ -2,7 +2,8 @@
 import Image from "next/image";
 import React, { useState } from "react";
 import Link from "next/link";
-import { Eye, EyeOff, Upload, ArrowRight, Apple, Mail } from "lucide-react";
+import { Eye, EyeOff, ArrowRight, Apple, Mail } from "lucide-react";
+import Input from "@/components/ui/input";
 
 export default function Page() {
   const [showPassword, setShowPassword] = useState(false);
@@ -92,8 +93,7 @@ export default function Page() {
                     Email Address
                   </label>
                   <div className="relative">
-                    <input
-                      className="w-full rounded-3xl border border-slate-700 bg-slate-950/80 px-4 py-3 text-white outline-none focus:border-purple-400 focus:ring-2 focus:ring-purple-500/20"
+                    <Input
                       name="email"
                       placeholder="john@example.com"
                       type="email"
@@ -120,8 +120,7 @@ export default function Page() {
                     </Link>
                   </div>
                   <div className="relative">
-                    <input
-                      className="w-full rounded-3xl border border-slate-700 bg-slate-950/80 px-4 py-3 text-white outline-none focus:border-purple-400 focus:ring-2 focus:ring-purple-500/20"
+                    <Input
                       name="password"
                       placeholder="••••••••"
                       type={showPassword ? "text" : "password"}
