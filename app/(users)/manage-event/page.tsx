@@ -3,7 +3,8 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { Upload, MapPin, Calendar, Send, Save, ArrowLeft } from "lucide-react";
-
+import Image from "next/image";
+import Input from "@/components/ui/input";
 export default function ManageEventPage() {
   const [eventData, setEventData] = useState({
     title: "",
@@ -43,24 +44,26 @@ export default function ManageEventPage() {
             <span className="material-symbols-outlined text-purple-400 dark:text-purple-300 scale-95 active:scale-90 transition-transform">
               bubble_chart
             </span>
-            <h1 className="text-2xl font-black bg-gradient-to-r from-[#cc97ff] to-[#ff67ad] bg-clip-text text-transparent font-headline tracking-tight">
+            <h1 className="text-2xl font-black bg-linear-to-r from-[#cc97ff] to-[#ff67ad] bg-clip-text text-transparent font-headline tracking-tight">
               Congo Sphere
             </h1>
           </Link>
         </div>
         <div className="flex items-center gap-4">
           <div className="w-10 h-10 rounded-full border border-primary/20 p-0.5 overflow-hidden">
-            <img
+            <Image
               alt="User Profile"
               className="w-full h-full object-cover rounded-full"
               src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiXVnVXUO1zlZs2ftQ2JavonHANC9Xj7O8YwNiB-cwyRbL5OoASL_WIDHomAV2igwgA7am7t5WGk2uBXQllcEJgw5m6tMSni4ExSxc9PknDl13kEwrE4b_THBaUQV6ty5dR8J9xRVqMISGX5r7WQll1ncP9GFIQCnlnSH9HbRRj45vBtItPSBPmnySl4_Ett7rxwPx3D4IRUG1g7CL5sr8r7FNcgBd6WszvZcSFbHEDtFGB3a24i6OdKpmOWLPN1eq_z5HrtO6hJ2a"
+              width={500}
+              height={500}
             />
           </div>
         </div>
       </header>
 
       {/* Desktop Navigation */}
-      <div className="hidden md:flex fixed top-0 right-32 h-20 items-center gap-8 z-[60]">
+      <div className="hidden md:flex fixed top-0 right-32 h-20 items-center gap-8 z-60">
         <Link
           href="/"
           className="text-slate-400 hover:text-white font-label font-bold text-sm tracking-widest transition-colors"
@@ -103,8 +106,8 @@ export default function ManageEventPage() {
         >
           {/* Left Column: Visuals */}
           <div className="md:col-span-5 space-y-8">
-            <div className="group relative aspect-[4/5] bg-surface-container-low rounded-xl overflow-hidden border border-outline-variant/15 flex flex-col items-center justify-center text-center p-8 transition-all hover:bg-surface-container-high cursor-pointer">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 pointer-events-none"></div>
+            <div className="group relative aspect-4/5 bg-surface-container-low rounded-xl overflow-hidden border border-outline-variant/15 flex flex-col items-center justify-center text-center p-8 transition-all hover:bg-surface-container-high cursor-pointer">
+              <div className="absolute inset-0 bg-linear-to-br from-primary/5 to-secondary/5 pointer-events-none"></div>
               <Upload size={48} className="text-primary mb-4" />
               <h3 className="text-lg font-bold font-headline text-on-surface">
                 Event Image
@@ -112,14 +115,14 @@ export default function ManageEventPage() {
               <p className="text-sm text-on-surface-variant mt-2 font-body">
                 Drag and drop or click to upload the cover art for your event.
               </p>
-              <input
+              <Input
                 accept="image/*"
                 className="absolute inset-0 opacity-0 cursor-pointer"
                 type="file"
               />
               {/* Decorative element */}
               <div className="mt-8 w-full h-1 bg-surface-container-highest rounded-full overflow-hidden">
-                <div className="h-full w-1/3 bg-gradient-to-r from-primary to-secondary"></div>
+                <div className="h-full w-1/3 bg-linear-to-r from-primary to-secondary"></div>
               </div>
             </div>
 
@@ -139,8 +142,7 @@ export default function ManageEventPage() {
               <label className="block text-xs font-bold uppercase tracking-widest text-on-surface-variant ml-1">
                 Event Title
               </label>
-              <input
-                className="w-full bg-surface-container-low border-none rounded-lg p-4 text-on-surface placeholder-outline focus:ring-2 focus:ring-primary/50 transition-all font-body text-lg"
+              <Input
                 name="title"
                 placeholder="e.g., Neon Nights: Digital Art Showcase"
                 type="text"
@@ -155,7 +157,7 @@ export default function ManageEventPage() {
                 Description
               </label>
               <textarea
-                className="w-full bg-surface-container-low border-none rounded-lg p-4 text-on-surface placeholder-outline focus:ring-2 focus:ring-primary/50 transition-all font-body resize-none"
+                className="w-full resize-none rounded-3xl border border-slate-700 bg-slate-950/80 px-4 py-3 text-white outline-none focus:border-purple-400 focus:ring-2 focus:ring-purple-500/20"
                 name="description"
                 placeholder="Describe the atmosphere, artists, and what to expect..."
                 rows={4}
@@ -172,9 +174,9 @@ export default function ManageEventPage() {
               <div className="relative">
                 <MapPin
                   size={20}
-                  className="absolute left-4 top-1/2 -translate-y-1/2 text-primary"
+                  className="absolute right-5 top-1/2 -translate-y-1/2 text-primary"
                 />
-                <input
+                <Input
                   className="w-full bg-surface-container-low border-none rounded-lg p-4 pl-12 text-on-surface placeholder-outline focus:ring-2 focus:ring-primary/50 transition-all font-body"
                   name="location"
                   placeholder="Enter address or virtual link"
@@ -191,8 +193,7 @@ export default function ManageEventPage() {
                 <label className="block text-xs font-bold uppercase tracking-widest text-on-surface-variant ml-1">
                   Starts
                 </label>
-                <input
-                  className="w-full bg-surface-container-low border-none rounded-lg p-4 text-on-surface focus:ring-2 focus:ring-primary/50 transition-all font-body"
+                <Input
                   name="startDate"
                   type="datetime-local"
                   value={eventData.startDate}
@@ -203,8 +204,8 @@ export default function ManageEventPage() {
                 <label className="block text-xs font-bold uppercase tracking-widest text-on-surface-variant ml-1">
                   Ends
                 </label>
-                <input
-                  className="w-full bg-surface-container-low border-none rounded-lg p-4 text-on-surface focus:ring-2 focus:ring-primary/50 transition-all font-body"
+                <Input
+                  className="text-white"
                   name="endDate"
                   type="datetime-local"
                   value={eventData.endDate}

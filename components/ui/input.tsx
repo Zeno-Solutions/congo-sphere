@@ -1,11 +1,14 @@
 import React from "react";
 
 type inputProps = {
-  name: string;
-  placeholder: string;
+  name?: string;
+  placeholder?: string;
   type: string;
   required?: boolean;
   className?: string;
+  accept?: string;
+  value?: string;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 export default function Input(props: inputProps) {
@@ -16,6 +19,9 @@ export default function Input(props: inputProps) {
       placeholder={props.placeholder}
       type={props.type}
       required={props.required ? true : false}
+      accept={props.accept ? props.accept : undefined}
+      value={props.value}
+      onChange={props.onChange ? props.onChange : undefined}
     />
   );
 }
