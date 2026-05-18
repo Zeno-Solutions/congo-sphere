@@ -1,9 +1,10 @@
 "use client";
 import React, { useState, useRef } from "react";
-import { ChevronRight, ChevronLeft } from "lucide-react";
+import { ChevronRight, ChevronLeft, ArrowRight } from "lucide-react";
 import Contenaire from "../Contenaire";
 import Link from "next/link";
 import { events } from "@/lib/data";
+import Image from "next/image";
 
 export default function Slider() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -117,10 +118,12 @@ export default function Slider() {
                 index === currentIndex ? "scale-100" : "scale-95"
               }`}
             >
-              <img
+              <Image
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 alt={event.title}
                 src={event.image}
+                width={600}
+                height={350}
               />
               <div className="absolute inset-0 bg-linear-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
               <div className="absolute bottom-0 left-0 p-8 w-full">
@@ -146,7 +149,7 @@ export default function Slider() {
                 >
                   Book Tickets
                   <span className="material-symbols-outlined text-sm transition-transform group-hover/btn:translate-x-1">
-                    arrow_forward
+                    <ArrowRight />
                   </span>
                 </Link>
               </div>

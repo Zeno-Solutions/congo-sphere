@@ -1,5 +1,5 @@
 "use client";
-
+import Image from "next/image";
 import React, { useState } from "react";
 import Link from "next/link";
 import { Eye, EyeOff, Upload, ArrowRight, Apple, Mail } from "lucide-react";
@@ -41,10 +41,12 @@ export default function Page() {
             <div className="relative group">
               <div className="absolute inset-0 signature-gradient opacity-20 blur-2xl group-hover:opacity-30 transition-opacity"></div>
               <div className="relative h-64 w-full rounded-xl overflow-hidden shadow-2xl">
-                <img
+                <Image
                   alt="Premium event atmosphere"
                   className="w-full h-full object-cover"
                   src="https://lh3.googleusercontent.com/aida-public/AB6AXuDaPkmhMexwJDUlFEMC-V7k3eyjOKVEzpnDAfYHEezDbMXes7sjptjZarFR26Z6NTWW_QoT8oAwVzXXxVWqpSv7iktc_dM3g6S2s2fiNw_p7pcFfAyk1oJs0fGcLwWQCS2B5WBfTVaByxe6DccKlCTUWge4B_57LKbSqpkMJwWFh7DYpdxJ-3PneVKx4dqxZJb0FYq0yad0uCPVDPol19gwP9YLVnrXF3iU8E3hEaz5hiDov5BDA6SyUNlQTOQSZ4mSD-Nfgy7rnfd-"
+                  width={600}
+                  height={350}
                 />
                 <div className="absolute inset-0 bg-linear-to-t from-surface via-transparent to-transparent"></div>
                 <div className="absolute bottom-6 left-6 right-6">
@@ -164,10 +166,12 @@ export default function Page() {
                     className="flex items-center justify-center space-x-2 bg-surface-container-highest hover:bg-white/10 text-on-surface py-3 rounded-lg border border-outline-variant/20 transition-all"
                     type="button"
                   >
-                    <img
+                    <Image
                       alt="Google"
                       className="w-5 h-5"
                       src="https://lh3.googleusercontent.com/aida-public/AB6AXuCulMJq7t2rtAgT_JjSSGBhgpDV1aogpvPfFA0dHV8OAUI5eO2lPQUsxjWoDSg3imf6cIxV7ltsJnvRg9zZa7_VYTeo1Gy2tIJYTvj4lovDBmSp_yjn0L0NbjalGeCCOZJHKG1YRJoA8-RGotFk0AXg6C_mmVXz7vtWJhUsuWWETTPppbPURHBZweD922csRU50ZD3jOwSmJCbrw4K-lxy6VD0DWo-vq4GSjApo7k8mMupkxd3QL2NkD-KambfMDhgP6wmMC_ASt1nr"
+                      width={20}
+                      height={20}
                     />
                     <span className="text-sm font-semibold">Google</span>
                   </button>
