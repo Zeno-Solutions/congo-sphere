@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Manrope, Geist } from "next/font/google";
 import "./globals.css";
+import Loader from "../components/ui/Loader";
 import type { ReactNode } from "react";
 import Navbar from "@/components/layout/Navbar";
 import { cn } from "@/lib/utils";
 import Footer from "@/components/Footer/Footer";
 
-const geist = Geist({ subsets: ['latin'], variable: '--font-sans' });
+const geist = Geist({ subsets: ["latin"], variable: "--font-sans" });
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   variable: "--font-plus-jakarta-sans",
@@ -22,14 +23,11 @@ const manrope = Manrope({
 
 export const metadata: Metadata = {
   title: "Congo Sphere - Discover Events",
-  description: "Discover events, festivals, and categories around you. Concerts, meetups, expositions — join a passionate community.",
+  description:
+    "Discover events, festivals, and categories around you. Concerts, meetups, expositions — join a passionate community.",
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: ReactNode;
-}) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={cn("dark", "font-sans", geist.variable)}>
       <head>
