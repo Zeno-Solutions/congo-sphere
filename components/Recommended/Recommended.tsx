@@ -4,7 +4,7 @@ import { events } from "@/lib/data";
 import EventCard from "../ui/EventCard";
 import Contenaire from "../Contenaire";
 export default function Recommended() {
-  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [selectedCategory, setSelectedCategory] = useState("All");                                     
 
   const filterOptions = [
     { label: "All Events", value: "All" },
