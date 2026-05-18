@@ -6,7 +6,7 @@ export default function Newsletter() {
       <section className=" relative rounded-[3rem] overflow-hidden bg-slate-900 border border-white/5 shadow-2xl ">
         <div className="absolute inset-0 bg-linear-to-br from-primary/10 via-transparent to-secondary/10"></div>
         <div className="relative grid lg:grid-cols-2 gap-12 p-12 md:p-20 items-center">
-          <div className="md:w-full bg-amber-300">
+          <div className="md:w-full">
             <h2 className="text-4xl font-extrabold font-headline text-white mb-6 leading-tight">
               Stay in the Orbit.
             </h2>

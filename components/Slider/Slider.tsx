@@ -126,7 +126,7 @@ export default function Slider() {
               <div className="absolute bottom-0 left-0 p-8 w-full">
                 <div className="flex items-center gap-2 mb-3">
                   <span
-                    className={`px-3 py-1 ${getCategoryColor(event.category)} backdrop-blur-md border rounded-full text-[10px] font-bold uppercase tracking-widest`}
+                    className={`px-3 py-1 text-white ${getCategoryColor(event.category)} backdrop-blur-md border rounded-full text-[10px] font-bold uppercase tracking-widest`}
                   >
                     {event.category}
                   </span>
