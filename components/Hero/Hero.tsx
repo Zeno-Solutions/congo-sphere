@@ -49,7 +49,7 @@ export default function Hero() {
 
       {/* <!-- Scroll Indicator --> */}
       <div
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+        className="hidden md:block md:absolute bottom-8 left-1/2 transform -translate-x-1/2"
         style={{ animation: "float 2s ease-in-out infinite" }}
       >
         <div className="w-8 h-12 rounded-full border-2 border-white/20 flex justify-center pt-2">
