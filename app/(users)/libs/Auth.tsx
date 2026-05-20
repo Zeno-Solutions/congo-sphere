@@ -13,8 +13,12 @@ export default function Auth({ children }: AuthProps) {
     name: "martial",
     password: "Azerty",
   };
+  const User2: User = {
+    name: "martial",
+    password: "Azerty",
+  };
 
-  if (User == User) {
+  if (User == User2) {
     return children;
   } else {
     console.log("User not authenticated");
