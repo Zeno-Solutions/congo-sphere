@@ -1,5 +1,5 @@
 import BottomNav from "@/components/BottomNav/BottomNav";
-import { Link } from "lucide-react";
+import Link from "next/link";
 
 export const metadata = {
   title: "À propos - Congo Sphere",
@@ -177,13 +177,13 @@ export default function About() {
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Link
                 href="/events"
-                className="inline-flex items-center justify-center rounded-full bg-purple-500 px-8 py-3 text-sm font-bold text-white shadow-[0_0_30px_rgba(204,151,255,0.35)] hover:bg-purple-400 transition-all"
+                className="inline-flex items-center justify-center rounded-full bg-purple-500 h-10 px-8 py-3 text-sm font-bold text-white shadow-[0_0_30px_rgba(204,151,255,0.35)] hover:bg-purple-400 transition-all"
               >
                 Voir les événements
               </Link>
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-8 py-3 text-sm font-bold text-white hover:border-purple-300 hover:text-purple-200 transition-all"
+                className="inline-flex items-center justify-center rounded-full border  h-10 border-white/10 bg-white/5 px-8 py-3 text-sm font-bold text-white hover:border-purple-300 hover:text-purple-200 transition-all"
               >
                 Contactez-nous
               </Link>
