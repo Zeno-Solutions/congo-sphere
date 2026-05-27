@@ -2,7 +2,7 @@ import Link from "next/link";
 import { ArrowRight, Calendar, MapPin, Ticket, Sparkles } from "lucide-react";
 import { events } from "@/lib/data";
 import Contenaire from "@/components/Contenaire";
-
+import Image from "next/image";
 export default function DashboardPage() {
   const upcoming = events.slice(0, 3);
 
@@ -38,9 +38,15 @@ export default function DashboardPage() {
                 </Link>
                 <Link
                   href="/user-profile"
-                  className="inline-flex items-center gap-2 rounded-full border border-white/10 px-5 py-3 text-sm font-semibold text-on-surface hover:bg-white/5 transition"
+                  className="inline-flex items-center  rounded-full border border-white/10 text-sm font-semibold text-on-surface hover:bg-white/5 transition"
                 >
-                  Profil
+                  <Image
+                    src="/user.jpg"
+                    alt="Profil"
+                    width={50}
+                    height={50}
+                    className="rounded-full"
+                  />
                 </Link>
               </div>
             </div>

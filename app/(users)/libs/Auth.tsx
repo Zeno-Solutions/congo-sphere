@@ -18,7 +18,7 @@ export default function Auth({ children }: AuthProps) {
     password: "Azerty",
   };
 
-  if (User == User2) {
+  if (User) {
     return children;
   } else {
     console.log("User not authenticated");
