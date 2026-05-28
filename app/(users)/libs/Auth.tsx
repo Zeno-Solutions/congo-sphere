@@ -1,14 +1,9 @@
-import { ReactNode } from "react";
-import { redirect } from "next/navigation";
 type User = {
   name: string;
   password: string;
 };
-type AuthProps = {
-  children: ReactNode;
-};
 
-export default function Auth({ children }: AuthProps) {
+export default function Auth() {
   const User: User = {
     name: "martial",
     password: "Azerty",
@@ -17,11 +12,13 @@ export default function Auth({ children }: AuthProps) {
     name: "martial",
     password: "Azerty",
   };
-
-  if (User) {
-    return children;
+  let Islogin: boolean = false;
+  if (User == User2) {
+    Islogin = true;
+    return Islogin;
+    console.log(Islogin);
   } else {
-    console.log("User not authenticated");
-    redirect("/login");
+    Islogin = false;
+    return Islogin;
   }
 }
