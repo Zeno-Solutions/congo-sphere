@@ -2,7 +2,6 @@ type User = {
   name: string;
   password: string;
 };
-
 export default function Auth() {
   const User: User = {
     name: "martial",

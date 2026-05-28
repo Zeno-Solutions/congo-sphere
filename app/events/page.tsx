@@ -1,13 +1,12 @@
 "use client";
-import SearchBar from "@/components/SearchBar/SearchBar";
+
 import React, { useState, useMemo } from "react";
-import Link from "next/link";
-import { Calendar, MapPin, Filter, Search } from "lucide-react";
+
+import { Search } from "lucide-react";
 import { events, getEventsByCategory } from "@/lib/data";
 import EventCard from "@/components/ui/EventCard";
 import Loader from "@/components/ui/Loader";
 import { Select } from "@/components/ui/select";
-import Recommended from "@/components/Recommended/Recommended";
 import Contenaire from "@/components/Contenaire";
 
 export default function EventsPage() {
@@ -66,7 +65,7 @@ export default function EventsPage() {
               <div className="md:col-span-8 relative">
                 <Search className="material-symbols-outlined z-10 absolute left-5 top-1/2 transform -translate-y-1/2 " />
                 <input
-                  className="w-full bg-surface-container-low border focus:outline-none border-purple-600 rounded-[40px] py-4 pl-12 pr-4 text-on-surface focus:ring-2 focus:ring-primary/50 transition-all placeholder:text-slate-600"
+                  className="w-full rounded-full pl-12 h-14 border border-slate-700 bg-slate-950/80 px-4 py-3 text-white outline-none focus:border-purple-400 focus:ring-2 focus:ring-purple-500/20"
                   placeholder="Search events..."
                   type="text"
                   value={searchTerm}

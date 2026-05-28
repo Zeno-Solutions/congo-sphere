@@ -5,11 +5,13 @@ type SearchBarProps = {
   onChange?: (value: string) => void;
   placeholder: string;
   className?: string;
+  value?: string;
 };
 export default function SearchBar({
   onChange,
   placeholder,
   className,
+  value,
 }: SearchBarProps) {
   return (
     <div
@@ -19,10 +21,12 @@ export default function SearchBar({
         <span className="material-symbols-outlined z-10 absolute left-5 top-1/2 transform -translate-y-1/2 ">
           <Search color="#f1f1f1" />
         </span>
+
         <input
-          className=" w-full h-10 md:h-15 rounded-[45px] bg-slate-900/50 backdrop-blur-xl border-none py-3 pl-15 pr-4 text-sm text-white outline-none focus:ring-#fcf8ff focus:ring-offset-1 focus:ring-offset-slate-900/5 bg-surface-container-low border focus:outline-none text-on-surface focus:ring-2 focus:ring-primary/50 transition-all placeholder:text-slate-600"
+          className="w-full rounded-full pl-12 h-14 border border-slate-700 bg-slate-950/80 px-4 py-3 text-white outline-none focus:border-purple-400 focus:ring-2 focus:ring-purple-500/20"
           placeholder={placeholder}
           type="text"
+          value={value}
           onChange={(e) => onChange?.(e.target.value)}
         />
       </div>
