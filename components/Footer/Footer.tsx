@@ -137,7 +137,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 border-t border-white/10 pt-6 text-sm text-on-surface-variant flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+        <div className=" border-t border-white/10 pt-6 text-sm text-on-surface-variant flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
           <p>
             &copy; {new Date().getFullYear()} Congo Sphere. Tous droits
             réservés.

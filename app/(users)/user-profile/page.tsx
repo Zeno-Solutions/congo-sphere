@@ -3,6 +3,7 @@ import Image from "next/image";
 import React, { useState } from "react";
 import Link from "next/link";
 import {
+  ArrowRight,
   Edit,
   Camera,
   Calendar,
@@ -25,9 +26,9 @@ export default function UserProfilePage() {
   const [imageHover, setImageHover] = useState(false);
 
   const userStats = [
-    { label: "Events Attended", value: "12", icon: Ticket, color: "primary" },
-    { label: "Achievements", value: "8", icon: Trophy, color: "secondary" },
-    { label: "Friends", value: "234", icon: Heart, color: "tertiary" },
+    { label: "Events Attended", value: "12", icon: Ticket },
+    { label: "Achievements", value: "8", icon: Trophy },
+    { label: "Friends", value: "234", icon: Heart },
   ];
 
   const userEvents = [
@@ -36,7 +37,7 @@ export default function UserProfilePage() {
       title: "Neon Nights: Underground",
       date: "Oct 24 • 11:00 PM",
       status: "Confirmed",
-      statusColor: "primary",
+      statusColor: "tertiary",
       image:
         "https://lh3.googleusercontent.com/aida-public/AB6AXuBOOuECIfG5TCRD_CG3nodrpE8X9OZFcjmnjV2d_YKxqwaQpPPKO5NyBxACEvjLAF-aIiTGuS30Yfu_ki97idRukIweqmMa-6BjOO--tk3bGO3m23lowjwazKG1GxG20K05xtC1StEWxD6esfeMoBZIkYWN3R5ED9hWQg4mReRf3o1ZEhoqx_IUED2cOmghXkxrKMYfBfKJrNpoWNwoHlBc5YzRv_53L39LTqPoXpZlhmhrrMJZd_L9ZNT_CWE9n4MWyz5AV33M0MYc",
     },
@@ -45,7 +46,7 @@ export default function UserProfilePage() {
       title: "Solaris Summer Fest",
       date: "Aug 12 • 02:00 PM",
       status: "Waitlist",
-      statusColor: "secondary",
+      statusColor: "tertiary",
       image:
         "https://lh3.googleusercontent.com/aida-public/AB6AXuCFgU7KEbUqAjvo4PxrYft26nGAZ0Fe13REzULJjz8apN5wRYByb_vXuJh3pO4yQhUdveZPahjawxFGefTFX-Ei38qHGGEvBIP0A3DqyYIj8BOrW5M5vCJFuMVoEDhqVwn47CJemok7OfuSHGWBpPw_4xnY_M0F9yL6NfAMSxGfqkd1Gg7ycQNo65wWkYqYg1dkpmq7zi-rtwVmFt_w5BZIG9ILHmJQVEXGTBlfFjTsn73E2nqbGrdpiesh2TW0BrFTkLZtPror8K9t",
     },
@@ -61,10 +62,10 @@ export default function UserProfilePage() {
   ];
 
   const accountSettings = [
-    { icon: Shield, label: "Security", color: "primary" },
-    { icon: Bell, label: "Notifications", color: "secondary" },
-    { icon: CreditCard, label: "Billing", color: "tertiary" },
-    { icon: HelpCircle, label: "Support", color: "on-surface-variant" },
+    { icon: Shield, label: "Security" },
+    { icon: Bell, label: "Notifications" },
+    { icon: CreditCard, label: "Billing" },
+    { icon: HelpCircle, label: "Support" },
   ];
 
   const achievements = [
@@ -196,10 +197,7 @@ export default function UserProfilePage() {
               key={index}
               className="glass-panel rounded-xl p-6 text-center hover:border-primary/50 transition-colors"
             >
-              <stat.icon
-                size={24}
-                className={`mx-auto mb-2 text-${stat.color}`}
-              />
+              <stat.icon size={24} className={`mx-auto mb-2 text-purple-500`} />
               <p className="text-3xl font-bold font-headline text-on-surface">
                 {stat.value}
               </p>
@@ -220,9 +218,9 @@ export default function UserProfilePage() {
               </h3>
               <Link
                 href="/manage-event"
-                className="text-primary text-sm font-semibold hover:text-primary/80 transition-colors"
+                className="flex text-purple-500 text-sm uppercase font-semibold hover:text-primary/80 transition-colors"
               >
-                View All →
+                Create event <ArrowRight size={20} className="ml-2 " />
               </Link>
             </div>
             <div className="space-y-3">
@@ -273,10 +271,7 @@ export default function UserProfilePage() {
                     className="w-full p-4 flex items-center justify-between hover:bg-white/5 transition-colors group"
                   >
                     <div className="flex items-center gap-3">
-                      <setting.icon
-                        size={20}
-                        className={`text-${setting.color}`}
-                      />
+                      <setting.icon size={20} className={`text-purple-500`} />
                       <span className="text-sm font-medium">
                         {setting.label}
                       </span>
