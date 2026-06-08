@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Manrope, Geist } from "next/font/google";
 import "./globals.css";
-import Loader from "../components/ui/Loader";
 import type { ReactNode } from "react";
 import Navbar from "@/components/layout/Navbar";
 import { cn } from "@/lib/utils";
