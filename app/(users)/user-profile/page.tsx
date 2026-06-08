@@ -1,11 +1,9 @@
 "use client";
 import Image from "next/image";
-import React, { useState } from "react";
 import Link from "next/link";
 import {
   ArrowRight,
   Edit,
-  Camera,
   Calendar,
   ChevronRight,
   Shield,
@@ -19,12 +17,9 @@ import {
   LogOut,
   Ticket,
   Trophy,
-  Clock,
 } from "lucide-react";
 
 export default function UserProfilePage() {
-  const [imageHover, setImageHover] = useState(false);
-
   const userStats = [
     { label: "Events Attended", value: "12", icon: Ticket },
     { label: "Achievements", value: "8", icon: Trophy },
@@ -81,40 +76,14 @@ export default function UserProfilePage() {
       <div className="fixed -top-[20%] -left-[10%] w-[60%] h-[60%] bg-primary/10 blur-[120px] rounded-full pointer-events-none"></div>
       <div className="fixed -bottom-[20%] -right-[10%] w-[60%] h-[60%] bg-secondary/10 blur-[120px] rounded-full pointer-events-none"></div>
 
-      {/* Top Navigation */}
-      <header className="fixed top-0 w-full flex justify-between items-center px-6 py-4 bg-slate-900/40 backdrop-blur-xl z-50 shadow-[0_20px_40px_rgba(138,43,226,0.15)]">
-        <div className="flex items-center gap-3">
-          <Link href="/" className="flex items-center gap-3">
-            <span className="material-symbols-outlined text-purple-400 dark:text-purple-300">
-              bubble_chart
-            </span>
-            <h1 className="text-2xl font-black bg-linear-to-r from-[#cc97ff] to-[#ff67ad] bg-clip-text text-transparent font-headline">
-              Congo Sphere
-            </h1>
-          </Link>
-        </div>
-        <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-primary/30">
-          <Image
-            alt={"User Profile"}
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBDJX4yoYLKUMWjb4X6-6eBmaCX6l4GRtf-1DTVJ-SB9MVwWTFNVN90AdG4NcxoXORGUvBW2BU2YQ88rHVTxhqLkWtCfclNeAmDAdHr7CkDAh6vf67w4aQrFwyR2g4AHkta4PRcfY5cTOUfSxn8RzweqFiFRqqID9UMjhebDhmAWCoqJWHBEgOdh0qzFSoIzu15nLUJ_-myNtT1MwNG8n9w51wQ9O7x49GuAVKhYfER6GaHqR3hOYnPOMc14uwZdS4uC-aVv7WBCLX"
-            width={40}
-            height={40}
-          />
-        </div>
-      </header>
-
       <main className="pt-24 px-6 max-w-5xl mx-auto space-y-8">
         {/* Profile Hero Section */}
         <section className="relative group">
-          <div className="absolute -inset-1 bg-linear-to-r from-primary to-secondary rounded-2xl blur opacity-25 group-hover:opacity-40 transition duration-1000"></div>
+          <div className="absolute -inset-1 bg-linear-to-r from-blue-950 to-secondary rounded-2xl blur opacity-25 group-hover:opacity-40 transition duration-1000"></div>
           <div className="relative glass-panel rounded-2xl p-8 flex flex-col md:flex-row items-center gap-8">
             {/* Avatar Section */}
             <div className="relative">
-              <div
-                className="w-40 h-40 rounded-full border-4 border-primary/20 p-1 cursor-pointer transition-transform hover:scale-105"
-                onMouseEnter={() => setImageHover(true)}
-                onMouseLeave={() => setImageHover(false)}
-              >
+              <div className="w-40 h-40 rounded-full border-4 border-primary/20 p-1 transition-transform ">
                 <Image
                   alt={"User Profile"}
                   className="w-full h-full rounded-full object-cover"
@@ -123,13 +92,6 @@ export default function UserProfilePage() {
                   height={160}
                 />
               </div>
-              {imageHover && (
-                <div className="absolute inset-0 rounded-full bg-black/40 flex items-center justify-center transition-opacity">
-                  <button className="bg-primary text-on-primary-fixed p-3 rounded-full shadow-lg hover:scale-110 transition-transform">
-                    <Camera size={20} />
-                  </button>
-                </div>
-              )}
             </div>
 
             {/* Info Section */}
@@ -142,7 +104,9 @@ export default function UserProfilePage() {
                   verified
                 </span>
               </div>
-              <p className="text-on-surface-variant font-body">@toto_okemba</p>
+              <p className="text-on-surface-variant text-purple-500 font-body">
+                @toto_okemba
+              </p>
 
               {/* Location & Bio */}
               <div className="mt-3 space-y-2">
@@ -161,10 +125,6 @@ export default function UserProfilePage() {
                 <div className="flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/20 rounded-full text-xs font-bold text-primary">
                   <Sparkles size={14} />
                   ELITE MEMBER
-                </div>
-                <div className="flex items-center gap-2 px-4 py-2 bg-secondary/10 border border-secondary/20 rounded-full text-xs font-bold text-secondary">
-                  <Clock size={14} />
-                  VERIFIED
                 </div>
               </div>
             </div>
