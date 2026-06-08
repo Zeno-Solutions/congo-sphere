@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 import {
   ArrowRight,
   Edit,
@@ -17,9 +18,11 @@ import {
   LogOut,
   Ticket,
   Trophy,
+  X,
 } from "lucide-react";
 
 export default function UserProfilePage() {
+  const [notificationsOpen, setNotificationsOpen] = useState(false);
   const userStats = [
     { label: "Events Attended", value: "12", icon: Ticket },
     { label: "Achievements", value: "8", icon: Trophy },
@@ -57,10 +60,30 @@ export default function UserProfilePage() {
   ];
 
   const accountSettings = [
-    { icon: Shield, label: "Security" },
-    { icon: Bell, label: "Notifications" },
-    { icon: CreditCard, label: "Billing" },
-    { icon: HelpCircle, label: "Support" },
+    {
+      icon: Shield,
+      label: "Security",
+      href: "/security",
+      description: "Protégez votre compte et vos préférences de connexion",
+    },
+    {
+      icon: Bell,
+      label: "Notifications",
+      action: () => setNotificationsOpen(true),
+      description: "Consultez les dernières alertes et mises à jour",
+    },
+    {
+      icon: CreditCard,
+      label: "Billing",
+      href: "/billing",
+      description: "Gérez vos abonnements et méthodes de paiement",
+    },
+    {
+      icon: HelpCircle,
+      label: "Support",
+      href: "/support",
+      description: "Accédez à l'aide et contactez l'équipe",
+    },
   ];
 
   const achievements = [
@@ -75,7 +98,6 @@ export default function UserProfilePage() {
       <div className="fixed inset-0 bg-mesh z-0 pointer-events-none"></div>
       <div className="fixed -top-[20%] -left-[10%] w-[60%] h-[60%] bg-primary/10 blur-[120px] rounded-full pointer-events-none"></div>
       <div className="fixed -bottom-[20%] -right-[10%] w-[60%] h-[60%] bg-secondary/10 blur-[120px] rounded-full pointer-events-none"></div>
-
       <main className="pt-24 px-6 max-w-5xl mx-auto space-y-8">
         {/* Profile Hero Section */}
         <section className="relative group">
@@ -225,23 +247,40 @@ export default function UserProfilePage() {
                 Account
               </h3>
               <div className="glass-panel rounded-lg divide-y divide-white/5 overflow-hidden">
-                {accountSettings.map((setting, index) => (
-                  <button
-                    key={index}
-                    className="w-full p-4 flex items-center justify-between hover:bg-white/5 transition-colors group"
-                  >
-                    <div className="flex items-center gap-3">
-                      <setting.icon size={20} className={`text-purple-500`} />
-                      <span className="text-sm font-medium">
-                        {setting.label}
-                      </span>
+                {accountSettings.map((setting, index) => {
+                  const content = (
+                    <div className="w-full p-4 flex items-center justify-between hover:bg-white/5 transition-colors group rounded-xl">
+                      <div className="flex items-center gap-3">
+                        <setting.icon size={20} className="text-purple-500" />
+                        <div className="text-left">
+                          <p className="text-sm font-medium">{setting.label}</p>
+                          <p className="text-[11px] text-on-surface-variant">
+                            {setting.description}
+                          </p>
+                        </div>
+                      </div>
+                      <ChevronRight
+                        size={20}
+                        className="text-on-surface-variant group-hover:translate-x-1 transition-transform"
+                      />
                     </div>
-                    <ChevronRight
-                      size={20}
-                      className="text-on-surface-variant group-hover:translate-x-1 transition-transform"
-                    />
-                  </button>
-                ))}
+                  );
+
+                  return setting.href ? (
+                    <Link key={index} href={setting.href} className="block">
+                      {content}
+                    </Link>
+                  ) : (
+                    <button
+                      key={index}
+                      type="button"
+                      onClick={setting.action}
+                      className="w-full"
+                    >
+                      {content}
+                    </button>
+                  );
+                })}
               </div>
             </section>
 
@@ -272,6 +311,71 @@ export default function UserProfilePage() {
           </div>
         </div>
       </main>
+      {notificationsOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm px-4 py-8">
+          <div
+            className="absolute inset-0"
+            onClick={() => setNotificationsOpen(false)}
+          />
+          <div className="relative z-10 w-full max-w-2xl rounded-3xl border border-white/10 bg-surface-container-high p-6 shadow-2xl shadow-black/30">
+            <div className="flex items-start justify-between gap-4 mb-6">
+              <div>
+                <p className="text-sm uppercase tracking-[0.35em] text-purple-500 font-semibold">
+                  Notifications
+                </p>
+                <h2 className="text-3xl font-bold text-on-surface mt-2">
+                  Dernières alertes
+                </h2>
+              </div>
+              <button
+                type="button"
+                onClick={() => setNotificationsOpen(false)}
+                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-surface hover:bg-white/5 transition"
+              >
+                <X size={20} />
+              </button>
+            </div>
+
+            <div className="space-y-4">
+              <div className="rounded-3xl border border-white/10 bg-surface p-4">
+                <p className="text-sm font-semibold text-on-surface">
+                  Nouveau message de l’équipe
+                </p>
+                <p className="text-xs text-on-surface-variant mt-2">
+                  Votre demande d&apos;assistance a été reçue et un conseiller
+                  vous répondra sous 24h.
+                </p>
+                <p className="mt-3 text-[11px] uppercase tracking-[0.3em] text-purple-500 font-black">
+                  5 min ago
+                </p>
+              </div>
+              <div className="rounded-3xl border border-white/10 bg-surface p-4">
+                <p className="text-sm font-semibold text-on-surface">
+                  Mise à jour de sécurité
+                </p>
+                <p className="text-xs text-on-surface-variant mt-2">
+                  Une nouvelle vérification en deux étapes est maintenant
+                  disponible pour renforcer votre compte.
+                </p>
+                <p className="mt-3 text-[11px] uppercase tracking-[0.3em] text-purple-500 font-black">
+                  1 hour ago
+                </p>
+              </div>
+              <div className="rounded-3xl border border-white/10 bg-surface p-4">
+                <p className="text-sm font-semibold text-on-surface">
+                  Événement confirmé
+                </p>
+                <p className="text-xs text-on-surface-variant mt-2">
+                  Votre participation à Neon Nights: Underground est confirmée.
+                </p>
+                <p className="mt-3 text-[11px] uppercase tracking-[0.3em] text-purple-500 font-black">
+                  Yesterday
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}{" "}
     </div>
   );
 }
