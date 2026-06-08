@@ -138,21 +138,6 @@ export default function EditProfilePage() {
       <div className="fixed -bottom-[20%] -right-[10%] w-[60%] h-[60%] bg-secondary/10 blur-[120px] rounded-full pointer-events-none"></div>
 
       {/* Top Navigation */}
-      <header className="fixed top-0 w-full flex justify-between items-center px-6 py-4 bg-slate-900/40 backdrop-blur-xl z-50 shadow-[0_20px_40px_rgba(138,43,226,0.15)]">
-        <div className="flex items-center gap-3">
-          <Link
-            href="/users/user-profile"
-            className="flex items-center gap-2 text-primary hover:text-primary/80 transition-colors"
-          >
-            <ArrowLeft size={20} />
-            <span className="text-sm font-semibold">Back</span>
-          </Link>
-        </div>
-        <h1 className="text-2xl font-black bg-linear-to-r from-[#cc97ff] to-[#ff67ad] bg-clip-text text-transparent font-headline">
-          Edit Profile
-        </h1>
-        <div className="w-10 h-10" />
-      </header>
 
       <main className="pt-24 px-6 max-w-2xl mx-auto">
         {/* Success Message */}
@@ -222,6 +207,15 @@ export default function EditProfilePage() {
                     <p className="text-xs text-on-surface-variant">
                       Format: JPG, PNG, WebP (Max 5MB)
                     </p>
+                  </div>
+                  <div className="bg-secondary/50 w-20 h-10 flex items-center  justify-center rounded-full">
+                    <Link
+                      href="/user-profile"
+                      className="flex items-center gap-2 text-purple-500 hover:text-primary/80 transition-colors"
+                    >
+                      <ArrowLeft size={20} />
+                      <span className="text-sm font-semibold">Back</span>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -377,7 +371,7 @@ export default function EditProfilePage() {
                   ) : (
                     <>
                       <Save size={16} />
-                      Enregistrer les modifications
+                      Enregistrer
                     </>
                   )}
                 </button>
