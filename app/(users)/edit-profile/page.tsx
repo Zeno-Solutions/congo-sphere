@@ -197,8 +197,8 @@ export default function EditProfilePage() {
                         height={128}
                       />
                       <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors rounded-full" />
-                      <div className="absolute bottom-2 right-2 bg-surface/90 backdrop-blur rounded-full p-2 shadow-lg border border-white/20">
-                        <Camera size={16} className="text-on-surface" />
+                      <div className="absolute bottom-2 right-2 bg-black/50 backdrop-blur rounded-full p-2 shadow-lg border border-white/20">
+                        <Camera size={16} className="text-on-surface " />
                       </div>
                     </div>
                     {previewImage !== avatar && (
@@ -231,7 +231,7 @@ export default function EditProfilePage() {
               {/* Personal Information */}
               <div className="space-y-4">
                 <h2 className="text-xl font-bold font-headline text-on-surface flex items-center gap-2">
-                  <User size={20} />
+                  <User size={20} className="text-purple-500" />
                   Informations personnelles
                 </h2>
 
@@ -315,7 +315,8 @@ export default function EditProfilePage() {
               {/* Location & Bio */}
               <div className="space-y-4">
                 <h2 className="text-xl font-bold font-headline text-on-surface flex items-center gap-2">
-                  <FileText size={20} />À propos de vous
+                  <FileText size={20} className="text-purple-500" />À propos de
+                  vous
                 </h2>
 
                 {/* Location */}
