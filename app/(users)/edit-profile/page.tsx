@@ -3,7 +3,6 @@ import Image from "next/image";
 import React, { useState } from "react";
 import Link from "next/link";
 import {
-  Upload,
   Save,
   X,
   Camera,
@@ -177,20 +176,19 @@ export default function EditProfilePage() {
         )}
 
         {/* Form Container */}
-        <section className="relative group">
-          <div className="absolute -inset-1 bg-linear-to-r from-primary to-secondary rounded-2xl blur opacity-25 group-hover:opacity-40 transition duration-1000"></div>
+        <section className="relative group ">
+          <div className="absolute -inset-1 rounded-2xl blur opacity-25 group-hover:opacity-40 transition duration-1000"></div>
           <div className="relative glass-panel rounded-2xl p-8">
             <form onSubmit={handleSubmit} className="space-y-8">
               {/* Avatar Section */}
               <div className="space-y-4">
-                <h2 className="text-xl font-bold font-headline text-on-surface flex items-center gap-2">
-                  <Camera size={20} />
-                  Photo de profil
-                </h2>
                 <div className="flex flex-col md:flex-row items-center gap-6">
                   {/* Current Avatar */}
-                  <div className="relative">
-                    <div className="w-32 h-32 rounded-full border-4 border-primary/20 p-1 overflow-hidden">
+                  <label
+                    htmlFor="avatar-upload"
+                    className="relative cursor-pointer group"
+                  >
+                    <div className="w-32 h-32 rounded-full border-4 border-primary/20 p-1 overflow-hidden relative">
                       <Image
                         alt="Profile Preview"
                         className="w-full h-full rounded-full object-cover"
@@ -198,41 +196,29 @@ export default function EditProfilePage() {
                         width={128}
                         height={128}
                       />
+                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors rounded-full" />
+                      <div className="absolute bottom-2 right-2 bg-surface/90 backdrop-blur rounded-full p-2 shadow-lg border border-white/20">
+                        <Camera size={16} className="text-on-surface" />
+                      </div>
                     </div>
                     {previewImage !== avatar && (
-                      <div className="absolute top-0 right-0 bg-secondary rounded-full p-1.5">
+                      <div className="absolute -top-1 -right-1 bg-secondary rounded-full p-1.5 shadow-lg">
                         <CheckCircle size={16} className="text-white" />
                       </div>
                     )}
-                  </div>
+                    <input
+                      id="avatar-upload"
+                      type="file"
+                      accept="image/*"
+                      onChange={handleImageChange}
+                      className="hidden"
+                    />
+                  </label>
 
-                  {/* Upload Button */}
                   <div className="flex-1 space-y-3">
-                    <label htmlFor="avatar-upload" className="block">
-                      <div className="cursor-pointer glass-panel rounded-xl p-6 border-2 border-dashed border-primary/30 hover:border-primary/60 transition-colors text-center group">
-                        <div className="flex flex-col items-center gap-2">
-                          <Upload
-                            size={24}
-                            className="text-primary group-hover:scale-110 transition-transform"
-                          />
-                          <div>
-                            <p className="text-sm font-semibold text-on-surface">
-                              Cliquez pour télécharger
-                            </p>
-                            <p className="text-xs text-on-surface-variant">
-                              ou glissez-déposez votre image
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                      <input
-                        id="avatar-upload"
-                        type="file"
-                        accept="image/*"
-                        onChange={handleImageChange}
-                        className="hidden"
-                      />
-                    </label>
+                    <div className="text-sm font-semibold text-on-surface">
+                      Cliquez sur la photo pour télécharger
+                    </div>
                     <p className="text-xs text-on-surface-variant">
                       Format: JPG, PNG, WebP (Max 5MB)
                     </p>
@@ -409,7 +395,7 @@ export default function EditProfilePage() {
         </section>
 
         {/* Info Section */}
-        <section className="mt-8 glass-panel rounded-xl p-6 border border-tertiary/20 bg-tertiary/5">
+        <section className="mt-8 glass-panel  rounded-xl p-6 border border-tertiary/20 bg-tertiary/5">
           <p className="text-sm text-on-surface-variant leading-relaxed">
             💡 <span className="font-semibold text-on-surface">Conseil:</span>{" "}
             Votre photo de profil et vos informations de base sont visibles sur
