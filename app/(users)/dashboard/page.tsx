@@ -1,10 +1,16 @@
 import Link from "next/link";
-import { ArrowRight, Calendar, MapPin, Ticket, Sparkles } from "lucide-react";
+import { ArrowRight, Calendar, MapPin, Sparkles } from "lucide-react";
 import { events } from "@/lib/data";
 import Contenaire from "@/components/Contenaire";
 import Image from "next/image";
+
 export default function DashboardPage() {
   const upcoming = events.slice(0, 3);
+  const userStat = [
+    { label: "Événements", value: 12, text: "En préparation ou publiés" },
+    { label: "Tickets", value: 8, text: "Réservés ou confirmés" },
+    { label: "Interactions", value: 24, text: "Nouveaux abonés et reactions" },
+  ];
 
   return (
     <Contenaire className="py-10">
@@ -17,7 +23,7 @@ export default function DashboardPage() {
           <div className="max-w-6xl mx-auto px-6">
             <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
               <div className="space-y-3">
-                <p className="text-sm uppercase tracking-[0.35em] text-secondary font-semibold">
+                <p className="text-sm uppercase tracking-[0.35em] text-purple-500 font-semibold">
                   Espace utilisateur
                 </p>
                 <h1 className="text-4xl md:text-5xl font-extrabold font-headline text-on-surface">
@@ -65,39 +71,28 @@ export default function DashboardPage() {
                     Indicateurs récents sur votre activité.
                   </p>
                 </div>
-                <span className="inline-flex items-center gap-2 rounded-full bg-secondary/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.3em] text-secondary">
+                <span className="inline-flex items-center gap-2 rounded-full bg-black/40 px-4 py-2 text-xs font-black uppercase tracking-[0.3em] text-purple-500">
                   Actif
                 </span>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                <div className="rounded-3xl bg-surface-container-low p-6">
-                  <p className="text-sm text-on-surface-variant uppercase tracking-[0.25em] mb-4">
-                    Événements
-                  </p>
-                  <p className="text-4xl font-black">12</p>
-                  <p className="text-sm text-on-surface-variant mt-2">
-                    En préparation ou publiés
-                  </p>
-                </div>
-                <div className="rounded-3xl bg-surface-container-low p-6">
-                  <p className="text-sm text-on-surface-variant uppercase tracking-[0.25em] mb-4">
-                    Tickets
-                  </p>
-                  <p className="text-4xl font-black">8</p>
-                  <p className="text-sm text-on-surface-variant mt-2">
-                    Réservés ou confirmés
-                  </p>
-                </div>
-                <div className="rounded-3xl bg-surface-container-low p-6">
-                  <p className="text-sm text-on-surface-variant uppercase tracking-[0.25em] mb-4">
-                    Interactions
-                  </p>
-                  <p className="text-4xl font-black">24</p>
-                  <p className="text-sm text-on-surface-variant mt-2">
-                    Nouveaux abonnés et réactions
-                  </p>
-                </div>
+                {userStat.map((stat) => (
+                  <div
+                    key={stat.label}
+                    className="rounded-3xl bg-surface-container-low p-6"
+                  >
+                    <p className="text-sm text-on-surface-variant uppercase tracking-[0.25em] mb-4">
+                      {stat.label}
+                    </p>
+                    <p className="text-4xl font-black text-purple-500">
+                      {stat.value}
+                    </p>
+                    <p className="text-sm text-on-surface-variant mt-2">
+                      {stat.text}
+                    </p>
+                  </div>
+                ))}
               </div>
             </div>
 
@@ -107,7 +102,7 @@ export default function DashboardPage() {
                   <Sparkles size={24} />
                 </span>
                 <div>
-                  <p className="text-sm uppercase tracking-[0.25em] text-secondary">
+                  <p className="text-sm uppercase tracking-[0.25em] text-purple-500">
                     Rappel rapide
                   </p>
                   <h3 className="text-xl font-bold">Prochaine expérience</h3>
@@ -125,7 +120,7 @@ export default function DashboardPage() {
                   </p>
                   <div className="mt-4 flex flex-col gap-2 text-sm text-on-surface-variant">
                     <span className="inline-flex items-center gap-2">
-                      <Calendar size={14} />{" "}
+                      <Calendar className="text-purple-500" size={14} />{" "}
                       {new Date(upcoming[0].date).toLocaleDateString("fr-FR", {
                         weekday: "long",
                         day: "numeric",
@@ -133,7 +128,8 @@ export default function DashboardPage() {
                       })}
                     </span>
                     <span className="inline-flex items-center gap-2">
-                      <MapPin size={14} /> {upcoming[0].location}
+                      <MapPin size={14} className="text-purple-500" />{" "}
+                      {upcoming[0].location}
                     </span>
                   </div>
                 </div>
@@ -154,7 +150,7 @@ export default function DashboardPage() {
               </div>
               <Link
                 href="/events"
-                className="inline-flex items-center gap-2 text-primary font-semibold hover:underline"
+                className="inline-flex items-center gap-2 text-purple-500 font-bold hover:underline"
               >
                 Voir tous les événements <ArrowRight size={16} />
               </Link>
@@ -168,9 +164,9 @@ export default function DashboardPage() {
                 >
                   <div className="mb-4 flex items-center justify-between gap-3">
                     <span className="text-xs uppercase tracking-[0.3em] text-on-surface-variant">
-                      #{event.id}
+                      {event.title}
                     </span>
-                    <span className="rounded-full bg-secondary/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.25em] text-secondary">
+                    <span className="rounded-full bg-secondary/38 px-3 py-1 text-xs font-semibold uppercase tracking-[0.25em] text-purple-500">
                       Nouveau
                     </span>
                   </div>
@@ -193,7 +189,7 @@ export default function DashboardPage() {
                   <div className="mt-6">
                     <Link
                       href={`/events/${event.id}`}
-                      className="inline-flex items-center gap-2 text-primary font-semibold hover:underline"
+                      className="inline-flex items-center gap-2 text-purple-500 font-semibold hover:underline"
                     >
                       Voir l’événement <ArrowRight size={16} />
                     </Link>
@@ -201,41 +197,6 @@ export default function DashboardPage() {
                 </article>
               ))}
             </div>
-          </section>
-
-          <section className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <Link
-              href="/manage-event"
-              className="group rounded-[2rem] bg-primary/10 p-6 transition hover:bg-primary/20"
-            >
-              <div className="flex items-center gap-4">
-                <Ticket size={24} className="text-primary" />
-                <div>
-                  <p className="text-sm uppercase tracking-[0.25em] text-secondary">
-                    Ajouter
-                  </p>
-                  <h3 className="text-lg font-bold text-on-surface">
-                    Créer un nouvel événement
-                  </h3>
-                </div>
-              </div>
-            </Link>
-            <Link
-              href="/user-profile"
-              className="group rounded-[2rem] bg-surface-container-low border border-white/10 p-6 transition hover:border-primary/30"
-            >
-              <div className="flex items-center gap-4">
-                <Sparkles size={24} className="text-secondary" />
-                <div>
-                  <p className="text-sm uppercase tracking-[0.25em] text-secondary">
-                    Profil
-                  </p>
-                  <h3 className="text-lg font-bold text-on-surface">
-                    Gérer mes préférences
-                  </h3>
-                </div>
-              </div>
-            </Link>
           </section>
         </main>
       </div>
