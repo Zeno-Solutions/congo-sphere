@@ -39,7 +39,7 @@ export default function DashboardPage() {
                   href="/manage-event"
                   className="inline-flex text-white items-center gap-2 text-on-primary-fixed cursor-pointer font-bold font-label text-sm px-6 py-2.5 rounded-full shadow-[0_0_20px_rgba(204,151,255,0.4)] hover:shadow-[0_0_30px_rgba(204,151,255,0.6)] transition-all active:scale-95"
                 >
-                  Gérer mes événements
+                  Créer un événement
                   <ArrowRight size={16} />
                 </Link>
                 <Link

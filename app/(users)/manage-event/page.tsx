@@ -1,9 +1,9 @@
 "use client";
 
 import React, { useState } from "react";
-import Link from "next/link";
-import { Upload, MapPin, Calendar, Send, Save, ArrowLeft } from "lucide-react";
-import Image from "next/image";
+
+import { Upload, MapPin, Send } from "lucide-react";
+
 import Input from "@/components/ui/input";
 export default function ManageEventPage() {
   const [eventData, setEventData] = useState({
@@ -37,57 +37,10 @@ export default function ManageEventPage() {
       <div className="fixed -top-[20%] -left-[10%] w-[60%] h-[60%] bg-primary/10 blur-[120px] rounded-full pointer-events-none"></div>
       <div className="fixed -bottom-[20%] -right-[10%] w-[60%] h-[60%] bg-secondary/10 blur-[120px] rounded-full pointer-events-none"></div>
 
-      {/* Top Navigation */}
-      <header className="fixed top-0 w-full flex justify-between items-center px-6 py-4 bg-slate-950/50 backdrop-blur-xl z-50 shadow-[0_20px_40px_rgba(138,43,226,0.15)]">
-        <div className="flex items-center gap-3">
-          <Link href="/" className="flex items-center gap-3">
-            <span className="material-symbols-outlined text-purple-400 dark:text-purple-300 scale-95 active:scale-90 transition-transform">
-              bubble_chart
-            </span>
-            <h1 className="text-2xl font-black bg-linear-to-r from-[#cc97ff] to-[#ff67ad] bg-clip-text text-transparent font-headline tracking-tight">
-              Congo Sphere
-            </h1>
-          </Link>
-        </div>
-        <div className="flex items-center gap-4">
-          <div className="w-10 h-10 rounded-full border border-primary/20 p-0.5 overflow-hidden">
-            <Image
-              alt="User Profile"
-              className="w-full h-full object-cover rounded-full"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiXVnVXUO1zlZs2ftQ2JavonHANC9Xj7O8YwNiB-cwyRbL5OoASL_WIDHomAV2igwgA7am7t5WGk2uBXQllcEJgw5m6tMSni4ExSxc9PknDl13kEwrE4b_THBaUQV6ty5dR8J9xRVqMISGX5r7WQll1ncP9GFIQCnlnSH9HbRRj45vBtItPSBPmnySl4_Ett7rxwPx3D4IRUG1g7CL5sr8r7FNcgBd6WszvZcSFbHEDtFGB3a24i6OdKpmOWLPN1eq_z5HrtO6hJ2a"
-              width={500}
-              height={500}
-            />
-          </div>
-        </div>
-      </header>
-
-      {/* Desktop Navigation */}
-      <div className="hidden md:flex fixed top-0 right-32 h-20 items-center gap-8 z-60">
-        <Link
-          href="/"
-          className="text-slate-400 hover:text-white font-label font-bold text-sm tracking-widest transition-colors"
-        >
-          EXPLORE
-        </Link>
-        <Link
-          href="/manage-event"
-          className="text-white font-label font-bold text-sm tracking-widest transition-colors border-b-2 border-primary pt-1"
-        >
-          MY EVENTS
-        </Link>
-        <Link
-          href="#"
-          className="text-slate-400 hover:text-white font-label font-bold text-sm tracking-widest transition-colors"
-        >
-          INBOX
-        </Link>
-      </div>
-
-      <main className="pt-28 px-4 sm:px-8 max-w-4xl mx-auto">
+      <main className="pt-18 px-4 sm:px-8 max-w-4xl mx-auto">
         {/* Editorial Header Section */}
         <section className="mb-12">
-          <span className="text-secondary font-bold font-label tracking-[0.2em] uppercase text-xs">
+          <span className="text-purple-500 font-bold font-label tracking-[0.2em] uppercase text-xs">
             Event Management
           </span>
           <h2 className="text-4xl md:text-6xl font-black font-headline text-on-surface mt-2 tracking-tighter">
@@ -116,13 +69,15 @@ export default function ManageEventPage() {
                 Drag and drop or click to upload the cover art for your event.
               </p>
               <Input
+                required
+                name="image"
                 accept="image/*"
                 className="absolute inset-0 opacity-0 cursor-pointer"
                 type="file"
               />
               {/* Decorative element */}
               <div className="mt-8 w-full h-1 bg-surface-container-highest rounded-full overflow-hidden">
-                <div className="h-full w-1/3 bg-linear-to-r from-primary to-secondary"></div>
+                <div className="h-full w-full rounded-full bg-linear-to-r from-purple-500 to-purple-300"></div>
               </div>
             </div>
 
@@ -148,6 +103,7 @@ export default function ManageEventPage() {
                 type="text"
                 value={eventData.title}
                 onChange={handleInputChange}
+                required
               />
             </div>
 
@@ -157,6 +113,7 @@ export default function ManageEventPage() {
                 Description
               </label>
               <textarea
+                required
                 className="w-full resize-none rounded-3xl border border-slate-700 bg-slate-950/80 px-4 py-3 text-white outline-none focus:border-purple-400 focus:ring-2 focus:ring-purple-500/20"
                 name="description"
                 placeholder="Describe the atmosphere, artists, and what to expect..."
@@ -177,6 +134,7 @@ export default function ManageEventPage() {
                   className="absolute right-5 top-1/2 -translate-y-1/2 text-primary"
                 />
                 <Input
+                  required
                   className="w-full bg-surface-container-low border-none rounded-lg p-4 pl-12 text-on-surface placeholder-outline focus:ring-2 focus:ring-primary/50 transition-all font-body"
                   name="location"
                   placeholder="Enter address or virtual link"
@@ -198,6 +156,7 @@ export default function ManageEventPage() {
                   type="datetime-local"
                   value={eventData.startDate}
                   onChange={handleInputChange}
+                  required
                 />
               </div>
               <div className="space-y-2">
@@ -210,6 +169,7 @@ export default function ManageEventPage() {
                   type="datetime-local"
                   value={eventData.endDate}
                   onChange={handleInputChange}
+                  required
                 />
               </div>
             </div>
