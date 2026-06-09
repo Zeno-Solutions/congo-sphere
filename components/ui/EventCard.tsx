@@ -1,10 +1,65 @@
 "use client";
-import React from "react";
+
 import Image from "next/image";
 import Link from "next/link";
 import { Calendar, MapPin, Badge } from "lucide-react";
 
-interface EventCardProps {
+
+
+export interface Event {
+  id: string;
+  title: string;
+  imageUrl: string;
+  description: string;
+  location: string;
+  startDate: string;
+  endDate: string;
+  isFeatured: boolean;
+  category: string;
+  eventType: EventType;
+  createdAt: string;
+  updatedAt: string;
+  participants: EventParticipant[];
+}
+
+export type EventType = "FREE" | "PAID";
+
+export interface EventParticipant {
+  role: ParticipantRole;
+  user: EventUser;
+}
+
+export type ParticipantRole = "HOST" | "ORGANIZER" | "SPEAKER" | "PARTICIPANT";
+
+export interface EventUser {
+  id: string;
+  name: string;
+  email: string;
+  avatarUrl: string;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*interface EventCardProps {
   event: {
     id: string;
     title: string;
@@ -17,9 +72,9 @@ interface EventCardProps {
     availableTickets: number;
   };
   className?: string;
-}
+}*/
 
-export default function EventCard({ event }: EventCardProps) {
+export default function EventCard({ event }: { event: Event }) {
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
     return date.toLocaleDateString("en-US", {
@@ -39,7 +94,7 @@ export default function EventCard({ event }: EventCardProps) {
         <Image
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
           alt={event.title}
-          src={event.image}
+          src={event.imageUrl || "https://lh3.googleusercontent.com/aida-public/AB6AXuCG_xH5NEnQ17YF8bmzenFsVr3TqE5FGf6uTrP246HbZEq4eNUAMUVEe46jZf9YJyxNW5qhVDSm2Qcngukjag2D-Cd-4hGyVXgTtiZi91GpJd66c_WSVD3EAbzu8gWNq9BZio23kE5FRJyoNzXFUa3ng8RW2pJ0kHWohY8fkO0nuRRueKIWYJUyo9KtqUHp0QI4jlPevMVYZ_3eNJtZHcyFaPU77-2fT4YR1rz1q1lIZIfyWsxx_Z2FlKHF7D8FC8k_NUsK6e1XMOpm"}
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
@@ -50,7 +105,7 @@ export default function EventCard({ event }: EventCardProps) {
             <span className="material-symbols-outlined text-[14px] ">
               <Calendar />
             </span>
-            {formatDate(event.date)}
+            {formatDate(event.startDate)}
           </div>
           <div className="flex items-center gap-1">
             <MapPin size={16} />
@@ -63,22 +118,16 @@ export default function EventCard({ event }: EventCardProps) {
           {event.title}
         </h4>
         <div className="flex items-center gap-2 text-on-surface-variant text-sm mb-1">
-          {event.tags.map((tag, index) => (
-            <span
-              key={index}
-              className="px-2 py-1 max-w-50 overflow-hidden rounded-full bg-primary/10 text-primary text-[10px] font-bold uppercase tracking-tighter"
-            >
-              {tag}
-            </span>
-          ))}
+          
         </div>
         <p className="text-on-surface-variant min-h-10 text-sm text-left font-body line-clamp-2 mb-2">
           {event.description}
         </p>
         <div className="mt-auto flex-1 flex justify-between px-3 items-center pt-2 border-t border-white/5 ">
           <span className="text-md md:text-xl font-bold text-white">
-            {event.price ? (
-              `$${event.price}`
+            {event.eventType === "PAID" ? (
+              /*`$${event.price}`*/
+              200
             ) : (
               <Badge className="bg-green-50 text-green-700 dark:bg-green-950 dark:text-green-300 w-20 h-8 flex items-center justify-center text-sm font-bold">
                 Free
@@ -87,7 +136,7 @@ export default function EventCard({ event }: EventCardProps) {
           </span>
 
           <span className="text-[#cc97ff] font-bold text-sm">
-            {event.availableTickets} left
+            {/*event.availableTickets*/} 200 left
           </span>
         </div>
       </div>
