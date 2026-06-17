@@ -1,7 +1,14 @@
 "use client";
 import React, { useState } from "react";
+import Input from "@/components/ui/input";
 import Link from "next/link";
-import { ArrowLeft, Lock, CheckCircle, AlertCircle } from "lucide-react";
+import {
+  ArrowLeft,
+  Lock,
+  CheckCircle,
+  AlertCircle,
+  RotateCw,
+} from "lucide-react";
 
 export default function ChangePasswordPage() {
   const [values, setValues] = useState({
@@ -64,8 +71,8 @@ export default function ChangePasswordPage() {
       <main className="pt-24 px-6 max-w-2xl mx-auto">
         {success && (
           <div className="mb-6 glass-panel rounded-xl p-4 border border-primary/50 bg-primary/10 flex items-center gap-3 animate-in fade-in">
-            <CheckCircle size={20} className="text-primary shrink-0" />
-            <p className="text-sm text-on-surface font-medium">
+            <CheckCircle size={20} className="text-green-300 shrink-0" />
+            <p className="text-sm text-on-surface text-green-400 font-medium">
               Mot de passe mis à jour avec succès.
             </p>
           </div>
@@ -82,14 +89,14 @@ export default function ChangePasswordPage() {
 
         <section className="glass-panel rounded-2xl p-8">
           <Link
-            href="/user-profile"
+            href="/security"
             className="inline-flex items-center gap-2 text-sm text-purple-500 font-semibold hover:text-primary transition mb-4"
           >
             <ArrowLeft size={18} /> Retour au profil
           </Link>
           <div className="flex items-center gap-4 mb-4">
-            <div className="inline-flex h-12 w-12 items-center justify-center rounded-3xl bg-primary/10 text-primary shadow-lg">
-              <Lock size={22} />
+            <div className="hidden md:inline-flex h-12 w-12 items-center justify-center md:rounded-3xl md:bg-primary/10 text-primary shadow-lg">
+              <Lock size={22} className="hidden md:flex" />
             </div>
             <div>
               <h1 className="text-2xl font-extrabold font-headline">
@@ -107,7 +114,7 @@ export default function ChangePasswordPage() {
               <label htmlFor="current" className={labelClasses}>
                 Mot de passe actuel
               </label>
-              <input
+              <Input
                 id="current"
                 name="current"
                 type="password"
@@ -117,7 +124,9 @@ export default function ChangePasswordPage() {
                 placeholder="Entrez votre mot de passe actuel"
               />
               {errors.current && (
-                <div className="text-xs text-error mt-1">{errors.current}</div>
+                <div className="text-xs text-error text-red-400 mt-1">
+                  {errors.current}
+                </div>
               )}
             </div>
 
@@ -125,7 +134,7 @@ export default function ChangePasswordPage() {
               <label htmlFor="password" className={labelClasses}>
                 Nouveau mot de passe
               </label>
-              <input
+              <Input
                 id="password"
                 name="password"
                 type="password"
@@ -135,7 +144,9 @@ export default function ChangePasswordPage() {
                 placeholder="Nouveau mot de passe"
               />
               {errors.password && (
-                <div className="text-xs text-error mt-1">{errors.password}</div>
+                <div className="text-xs text-error text-red-400 mt-1">
+                  {errors.password}
+                </div>
               )}
             </div>
 
@@ -143,7 +154,7 @@ export default function ChangePasswordPage() {
               <label htmlFor="confirm" className={labelClasses}>
                 Confirmer le mot de passe
               </label>
-              <input
+              <Input
                 id="confirm"
                 name="confirm"
                 type="password"
@@ -153,7 +164,9 @@ export default function ChangePasswordPage() {
                 placeholder="Confirmez le nouveau mot de passe"
               />
               {errors.confirm && (
-                <div className="text-xs text-error mt-1">{errors.confirm}</div>
+                <div className="text-xs text-error text-red-400 mt-1">
+                  {errors.confirm}
+                </div>
               )}
             </div>
 
@@ -168,13 +181,17 @@ export default function ChangePasswordPage() {
                 ) : (
                   <Lock size={16} />
                 )}
-                Mettre à jour
+                <span className="hidden md:flex">Mettre à jour</span>
+                <span className="md:hidden">confirm</span>
               </button>
               <Link
                 href="/user-profile"
-                className="flex-1 flex items-center justify-center gap-2 px-6 py-3 border border-outline-variant/30 hover:bg-white/5 rounded-full text-on-surface font-bold text-sm transition-colors"
+                className="flex-1 flex items-center justify-center gap-2 md:px-6 md:py-3 border border-outline-variant/30 hover:bg-white/5 rounded-full text-on-surface font-bold text-sm transition-colors"
               >
-                Annuler
+                <span className="hidden md:flex">Annuler</span>
+                <span className="md:hidden">
+                  <RotateCw />
+                </span>
               </Link>
             </div>
           </form>

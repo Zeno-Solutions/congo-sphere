@@ -1,6 +1,7 @@
 import React from "react";
 
 type inputProps = {
+  id?: unknown;
   name?: string;
   placeholder?: string;
   type: string;
