@@ -75,7 +75,7 @@ export default function DoubleAuthPage() {
                   </span>
                   <button
                     onClick={toggle}
-                    className={`rounded-full px-4 py-2 text-sm font-semibold ${enabled ? "bg-green-500  text-white" : "border border-white/10 bg-red-500 text-on-surface"}`}
+                    className={`rounded-full cursor-pointer px-4 py-2 text-sm font-semibold ${enabled ? "bg-green-500  text-white" : "border border-white/10 bg-red-500 text-on-surface"}`}
                   >
                     {enabled ? "Activé" : "Désactivé"}
                   </button>
@@ -92,7 +92,7 @@ export default function DoubleAuthPage() {
                       méthode principale.
                     </p>
                   </div>
-                  <div className="flex items-center gap-5">
+                  <div className="flex items-center gap-5 md:gap-3">
                     <button
                       onClick={regen}
                       className="flex-1 flex items-center justify-center gap-2 px-4 py-2 signature-gradient rounded-full cursor-pointer text-on-primary-fixed font-bold text-sm transition-all hover:shadow-[0_0_15px_rgba(204,151,255,0.4)] active:scale-95 shadow-[0_0_10px_rgba(204,151,255,0.3)] disabled:opacity-50 disabled:cursor-not-allowed"
@@ -102,7 +102,7 @@ export default function DoubleAuthPage() {
                     <button
                       onClick={copyAll}
                       disabled={codes.length === 0}
-                      className="rounded-full px-4 py-2 bg-secondary/10 text-sm"
+                      className="rounded-full cursor-pointer outline-1 outline-primary/15 px-4 py-2  text-sm"
                     >
                       {copied ? "Copié" : "Copier"}
                     </button>
