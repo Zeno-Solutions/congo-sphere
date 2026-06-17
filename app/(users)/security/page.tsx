@@ -19,7 +19,7 @@ export default function SecurityPage() {
               <ArrowLeft size={18} /> Retour au profil
             </Link>
             <div className="flex items-center gap-4">
-              <span className="inline-flex h-14 w-14 items-center justify-center rounded-3xl bg-primary/10 text-primary shadow-lg shadow-primary/10">
+              <span className="inline-flex h-14 w-14 items-center justify-center rounded-3xl bg-primary/10 text-primary  border border-primary/10">
                 <Shield size={28} />
               </span>
               <div>
@@ -100,7 +100,7 @@ export default function SecurityPage() {
                       appareil.
                     </p>
                   </div>
-                  <span className="rounded-full bg-secondary/10 px-3 py-1 text-xs font-semibold uppercase text-secondary">
+                  <span className="rounded-full bg-green-500/30 px-3 py-1 text-white text-xs font-semibold uppercase">
                     Activé
                   </span>
                 </div>
@@ -120,9 +120,12 @@ export default function SecurityPage() {
                 Activez la confirmation par email et suivez les notifications de
                 sécurité pour rester informé.
               </p>
-              <button className="mt-6 inline-flex items-center justify-center rounded-full bg-linear-to-r from-purple-500 to-secondary px-6 py-3 text-sm font-bold text-white shadow-[0_0_20px_rgba(204,151,255,0.25)] hover:opacity-95 transition">
+              <Link
+                href={"security/double-auth"}
+                className="flex mt-4 max-w-45 items-center justify-center gap-2 px-4 py-3 signature-gradient rounded-full cursor-pointer text-on-primary-fixed font-bold text-sm transition-all hover:shadow-[0_0_15px_rgba(204,151,255,0.4)] active:scale-95 shadow-[0_0_10px_rgba(204,151,255,0.3)] disabled:opacity-50 disabled:cursor-not-allowed active:outline-none"
+              >
                 Activer maintenant
-              </button>
+              </Link>
             </div>
             <div className="glass-panel rounded-3xl border border-white/10 p-6 bg-surface-container-low">
               <div className="flex items-center gap-3">
