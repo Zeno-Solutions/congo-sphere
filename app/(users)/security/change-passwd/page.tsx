@@ -92,7 +92,7 @@ export default function ChangePasswordPage() {
             href="/security"
             className="inline-flex items-center gap-2 text-sm text-purple-500 font-semibold hover:text-primary transition mb-4"
           >
-            <ArrowLeft size={18} /> Retour au profil
+            <ArrowLeft size={18} /> Retour
           </Link>
           <div className="flex items-center gap-4 mb-4">
             <div className="hidden md:inline-flex h-12 w-12 items-center justify-center md:rounded-3xl md:bg-primary/10 text-primary shadow-lg">
