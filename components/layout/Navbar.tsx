@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Contenaire from "../Contenaire";
 
-import Auths from "@/app/(users)/libs/Auth";
+import Auths from "@/app/(pages)/(users)/libs/Auth";
 export default function Navbar() {
   const Islogin = Auths();
 

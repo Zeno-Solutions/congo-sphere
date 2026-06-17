@@ -41,14 +41,14 @@ export default function NotFound() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
             <Link
               href="/"
-              className="signature-gradient text-on-primary-fixed font-bold px-8 py-4 rounded-full flex items-center gap-3 shadow-lg shadow-primary/20 hover:scale-105 active:scale-95 transition-all"
+              className="flex max-w-45 items-center justify-center gap-2 px-4 py-3 signature-gradient rounded-full cursor-pointer text-on-primary-fixed font-bold text-sm transition-all hover:shadow-[0_0_15px_rgba(204,151,255,0.4)] active:scale-95 shadow-[0_0_10px_rgba(204,151,255,0.3)] disabled:opacity-50 disabled:cursor-not-allowed active:outline-none"
             >
               <Home size={20} />
               Return to Sphere
             </Link>
             <button
               onClick={() => window.history.back()}
-              className="border border-outline-variant/30 text-on-surface hover:bg-white/5 px-8 py-4 rounded-full flex items-center gap-3 transition-all"
+              className="border border-outline-variant/30 cursor-pointer text-on-surface hover:bg-white/5 px-8 h-12 rounded-full flex items-center gap-3 transition-all"
             >
               <ArrowLeft size={20} />
               Go Back
@@ -59,15 +59,15 @@ export default function NotFound() {
           <div className="pt-12">
             <div className="flex justify-center space-x-4">
               <div
-                className="w-2 h-2 bg-primary/30 rounded-full animate-bounce"
+                className="w-2 h-2 bg-purple-300 rounded-full animate-bounce"
                 style={{ animationDelay: "0s" }}
               ></div>
               <div
-                className="w-2 h-2 bg-secondary/30 rounded-full animate-bounce"
+                className="w-2 h-2 bg-purple-400 rounded-full animate-bounce"
                 style={{ animationDelay: "0.2s" }}
               ></div>
               <div
-                className="w-2 h-2 bg-tertiary/30 rounded-full animate-bounce"
+                className="w-2 h-2 bg-purple-600 rounded-full animate-bounce"
                 style={{ animationDelay: "0.4s" }}
               ></div>
             </div>
