@@ -9,8 +9,8 @@ export default function NotFound() {
     <div className="min-h-screen bg-slate-950 text-white text-on-surface font-body selection:bg-primary/30 overflow-x-hidden relative">
       {/* Global Background Decorative Elements */}
       <div className="fixed inset-0 bg-mesh z-0 pointer-events-none"></div>
-      <div className="fixed -top-[20%] -left-[10%] w-[60%] h-[60%] bg-primary/10 blur-[120px] rounded-full pointer-events-none"></div>
-      <div className="fixed -bottom-[20%] -right-[10%] w-[60%] h-[60%] bg-secondary/10 blur-[120px] rounded-full pointer-events-none"></div>
+      <div className="fixed top-[-20%] left-[-10%] w-[60%] h-[60%] bg-primary/10 blur-[120px] rounded-full pointer-events-none"></div>
+      <div className="fixed bottom-[20%] right-[-10%] w-[60%] h-[60%] bg-secondary/10 blur-[120px] rounded-full pointer-events-none"></div>
 
       <main className="relative z-10 min-h-screen flex items-center justify-center px-6 py-12">
         <div className="w-full max-w-2xl text-center space-y-8">
