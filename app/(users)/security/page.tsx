@@ -64,9 +64,11 @@ export default function SecurityPage() {
                       la connexion.
                     </p>
                   </div>
-                  <span className="rounded-full bg-purple-500/10 px-3 py-1 text-xs font-semibold uppercase text-purple-300">
-                    Activé
-                  </span>
+                  <Link href={"security/double-auth"}>
+                    <span className="rounded-full bg-purple-500/10 px-3 py-1 text-xs font-semibold uppercase text-purple-300">
+                      Activé
+                    </span>
+                  </Link>
                 </div>
               </div>
               <div className="rounded-3xl border border-white/10 bg-surface p-5">
@@ -80,9 +82,11 @@ export default function SecurityPage() {
                       connectés.
                     </p>
                   </div>
-                  <button className="rounded-full border border-white/10 px-4 py-2 text-sm font-semibold text-on-surface hover:bg-white/5 transition">
-                    Modifier
-                  </button>
+                  <Link href={"security/change-passwd"}>
+                    <button className="rounded-full border border-white/10 px-4 py-2 text-sm font-semibold text-on-surface hover:bg-white/5 transition">
+                      Modifier
+                    </button>
+                  </Link>
                 </div>
               </div>
               <div className="rounded-3xl border border-white/10 bg-surface p-5">
