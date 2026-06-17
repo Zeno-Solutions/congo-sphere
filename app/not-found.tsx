@@ -1,12 +1,12 @@
 "use client";
+import "./style.css";
 
-import React from "react";
 import Link from "next/link";
-import { Home, ArrowLeft } from "lucide-react";
+import { Home, ArrowLeft, OctagonAlert } from "lucide-react";
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen bg-surface text-on-surface font-body selection:bg-primary/30 overflow-x-hidden relative">
+    <div className="min-h-screen bg-slate-950 text-white text-on-surface font-body selection:bg-primary/30 overflow-x-hidden relative">
       {/* Global Background Decorative Elements */}
       <div className="fixed inset-0 bg-mesh z-0 pointer-events-none"></div>
       <div className="fixed -top-[20%] -left-[10%] w-[60%] h-[60%] bg-primary/10 blur-[120px] rounded-full pointer-events-none"></div>
@@ -21,7 +21,7 @@ export default function NotFound() {
             </div>
             <div className="absolute inset-0 flex items-center justify-center">
               <span className="material-symbols-outlined text-6xl md:text-7xl text-primary animate-pulse">
-                error_outline
+                <OctagonAlert />
               </span>
             </div>
           </div>
