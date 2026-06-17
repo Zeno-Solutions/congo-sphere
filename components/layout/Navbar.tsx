@@ -48,8 +48,8 @@ export default function Navbar() {
                 <Image
                   src="/user.jpg"
                   alt="Profil"
-                  width={50}
-                  height={50}
+                  width={35}
+                  height={35}
                   className="rounded-full"
                 />
               </Link>
