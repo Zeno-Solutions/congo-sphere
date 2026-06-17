@@ -227,10 +227,10 @@ export default function About() {
             Que vous soyez organisateur, artiste ou passionné, nous construisons
             ensemble une scène événementielle plus vivante.
           </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
+          <div className="flex flex-col md:flex-row justify-center gap-5">
             <Link
               href="/events"
-              className="inline-flex items-center justify-center rounded-full bg-purple-500 h-10 px-8 py-3 text-sm font-bold text-white shadow-[0_0_30px_rgba(204,151,255,0.35)] hover:bg-purple-400 transition-all"
+              className="flex md:max-w-45 items-center justify-center h-10 gap-2 px-4 py-3 signature-gradient rounded-full cursor-pointer text-on-primary-fixed font-bold text-sm transition-all hover:shadow-[0_0_15px_rgba(204,151,255,0.4)] active:scale-95 shadow-[0_0_10px_rgba(204,151,255,0.3)] disabled:opacity-50 disabled:cursor-not-allowed "
             >
               Voir les événements
             </Link>
