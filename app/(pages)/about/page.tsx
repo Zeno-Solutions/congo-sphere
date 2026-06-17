@@ -1,6 +1,4 @@
-import BottomNav from "@/components/BottomNav/BottomNav";
 import Link from "next/link";
-
 export const metadata = {
   title: "À propos - Congo Sphere",
   description:
@@ -8,6 +6,39 @@ export const metadata = {
 };
 
 export default function About() {
+  const stats = [
+    { label: "Événements organisés", value: "450+" },
+    { label: "Utilisateurs actifs", value: "10k+" },
+    { label: "Villes couvertes", value: "35" },
+    { label: "Satisfaction communauté", value: "99%" },
+  ];
+  const offre = [
+    {
+      title: "Organisation d'événements",
+      description:
+        "Des outils complets pour organiser vos événements en ligne et hors ligne.",
+    },
+    {
+      title: "Plateforme de découverte",
+      description: "Découvrez et réservez des événements près de chez vous.",
+    },
+    {
+      title: "Communauté",
+      description: "Rejoignez une communauté active d'amateurs d'événements.",
+    },
+    {
+      title: "Billetterie",
+      description: "Système de billetterie intégré et sécurisé.",
+    },
+    {
+      title: "Marketing",
+      description: "Promouvez vos événements auprès d'une large audience.",
+    },
+    {
+      title: "Support",
+      description: "Assistance 24/7 pour tous vos besoins.",
+    },
+  ];
   return (
     <>
       <section className="relative min-h-[75vh] bg-[#06060c] flex items-center justify-center overflow-hidden pt-20">
@@ -143,55 +174,75 @@ export default function About() {
                   Réussir chaque expérience
                 </h3>
               </div>
-              <div className="grid gap-4">
-                <div className="rounded-3xl bg-slate-950/70 p-6 border border-white/10">
-                  <p className="text-3xl font-extrabold text-white">250+</p>
-                  <p className="text-slate-400 mt-2">Événements sélectionnés</p>
-                </div>
-                <div className="rounded-3xl bg-slate-950/70 p-6 border border-white/10">
-                  <p className="text-3xl font-extrabold text-white">10k+</p>
-                  <p className="text-slate-400 mt-2">Utilisateurs engagés</p>
-                </div>
-              </div>
-              <div className="grid gap-4">
-                <div className="rounded-3xl bg-slate-950/70 p-6 border border-white/10">
-                  <p className="text-3xl font-extrabold text-white">35</p>
-                  <p className="text-slate-400 mt-2">Villes couvertes</p>
-                </div>
-                <div className="rounded-3xl bg-slate-950/70 p-6 border border-white/10">
-                  <p className="text-3xl font-extrabold text-white">99%</p>
-                  <p className="text-slate-400 mt-2">Satisfaction communauté</p>
-                </div>
-              </div>
-            </div>
-          </section>
 
-          <section className="rounded-[32px] border border-white/10 bg-slate-900/70 p-10 text-center">
-            <h2 className="text-3xl font-bold mb-4">
-              Rejoignez-nous dans l&apos;aventure Congo Sphere
-            </h2>
-            <p className="text-slate-300 mb-8">
-              Que vous soyez organisateur, artiste ou passionné, nous
-              construisons ensemble une scène événementielle plus vivante.
-            </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Link
-                href="/events"
-                className="inline-flex items-center justify-center rounded-full bg-purple-500 h-10 px-8 py-3 text-sm font-bold text-white shadow-[0_0_30px_rgba(204,151,255,0.35)] hover:bg-purple-400 transition-all"
-              >
-                Voir les événements
-              </Link>
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center rounded-full border  h-10 border-white/10 bg-white/5 px-8 py-3 text-sm font-bold text-white hover:border-purple-300 hover:text-purple-200 transition-all"
-              >
-                Contactez-nous
-              </Link>
+              <div className="grid gap-4">
+                {stats.slice(0, 2).map((stat) => (
+                  <div
+                    key={stat.label}
+                    className="rounded-3xl bg-slate-950/70 p-6 border border-white/10"
+                  >
+                    <p className="text-3xl font-extrabold text-white">
+                      {stat.value}
+                    </p>
+                    <p className="text-slate-400 mt-2">{stat.label}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="grid gap-4">
+                {stats.slice(2, 4).map((stat) => (
+                  <div
+                    key={stat.label}
+                    className="rounded-3xl bg-slate-950/70 p-6 border border-white/10"
+                  >
+                    <p className="text-3xl font-extrabold text-white">
+                      {stat.value}
+                    </p>
+                    <p className="text-slate-400 mt-2">{stat.label}</p>
+                  </div>
+                ))}
+              </div>
             </div>
           </section>
         </div>
       </main>
-      <BottomNav />
+      <section className="bg-slate-950 text-white px-4 py-16 ">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl font-bold mb-12 text-center">
+            Ce que nous offrons
+          </h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {offre.map((item) => (
+              <div key={item.title} className="bg-slate-900 p-6 rounded-lg">
+                <h3 className="text-xl font-semibold mb-4">{item.title}</h3>
+                <p className="text-gray-400">{item.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+        <section className="rounded-[32px] border border-white/10 mt-10 max-w-280 mx-auto bg-slate-900/70 p-10 text-center">
+          <h2 className="text-3xl font-bold mb-4">
+            Rejoignez-nous dans l&apos;aventure Congo Sphere
+          </h2>
+          <p className="text-slate-300 mb-8">
+            Que vous soyez organisateur, artiste ou passionné, nous construisons
+            ensemble une scène événementielle plus vivante.
+          </p>
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <Link
+              href="/events"
+              className="inline-flex items-center justify-center rounded-full bg-purple-500 h-10 px-8 py-3 text-sm font-bold text-white shadow-[0_0_30px_rgba(204,151,255,0.35)] hover:bg-purple-400 transition-all"
+            >
+              Voir les événements
+            </Link>
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center rounded-full border  h-10 border-white/10 bg-white/5 px-8 py-3 text-sm font-bold text-white hover:border-purple-300 hover:text-purple-200 transition-all"
+            >
+              Contactez-nous
+            </Link>
+          </div>
+        </section>
+      </section>
     </>
   );
 }
