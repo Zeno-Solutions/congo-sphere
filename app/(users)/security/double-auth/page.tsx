@@ -44,7 +44,7 @@ export default function DoubleAuthPage() {
           </Link>
 
           <div className="flex items-center gap-4 mb-4">
-            <div className="inline-flex h-12 w-12 items-center justify-center rounded-3xl bg-primary/10 text-primary shadow-lg">
+            <div className="hidden md:inline-flex h-12 w-12 items-center justify-center rounded-3xl bg-primary/10 text-primary shadow-lg">
               <Shield size={22} />
             </div>
             <div>
@@ -60,14 +60,14 @@ export default function DoubleAuthPage() {
 
           <div className="space-y-6">
             <div className="rounded-2xl border border-white/10 bg-surface p-5">
-              <div className="flex items-center justify-between">
+              <div className="flex flex-col md:flex-row gap-5 items-center justify-between">
                 <div>
                   <p className="text-sm font-semibold">Méthode</p>
                   <p className="text-xs text-on-surface-variant mt-1">
-                    Choisissez comment recevoir votre second facteur.
+                    Votre second facteur sera envoyer par mail.
                   </p>
                 </div>
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-5">
                   <span
                     className={`rounded-full px-4 py-2 text-sm font-semibold border border-white/10 text-on-surface`}
                   >
@@ -82,53 +82,56 @@ export default function DoubleAuthPage() {
                 </div>
               </div>
             </div>
-
-            <div className="rounded-2xl border border-white/10 bg-surface p-5">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-sm font-semibold">Codes de secours</p>
-                  <p className="text-xs text-on-surface-variant mt-1">
-                    Utilisez ces codes si vous perdez l&apos;accès à votre
-                    méthode principale.
-                  </p>
-                </div>
-                <div className="flex items-center gap-2">
-                  <button
-                    onClick={regen}
-                    className="flex-1 flex items-center justify-center gap-2 px-4 py-2 signature-gradient rounded-full cursor-pointer text-on-primary-fixed font-bold text-sm transition-all hover:shadow-[0_0_15px_rgba(204,151,255,0.4)] active:scale-95 shadow-[0_0_10px_rgba(204,151,255,0.3)] disabled:opacity-50 disabled:cursor-not-allowed"
-                  >
-                    Générer
-                  </button>
-                  <button
-                    onClick={copyAll}
-                    disabled={codes.length === 0}
-                    className="rounded-full px-4 py-2 bg-secondary/10 text-sm"
-                  >
-                    {copied ? "Copié" : "Copier"}
-                  </button>
-                </div>
-              </div>
-
-              {codes.length === 0 ? (
-                <div className="mt-4 text-sm text-on-surface-variant">
-                  Aucun code généré.
-                </div>
-              ) : (
-                <div className="mt-4 grid grid-cols-2 gap-2">
-                  {codes.map((c) => (
-                    <div
-                      key={c}
-                      className="rounded-lg bg-surface-container-low border border-outline-variant/20 px-3 py-2 text-sm font-mono"
+            {enabled ? (
+              <div className="rounded-2xl border border-white/10 bg-surface p-5">
+                <div className="flex flex-col md:flex-row gap-5 items-center justify-between">
+                  <div>
+                    <p className="text-sm font-semibold">Codes de secours</p>
+                    <p className="text-xs text-on-surface-variant mt-1">
+                      Utilisez ces codes si vous perdez l&apos;accès à votre
+                      méthode principale.
+                    </p>
+                  </div>
+                  <div className="flex items-center gap-5">
+                    <button
+                      onClick={regen}
+                      className="flex-1 flex items-center justify-center gap-2 px-4 py-2 signature-gradient rounded-full cursor-pointer text-on-primary-fixed font-bold text-sm transition-all hover:shadow-[0_0_15px_rgba(204,151,255,0.4)] active:scale-95 shadow-[0_0_10px_rgba(204,151,255,0.3)] disabled:opacity-50 disabled:cursor-not-allowed"
                     >
-                      {c}
-                    </div>
-                  ))}
+                      Générer
+                    </button>
+                    <button
+                      onClick={copyAll}
+                      disabled={codes.length === 0}
+                      className="rounded-full px-4 py-2 bg-secondary/10 text-sm"
+                    >
+                      {copied ? "Copié" : "Copier"}
+                    </button>
+                  </div>
                 </div>
-              )}
-            </div>
 
-            <div className="rounded-2xl border border-white/10 bg-surface p-5 flex items-center justify-between">
-              <div>
+                {codes.length === 0 ? (
+                  <div className="mt-4 text-sm text-on-surface-variant">
+                    Aucun code généré.
+                  </div>
+                ) : (
+                  <div className="mt-4 grid grid-cols-2 gap-2">
+                    {codes.map((c) => (
+                      <div
+                        key={c}
+                        className="rounded-lg bg-surface-container-low border border-outline-variant/20 px-3 py-2 text-sm font-mono"
+                      >
+                        {c}
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ) : (
+              ""
+            )}
+
+            <div className="rounded-2xl flex flex-col gap-5 md:flex-row border border-white/10 bg-surface p-5  items-center justify-between">
+              <div className="flex flex-col">
                 <p className="text-sm font-semibold flex items-center gap-2">
                   <Zap size={16} /> Conseils
                 </p>
@@ -137,7 +140,7 @@ export default function DoubleAuthPage() {
                   meilleure sécurité.
                 </p>
               </div>
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-8 ">
                 <Link
                   href="/user-profile"
                   className="text-sm font-semibold text-purple-500 hover:text-primary"
@@ -148,7 +151,7 @@ export default function DoubleAuthPage() {
                   onClick={() => {
                     setCodes(generateBackupCodes());
                   }}
-                  className="flex-1 flex items-center justify-center gap-2 px-4 py-3 signature-gradient rounded-full cursor-pointer text-on-primary-fixed font-bold text-sm transition-all hover:shadow-[0_0_15px_rgba(204,151,255,0.4)] active:scale-95 shadow-[0_0_10px_rgba(204,151,255,0.3)] disabled:opacity-50 disabled:cursor-not-allowed"
+                  className=" flex items-center justify-center gap-2 px-4 py-3 signature-gradient rounded-full cursor-pointer text-on-primary-fixed font-bold text-sm transition-all hover:shadow-[0_0_15px_rgba(204,151,255,0.4)] active:scale-95 shadow-[0_0_10px_rgba(204,151,255,0.3)] disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   Sauvegarder
                 </button>
