@@ -1,14 +1,8 @@
 "use client";
 import React, { useState } from "react";
 import Link from "next/link";
-import {
-  ArrowLeft,
-  Shield,
-  Zap,
-  Key,
-  FileText,
-  CheckCircle,
-} from "lucide-react";
+
+import { ArrowLeft, Shield, Zap } from "lucide-react";
 
 function generateBackupCodes() {
   const codes: string[] = [];
@@ -19,12 +13,12 @@ function generateBackupCodes() {
 }
 
 export default function DoubleAuthPage() {
-  const [enabled, setEnabled] = useState(true);
-  const [method, setMethod] = useState("Authenticator");
+  const [enabled, setEnabled] = useState(false);
+
   const [codes, setCodes] = useState<string[]>([]);
   const [copied, setCopied] = useState(false);
 
-  const toggle = () => setEnabled((v) => !v);
+  const toggle = () => setEnabled((V) => !V);
   const regen = () => setCodes(generateBackupCodes());
   const copyAll = async () => {
     try {
@@ -43,10 +37,10 @@ export default function DoubleAuthPage() {
       <main className="pt-24 px-6 max-w-3xl mx-auto">
         <section className="glass-panel rounded-2xl p-8">
           <Link
-            href="/user-profile"
+            href="/security"
             className="inline-flex items-center gap-2 text-sm text-purple-500 font-semibold hover:text-primary transition mb-4"
           >
-            <ArrowLeft size={18} /> Retour au profil
+            <ArrowLeft size={18} /> Retour
           </Link>
 
           <div className="flex items-center gap-4 mb-4">
@@ -59,7 +53,7 @@ export default function DoubleAuthPage() {
               </h1>
               <p className="text-on-surface-variant">
                 Ajoutez une seconde couche de sécurité avec une application
-                d'authentification ou SMS.
+                d&apos;authentification ou SMS.
               </p>
             </div>
           </div>
@@ -74,20 +68,14 @@ export default function DoubleAuthPage() {
                   </p>
                 </div>
                 <div className="flex items-center gap-3">
-                  <select
-                    value={method}
-                    onChange={(e) => setMethod(e.target.value)}
-                    className="rounded-full px-4 py-2 bg-surface-container-low border border-outline-variant/30 text-on-surface"
+                  <span
+                    className={`rounded-full px-4 py-2 text-sm font-semibold border border-white/10 text-on-surface`}
                   >
-                    <option value="Authenticator">
-                      Application d'authentification
-                    </option>
-                    <option value="SMS">SMS</option>
-                    <option value="Email">Email</option>
-                  </select>
+                    Email
+                  </span>
                   <button
                     onClick={toggle}
-                    className={`rounded-full px-4 py-2 text-sm font-semibold ${enabled ? "bg-primary text-white" : "border border-white/10 text-on-surface"}`}
+                    className={`rounded-full px-4 py-2 text-sm font-semibold ${enabled ? "bg-green-500  text-white" : "border border-white/10 bg-red-500 text-on-surface"}`}
                   >
                     {enabled ? "Activé" : "Désactivé"}
                   </button>
@@ -100,14 +88,14 @@ export default function DoubleAuthPage() {
                 <div>
                   <p className="text-sm font-semibold">Codes de secours</p>
                   <p className="text-xs text-on-surface-variant mt-1">
-                    Utilisez ces codes si vous perdez l'accès à votre méthode
-                    principale.
+                    Utilisez ces codes si vous perdez l&apos;accès à votre
+                    méthode principale.
                   </p>
                 </div>
                 <div className="flex items-center gap-2">
                   <button
                     onClick={regen}
-                    className="rounded-full px-4 py-2 border border-outline-variant/30 text-sm"
+                    className="flex-1 flex items-center justify-center gap-2 px-4 py-2 signature-gradient rounded-full cursor-pointer text-on-primary-fixed font-bold text-sm transition-all hover:shadow-[0_0_15px_rgba(204,151,255,0.4)] active:scale-95 shadow-[0_0_10px_rgba(204,151,255,0.3)] disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     Générer
                   </button>
@@ -145,8 +133,8 @@ export default function DoubleAuthPage() {
                   <Zap size={16} /> Conseils
                 </p>
                 <p className="text-xs text-on-surface-variant mt-1">
-                  Activez l'authentification par application pour la meilleure
-                  sécurité.
+                  Activez l&apos;authentification par application pour la
+                  meilleure sécurité.
                 </p>
               </div>
               <div className="flex items-center gap-3">
@@ -160,7 +148,7 @@ export default function DoubleAuthPage() {
                   onClick={() => {
                     setCodes(generateBackupCodes());
                   }}
-                  className="rounded-full px-4 py-2 bg-linear-to-r from-purple-500 to-secondary text-white text-sm font-bold"
+                  className="flex-1 flex items-center justify-center gap-2 px-4 py-3 signature-gradient rounded-full cursor-pointer text-on-primary-fixed font-bold text-sm transition-all hover:shadow-[0_0_15px_rgba(204,151,255,0.4)] active:scale-95 shadow-[0_0_10px_rgba(204,151,255,0.3)] disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   Sauvegarder
                 </button>

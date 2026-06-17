@@ -3,7 +3,7 @@ import { Shield, ArrowLeft, Lock, ShieldCheck } from "lucide-react";
 
 export default function SecurityPage() {
   return (
-    <div className="min-h-screen bg-surface text-on-surface font-body selection:bg-primary/30 overflow-x-hidden pb-32">
+    <div className=" min-h-screen bg-surface text-on-surface font-body selection:bg-primary/30 overflow-x-hidden pb-32">
       <div className="fixed inset-0 bg-mesh z-0 pointer-events-none" />
       <div className="fixed -top-[20%] -left-[10%] w-[60%] h-[60%] bg-primary/10 blur-[120px] rounded-full pointer-events-none" />
       <div className="fixed -bottom-[20%] -right-[10%] w-[60%] h-[60%] bg-secondary/10 blur-[120px] rounded-full pointer-events-none" />
@@ -13,7 +13,7 @@ export default function SecurityPage() {
           <div className="absolute -top-16 -right-16 h-48 w-48 rounded-full bg-primary/10 blur-3xl" />
           <div className="flex flex-col gap-4">
             <Link
-              href="/user-profile"
+              href="/security"
               className="inline-flex items-center gap-2 text-sm text-purple-500 font-semibold hover:text-primary transition"
             >
               <ArrowLeft size={18} /> Retour au profil
