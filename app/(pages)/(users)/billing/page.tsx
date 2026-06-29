@@ -5,8 +5,8 @@ export default function BillingPage() {
   return (
     <div className="min-h-screen bg-surface text-on-surface font-body selection:bg-primary/30 overflow-x-hidden pb-32">
       <div className="fixed inset-0 bg-mesh z-0 pointer-events-none" />
-      <div className="fixed -top-[20%] -left-[10%] w-[60%] h-[60%] bg-primary/10 blur-[120px] rounded-full pointer-events-none" />
-      <div className="fixed -bottom-[20%] -right-[10%] w-[60%] h-[60%] bg-secondary/10 blur-[120px] rounded-full pointer-events-none" />
+      <div className="fixed top-[-20%] left-[-10%] w-[60%] h-[60%] bg-primary/10 blur-[120px] rounded-full pointer-events-none" />
+      <div className="fixed bottom-[-20%] right-[-10%] w-[60%] h-[60%] bg-secondary/10 blur-[120px] rounded-full pointer-events-none" />
 
       <main className="pt-24 px-6 max-w-5xl mx-auto space-y-10">
         <section className="glass-panel rounded-3xl border border-white/10 bg-surface-container-high p-8 shadow-2xl shadow-black/10 relative overflow-hidden">
@@ -14,13 +14,14 @@ export default function BillingPage() {
           <div className="flex flex-col gap-4">
             <Link
               href="/user-profile"
-              className="inline-flex items-center gap-2 text-sm text-purple-500 font-semibold hover:text-primary transition"
+              className="inline-flex z-50 items-center gap-2 text-sm text-purple-500 font-semibold hover:text-primary transition"
             >
               <ArrowLeft size={18} /> Retour au profil
             </Link>
+
             <div className="flex items-center gap-4">
-              <span className="inline-flex h-14 w-14 items-center justify-center rounded-3xl bg-secondary/10 text-secondary shadow-lg shadow-secondary/10">
-                <CreditCard size={28} />
+              <span className="inline-flex h-14 w-14 items-center justify-center rounded-3xl bg-primary/10 text-secondary shadow-lg shadow-secondary/10">
+                <CreditCard size={28} className="text-white" />
               </span>
               <div>
                 <p className="text-xs uppercase tracking-[0.35em] text-purple-500 font-semibold">
@@ -120,7 +121,7 @@ export default function BillingPage() {
                 Activez le prélèvement automatique pour éviter les interruptions
                 de service et garder votre compte à jour.
               </p>
-              <button className="mt-6 inline-flex items-center justify-center rounded-full bg-linear-to-r from-purple-500 to-secondary px-6 py-3 text-sm font-bold text-white shadow-[0_0_20px_rgba(204,151,255,0.25)] hover:opacity-95 transition">
+              <button className="flex my-5 items-center justify-center px-8 py-3 signature-gradient rounded-full text-on-primary-fixed font-bold text-sm transition-all hover:shadow-[0_0_30px_rgba(204,151,255,0.4)] active:scale-95 shadow-[0_0_20px_rgba(204,151,255,0.3)]">
                 Activer le renouvellement
               </button>
             </div>

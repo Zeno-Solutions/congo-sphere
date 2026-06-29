@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import {
+  BadgeCheck,
   ArrowRight,
   Edit,
   Calendar,
@@ -123,7 +124,7 @@ export default function UserProfilePage() {
                   Toto OKEMBA
                 </h2>
                 <span className="material-symbols-outlined text-2xl text-green-500 animate-pulse">
-                  verified
+                  <BadgeCheck />
                 </span>
               </div>
               <p className="text-on-surface-variant text-purple-500 font-body">
@@ -312,7 +313,7 @@ export default function UserProfilePage() {
         </div>
       </main>
       {notificationsOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm px-4 py-8">
+        <div className="fixed inset-0 md:mt-10 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm px-4 py-8">
           <div
             className="absolute inset-0"
             onClick={() => setNotificationsOpen(false)}
@@ -332,7 +333,7 @@ export default function UserProfilePage() {
                 onClick={() => setNotificationsOpen(false)}
                 className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-surface hover:bg-white/5 transition"
               >
-                <X size={20} />
+                <X size={20} className="text-purple-500" />
               </button>
             </div>
 
