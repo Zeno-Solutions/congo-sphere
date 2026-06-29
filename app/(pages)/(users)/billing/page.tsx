@@ -20,14 +20,14 @@ export default function BillingPage() {
             </Link>
 
             <div className="flex items-center gap-4">
-              <span className="inline-flex h-14 w-14 items-center justify-center rounded-3xl bg-primary/10 text-secondary shadow-lg shadow-secondary/10">
+              <span className="inline-flex h-14 w-20 md:w-14  items-center justify-center rounded-3xl bg-primary/10 text-secondary shadow-lg shadow-secondary/10">
                 <CreditCard size={28} className="text-white" />
               </span>
               <div>
                 <p className="text-xs uppercase tracking-[0.35em] text-purple-500 font-semibold">
                   Facturation
                 </p>
-                <h1 className="text-4xl font-extrabold font-headline text-on-surface">
+                <h1 className="text-2xl md:text-4xl font-extrabold font-headline text-on-surface">
                   Gérer vos paiements en toute clarté
                 </h1>
               </div>
@@ -51,7 +51,7 @@ export default function BillingPage() {
                   endroit.
                 </p>
               </div>
-              <Wallet size={28} className="text-purple-500" />
+              <Wallet size={28} className="text-purple-500 w-25 md:w-10" />
             </div>
 
             <div className="grid gap-4 sm:grid-cols-2">
@@ -59,7 +59,7 @@ export default function BillingPage() {
                 <p className="text-xs uppercase tracking-[0.25em] text-on-surface-variant font-semibold">
                   Plan actuel
                 </p>
-                <p className="text-3xl font-black text-purple-500 mt-4">
+                <p className="text-xl md:text-3xl font-black text-purple-500 mt-4">
                   Premium
                 </p>
                 <p className="text-sm text-on-surface-variant mt-2">
@@ -101,7 +101,7 @@ export default function BillingPage() {
                       24 juillet 2026 • 29,99 €
                     </p>
                   </div>
-                  <span className="rounded-full bg-primary/10 px-3 py-1 text-xs uppercase tracking-[0.3em] text-primary font-black">
+                  <span className="rounded-full bg-primary/10 px-1 md:px-3 py-1 text-xs uppercase tracking-[0.3em] text-primary font-black">
                     À venir
                   </span>
                 </div>
@@ -121,7 +121,7 @@ export default function BillingPage() {
                 Activez le prélèvement automatique pour éviter les interruptions
                 de service et garder votre compte à jour.
               </p>
-              <button className="flex my-5 items-center justify-center px-8 py-3 signature-gradient rounded-full text-on-primary-fixed font-bold text-sm transition-all hover:shadow-[0_0_30px_rgba(204,151,255,0.4)] active:scale-95 shadow-[0_0_20px_rgba(204,151,255,0.3)]">
+              <button className="w-full my-5 items-center justify-center px-8 py-3 signature-gradient rounded-full text-on-primary-fixed font-bold text-sm transition-all hover:shadow-[0_0_30px_rgba(204,151,255,0.4)] active:scale-95 shadow-[0_0_20px_rgba(204,151,255,0.3)]">
                 Activer le renouvellement
               </button>
             </div>
