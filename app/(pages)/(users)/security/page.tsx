@@ -5,8 +5,8 @@ export default function SecurityPage() {
   return (
     <div className=" min-h-screen bg-surface text-on-surface font-body selection:bg-primary/30 overflow-x-hidden pb-32">
       <div className="fixed inset-0 bg-mesh z-0 pointer-events-none" />
-      <div className="fixed -top-[20%] -left-[10%] w-[60%] h-[60%] bg-primary/10 blur-[120px] rounded-full pointer-events-none" />
-      <div className="fixed -bottom-[20%] -right-[10%] w-[60%] h-[60%] bg-secondary/10 blur-[120px] rounded-full pointer-events-none" />
+      <div className="fixed top-[-20%] left-[-10%] w-[60%] h-[60%] bg-primary/10 blur-[120px] rounded-full pointer-events-none" />
+      <div className="fixed bottom-[-20%] right-[-10%] w-[60%] h-[60%] bg-secondary/10 blur-[120px] rounded-full pointer-events-none" />
 
       <main className="pt-24 px-6 max-w-5xl mx-auto space-y-10">
         <section className="glass-panel rounded-3xl border border-white/10 bg-surface-container-high p-8 shadow-2xl shadow-black/10 relative overflow-hidden">
@@ -19,14 +19,14 @@ export default function SecurityPage() {
               <ArrowLeft size={18} /> Retour au profil
             </Link>
             <div className="flex items-center gap-4">
-              <span className="inline-flex h-14 w-14 items-center justify-center rounded-3xl bg-primary/10 text-primary  border border-primary/10">
-                <Shield size={28} />
+              <span className="inline-flex h-14 w-20 md:w-14 items-center justify-center rounded-3xl bg-primary/10 text-primary  border border-primary/10">
+                <Shield size={30} />
               </span>
               <div>
                 <p className="text-xs uppercase tracking-[0.35em] text-purple-500 font-semibold">
                   Sécurité du compte
                 </p>
-                <h1 className="text-4xl font-extrabold font-headline text-on-surface">
+                <h1 className=" text-2xl md:text-4xl font-extrabold font-headline text-on-surface">
                   Renforcez votre espace personnel
                 </h1>
               </div>
@@ -122,7 +122,7 @@ export default function SecurityPage() {
               </p>
               <Link
                 href={"security/double-auth"}
-                className="flex mt-4 max-w-45 items-center justify-center gap-2 px-4 py-3 signature-gradient rounded-full cursor-pointer text-on-primary-fixed font-bold text-sm transition-all hover:shadow-[0_0_15px_rgba(204,151,255,0.4)] active:scale-95 shadow-[0_0_10px_rgba(204,151,255,0.3)] disabled:opacity-50 disabled:cursor-not-allowed active:outline-none"
+                className="flex mt-4 max-w-full md:max-w-45  items-center justify-center gap-2 px-4 py-3 signature-gradient rounded-full cursor-pointer text-on-primary-fixed font-bold text-sm transition-all hover:shadow-[0_0_15px_rgba(204,151,255,0.4)] active:scale-95 shadow-[0_0_10px_rgba(204,151,255,0.3)] disabled:opacity-50 disabled:cursor-not-allowed active:outline-none"
               >
                 Activer maintenant
               </Link>
