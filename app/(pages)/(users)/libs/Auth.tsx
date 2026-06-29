@@ -12,7 +12,7 @@ export default function Auth() {
     password: "Azerty",
   };
   let Islogin: boolean = false;
-  if (User) {
+  if (User == User2) {
     Islogin = true;
     return Islogin;
     console.log(Islogin);
