@@ -1,8 +1,12 @@
 import type { NextConfig } from "next";
 
+const isGithubActions = process.env.GITHUB_ACTIONS === "true";
+
 const nextConfig: NextConfig = {
-  /* config options here */
+  output: "export",
+
   images: {
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: "https",
@@ -10,6 +14,10 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+
+  // À adapter au nom de ton dépôt
+  basePath: isGithubActions ? "/congo-sphere" : "",
+  assetPrefix: isGithubActions ? "/congo-sphere/" : "",
 };
 
 export default nextConfig;

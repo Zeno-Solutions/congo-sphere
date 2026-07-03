@@ -6,10 +6,9 @@ export default function Layout({ children }: { children: ReactNode }) {
 
   if (isLogin) {
     return <div>{children}</div>;
-    return isLogin;
   } else {
     console.log("User not authenticated");
-    return isLogin;
+
     redirect("/login");
   }
 }

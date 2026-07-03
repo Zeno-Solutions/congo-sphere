@@ -1,3 +1,5 @@
+import { redirect } from "next/navigation";
+
 type User = {
   name: string;
   password: string;
@@ -12,10 +14,9 @@ export default function Auth() {
     password: "Azerty",
   };
   let Islogin: boolean = false;
-  if (User) {
+  if (false) {
     Islogin = true;
     return Islogin;
-    console.log(Islogin);
   } else {
     Islogin = false;
     return Islogin;
