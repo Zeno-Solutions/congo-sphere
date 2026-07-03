@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import {
+  CircleCheckBig,
   Calendar,
   MapPin,
   Clock,
@@ -43,41 +44,11 @@ export default function EventDetailPage() {
         <div className="fixed top-[-20%] left-[-10%] w-[60%] h-[60%] bg-primary/10 blur-[120px] rounded-full pointer-events-none"></div>
         <div className="fixed bottom-[-20%] right-[-10%] w-[60%] h-[60%] bg-secondary/10 blur-[120px] rounded-full pointer-events-none"></div>
 
-        {/* Top Navigation */}
-        <header className="fixed top-0 w-full flex justify-between items-center px-6 py-4 bg-slate-950/50 backdrop-blur-xl z-50">
-          <div className="flex items-center gap-3">
-            <Link href="/" className="flex items-center gap-3">
-              <span className="material-symbols-outlined text-purple-400">
-                bubble_chart
-              </span>
-              <h1 className="text-2xl font-black bg-linear-to-r from-[#cc97ff] to-[#ff67ad] bg-clip-text text-transparent font-headline tracking-tight">
-                Congo Sphere
-              </h1>
-            </Link>
-          </div>
-          <div className="flex items-center gap-4">
-            <button className="p-2 rounded-full hover:bg-white/10 transition-colors">
-              <span className="material-symbols-outlined text-on-surface-variant">
-                search
-              </span>
-            </button>
-            <div className="w-10 h-10 rounded-full border-2 border-primary/30 overflow-hidden scale-95 active:scale-90 transition-transform cursor-pointer">
-              <Image
-                width={19}
-                height={2000}
-                alt="User Profile"
-                className="w-full h-full object-cover"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDyNmT_t4XzHGGoKytjGMSdAuSNLf90LkrCt1jdHHXINUIuREQSJPNmeCP5Z_gCVo_8WLuttOjhBEk94pvUivgaBHCu7bNcThW0e3MtI55VHS6swryf0bKT3qENUXwNTLU5sHvdbatLzuhsGCPaL_A8W8hfu9fmzUBbLOmfoEVPZzzRMem9gcvU1A2mOqNlCGSl3bftAyp85uk4UwiisgOSZj5QQqMQ_vEQASpRt9Yp5jWvI8kLVYUfgd4tHtIWHZz8txUwB0RCvuvE"
-              />
-            </div>
-          </div>
-        </header>
-
         <main className="pb-32">
           {/* Hero Section */}
           <section className="relative h-[50vh] md:h-[60vh] w-full overflow-hidden">
             <Image
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover blur-sm brightness-60"
               alt={event.title}
               src={event.image}
               width={1920}
@@ -114,21 +85,6 @@ export default function EventDetailPage() {
               <h2 className="text-4xl md:text-6xl font-extrabold font-headline leading-tight tracking-tighter text-on-surface mb-4">
                 {event.title}
               </h2>
-              <div className="flex flex-wrap items-center gap-6 text-on-surface-variant">
-                <div className="flex items-center gap-2">
-                  <Calendar size={20} className="text-primary" />
-                  <span className="font-medium text-sm">
-                    {formatDate(event.date)}
-                    {event.endDate &&
-                      event.endDate !== event.date &&
-                      ` - ${formatDate(event.endDate)}`}
-                  </span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <MapPin size={20} className="text-secondary" />
-                  <span className="font-medium text-sm">{event.location}</span>
-                </div>
-              </div>
             </div>
           </section>
 
@@ -137,12 +93,30 @@ export default function EventDetailPage() {
             {/* Main Content Area */}
             <div className="lg:col-span-8 space-y-12">
               {/* Description Card */}
+
               <div className="glass-panel p-8 rounded-xl border border-white/5">
                 <h3 className="text-2xl font-bold font-headline mb-6">
                   Experience Narrative
                 </h3>
                 <div className="space-y-4 text-on-surface-variant leading-relaxed text-lg">
                   <p>{event.description}</p>
+                </div>
+                <div className="flex flex-wrap items-center gap-6 pt-10 text-on-surface-variant">
+                  <div className="flex items-center gap-2">
+                    <Calendar size={20} className="text-purple-500" />
+                    <span className="font-medium text-sm">
+                      {formatDate(event.date)}
+                      {event.endDate &&
+                        event.endDate !== event.date &&
+                        ` - ${formatDate(event.endDate)}`}
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <MapPin size={20} className="text-purple-500" />
+                    <span className="font-medium text-sm">
+                      {event.location}
+                    </span>
+                  </div>
                 </div>
               </div>
 
@@ -154,7 +128,7 @@ export default function EventDetailPage() {
                     className="bg-surface-container-low p-6 rounded-xl flex items-center gap-4 group hover:bg-surface-container transition-colors"
                   >
                     <span className="material-symbols-outlined text-3xl text-primary">
-                      check_circle
+                      <CircleCheckBig size={20} className="text-green-500" />
                     </span>
                     <span className="font-medium text-on-surface">
                       {feature}
