@@ -1,19 +1,16 @@
 "use client";
 import Image from "next/image";
-import React, { useState } from "react";
 import Link from "next/link";
-import { Eye, EyeOff, ArrowRight, Apple, Mail } from "lucide-react";
+import { ArrowRight, Apple, Mail } from "lucide-react";
 import Input from "@/components/ui/input";
 
 export default function Page() {
-  const [showPassword, setShowPassword] = useState(false);
-
   return (
     <div className="min-h-screen bg-surface text-on-surface font-body selection:bg-primary/30 overflow-x-hidden relative">
       {/* Global Bfackground Decorative Elements */}
       <div className="fixed inset-0 bg-mesh z-0 pointer-events-none"></div>
-      <div className="fixed -top-[20%] -left-[10%] w-[60%] h-[60%] bg-primary/10 blur-[120px] rounded-full pointer-events-none"></div>
-      <div className="fixed -bottom-[20%] -right-[10%] w-[60%] h-[60%] bg-secondary/10 blur-[120px] rounded-full pointer-events-none"></div>
+      <div className="fixed top-[-20%] left-[-10%] w-[60%] h-[60%] bg-primary/10 blur-[120px] rounded-full pointer-events-none"></div>
+      <div className="fixed bottom-[-20%] right-[-10%] w-[60%] h-[60%] bg-secondary/10 blur-[120px] rounded-full pointer-events-none"></div>
 
       <main className="relative z-10 min-h-screen flex items-center justify-center px-6 py-12 lg:py-20">
         <div className="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">

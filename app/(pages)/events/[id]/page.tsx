@@ -1,6 +1,7 @@
 "use client";
 import not_found from "./not-found";
 import React from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import {
@@ -39,8 +40,8 @@ export default function EventDetailPage() {
       <div className="min-h-screen bg-surface text-on-surface font-body selection:bg-primary/30 overflow-x-hidden">
         {/* Global Background Decorative Elements */}
         <div className="fixed inset-0 bg-mesh z-0 pointer-events-none"></div>
-        <div className="fixed -top-[20%] -left-[10%] w-[60%] h-[60%] bg-primary/10 blur-[120px] rounded-full pointer-events-none"></div>
-        <div className="fixed -bottom-[20%] -right-[10%] w-[60%] h-[60%] bg-secondary/10 blur-[120px] rounded-full pointer-events-none"></div>
+        <div className="fixed top-[-20%] left-[-10%] w-[60%] h-[60%] bg-primary/10 blur-[120px] rounded-full pointer-events-none"></div>
+        <div className="fixed bottom-[-20%] right-[-10%] w-[60%] h-[60%] bg-secondary/10 blur-[120px] rounded-full pointer-events-none"></div>
 
         {/* Top Navigation */}
         <header className="fixed top-0 w-full flex justify-between items-center px-6 py-4 bg-slate-950/50 backdrop-blur-xl z-50">
@@ -61,7 +62,9 @@ export default function EventDetailPage() {
               </span>
             </button>
             <div className="w-10 h-10 rounded-full border-2 border-primary/30 overflow-hidden scale-95 active:scale-90 transition-transform cursor-pointer">
-              <img
+              <Image
+                width={19}
+                height={2000}
                 alt="User Profile"
                 className="w-full h-full object-cover"
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuDyNmT_t4XzHGGoKytjGMSdAuSNLf90LkrCt1jdHHXINUIuREQSJPNmeCP5Z_gCVo_8WLuttOjhBEk94pvUivgaBHCu7bNcThW0e3MtI55VHS6swryf0bKT3qENUXwNTLU5sHvdbatLzuhsGCPaL_A8W8hfu9fmzUBbLOmfoEVPZzzRMem9gcvU1A2mOqNlCGSl3bftAyp85uk4UwiisgOSZj5QQqMQ_vEQASpRt9Yp5jWvI8kLVYUfgd4tHtIWHZz8txUwB0RCvuvE"
@@ -73,10 +76,12 @@ export default function EventDetailPage() {
         <main className="pb-32">
           {/* Hero Section */}
           <section className="relative h-[50vh] md:h-[60vh] w-full overflow-hidden">
-            <img
+            <Image
               className="w-full h-full object-cover"
               alt={event.title}
               src={event.image}
+              width={1920}
+              height={1080}
             />
             <div className="absolute inset-0 bg-linear-to-t from-surface via-surface/40 to-transparent"></div>
 
