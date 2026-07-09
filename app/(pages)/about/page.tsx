@@ -7,36 +7,35 @@ export const metadata = {
 
 export default function About() {
   const stats = [
-    { label: "Événements organisés", value: "450+" },
-    { label: "Utilisateurs actifs", value: "10k+" },
-    { label: "Villes couvertes", value: "35" },
-    { label: "Satisfaction communauté", value: "99%" },
+    { label: "Organized events", value: "450+" },
+    { label: "Active users", value: "10k+" },
+    { label: "Cities covered", value: "35" },
+    { label: "Community satisfaction", value: "99%" },
   ];
   const offre = [
     {
-      title: "Organisation d'événements",
-      description:
-        "Des outils complets pour organiser vos événements en ligne et hors ligne.",
+      title: "Event organization",
+      description: "Complete tools to organize your events online and offline.",
     },
     {
-      title: "Plateforme de découverte",
-      description: "Découvrez et réservez des événements près de chez vous.",
+      title: "Discovery platform",
+      description: "Discover and book events near you.",
     },
     {
-      title: "Communauté",
-      description: "Rejoignez une communauté active d'amateurs d'événements.",
+      title: "Community",
+      description: "Join an active community of event enthusiasts.",
     },
     {
-      title: "Billetterie",
-      description: "Système de billetterie intégré et sécurisé.",
+      title: "Ticketing",
+      description: "Integrated and secure ticketing system.",
     },
     {
       title: "Marketing",
-      description: "Promouvez vos événements auprès d'une large audience.",
+      description: "Promote your events to a wide audience.",
     },
     {
       title: "Support",
-      description: "Assistance 24/7 pour tous vos besoins.",
+      description: "24/7 support for all your needs.",
     },
   ];
   return (
@@ -73,12 +72,12 @@ export default function About() {
             Congo Sphere
           </p>
           <h1 className="text-5xl md:text-7xl font-extrabold text-white leading-tight mb-6">
-            Nous connectons les expériences, la culture et les communautés.
+            We connect experiences, culture, and communities.
           </h1>
           <p className="mx-auto max-w-3xl text-base md:text-xl text-slate-300 leading-8">
-            Congo Sphere est votre passerelle vers les meilleurs événements
-            culturels, musicaux et technologiques du pays. Chaque expérience est
-            conçue pour inspirer, rassembler et faire vibrer les talents locaux.
+            Congo Sphere is your gateway to the best cultural, musical, and
+            technological events in the country. Every experience is designed to
+            inspire, unite, and showcase local talent.
           </p>
         </div>
       </section>
@@ -88,21 +87,21 @@ export default function About() {
           <section className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
               <span className="text-sm uppercase tracking-[0.4em] text-purple-300">
-                Notre histoire
+                Our Story
               </span>
               <h2 className="text-4xl font-bold">
-                Née de la passion, portée par la communauté.
+                Born from passion, driven by the community.
               </h2>
               <p className="text-slate-300 leading-8">
-                Congo Sphere a été fondée pour valoriser les talents locaux et
-                offrir une plateforme où chaque événement devient une
-                opportunité de découverte. Nous croyons que les rencontres
-                culturelles et artistiques construisent des liens durables.
+                Congo Sphere was founded to promote local talent and offer a
+                platform where every event becomes an opportunity for discovery.
+                We believe that cultural and artistic encounters build lasting
+                connections.
               </p>
               <p className="text-slate-300 leading-8">
-                Notre mission est simple : rassembler les passionnés autour
-                d&apo bs;événements uniques, accessibles et inspirants, tout en
-                soutenant les créateurs, les organisateurs et les communautés.
+                Our mission is simple: to bring enthusiasts together around
+                unique, accessible and inspiring events, while supporting
+                creators, organizers and communities.
               </p>
             </div>
             <div className="grid gap-4">
@@ -111,11 +110,11 @@ export default function About() {
                   Vision
                 </p>
                 <h3 className="text-2xl font-bold mb-3">
-                  Une scène vibrante pour tous
+                  A vibrant stage for everyone
                 </h3>
                 <p className="text-slate-300 leading-7">
-                  Faire de Congo Sphere la référence pour découvrir, partager et
-                  vivre des expériences inoubliables, partout en RDC.
+                  Making Congo Sphere the reference for discovering, sharing and
+                  experiencing unforgettable moments, throughout the DRC.
                 </p>
               </div>
               <div className="rounded-3xl border border-white/10 bg-slate-900/70 p-8 shadow-[0_20px_40px_rgba(0,0,0,0.25)]">
@@ -123,12 +122,11 @@ export default function About() {
                   Mission
                 </p>
                 <h3 className="text-2xl font-bold mb-3">
-                  Offrir une expérience immersive
+                  To offer an immersive experience
                 </h3>
                 <p className="text-slate-300 leading-7">
-                  Créer un espace où trouver des événements, se connecter avec
-                  des communautés et explorer de nouvelles passions devient
-                  naturel.
+                  Creating a space where people can find events, connect with
+                  communities and explore new passions becomes natural.
                 </p>
               </div>
             </div>
@@ -137,26 +135,26 @@ export default function About() {
           <section className="grid gap-6 md:grid-cols-3">
             {[
               {
-                title: "Communauté",
+                title: "Community",
                 description:
-                  "Un réseau d’amateurs, d’artistes et d’organisateurs connecté par des expériences fortes.",
+                  "A network of enthusiasts, artists and organizers connected by powerful experiences.",
               },
               {
-                title: "Découverte",
+                title: "Discovery",
                 description:
-                  "Des événements triés sur le volet pour explorer la culture, la musique et l’innovation.",
+                  "Events carefully selected to explore culture, music and innovation.",
               },
               {
                 title: "Impact",
                 description:
-                  "Soutenir les créateurs locaux et favoriser les rencontres qui font grandir.",
+                  "Supporting local creators and fostering connections that drive growth.",
               },
             ].map((item) => (
               <div
                 key={item.title}
                 className="rounded-3xl border border-white/10 bg-slate-900/60 p-8 hover:border-primary/30 transition-all"
               >
-                <h3 className="text-2xl font-semibold mb-3 text-white">
+                <h3 className="text-2xl font-semibold mb-3 text-purple-500">
                   {item.title}
                 </h3>
                 <p className="text-slate-300 leading-7">{item.description}</p>
@@ -168,10 +166,10 @@ export default function About() {
             <div className="grid gap-10 lg:grid-cols-3">
               <div className="space-y-4">
                 <p className="text-sm uppercase tracking-[0.4em] text-purple-300">
-                  Nos chiffres
+                  Our figures
                 </p>
                 <h3 className="text-4xl font-bold">
-                  Réussir chaque expérience
+                  Success in every experience
                 </h3>
               </div>
 
@@ -181,7 +179,7 @@ export default function About() {
                     key={stat.label}
                     className="rounded-3xl bg-slate-950/70 p-6 border border-white/10"
                   >
-                    <p className="text-3xl font-extrabold text-white">
+                    <p className="text-3xl font-extrabold text-purple-500">
                       {stat.value}
                     </p>
                     <p className="text-slate-400 mt-2">{stat.label}</p>
@@ -194,7 +192,7 @@ export default function About() {
                     key={stat.label}
                     className="rounded-3xl bg-slate-950/70 p-6 border border-white/10"
                   >
-                    <p className="text-3xl font-extrabold text-white">
+                    <p className="text-3xl font-extrabold text-purple-500">
                       {stat.value}
                     </p>
                     <p className="text-slate-400 mt-2">{stat.label}</p>
@@ -207,38 +205,40 @@ export default function About() {
       </main>
       <section className="bg-slate-950 text-white px-4 py-16 ">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold mb-12 text-center">
-            Ce que nous offrons
+          <h2 className="text-3xl text-purple-500 font-bold mb-12 text-center">
+            What we offer
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {offre.map((item) => (
               <div key={item.title} className="bg-slate-900 p-6 rounded-lg">
-                <h3 className="text-xl font-semibold mb-4">{item.title}</h3>
+                <h3 className="text-xl font-semibold text-purple-500 mb-4">
+                  {item.title}
+                </h3>
                 <p className="text-gray-400">{item.description}</p>
               </div>
             ))}
           </div>
         </div>
         <section className="rounded-[32px] border border-white/10 mt-10 max-w-280 mx-auto bg-slate-900/70 p-10 text-center">
-          <h2 className="text-3xl font-bold mb-4">
-            Rejoignez-nous dans l&apos;aventure Congo Sphere
+          <h2 className="text-3xl text-purple-500 font-bold mb-4">
+            Join us in the Congo Sphere adventure
           </h2>
           <p className="text-slate-300 mb-8">
-            Que vous soyez organisateur, artiste ou passionné, nous construisons
-            ensemble une scène événementielle plus vivante.
+            Whether you are an organizer, artist or enthusiast, we are building
+            together a more vibrant event scene.
           </p>
           <div className="flex flex-col md:flex-row justify-center gap-5">
             <Link
               href="/events"
               className="flex md:max-w-45 items-center justify-center h-10 gap-2 px-4 py-3 signature-gradient rounded-full cursor-pointer text-on-primary-fixed font-bold text-sm transition-all hover:shadow-[0_0_15px_rgba(204,151,255,0.4)] active:scale-95 shadow-[0_0_10px_rgba(204,151,255,0.3)] disabled:opacity-50 disabled:cursor-not-allowed "
             >
-              Voir les événements
+              View events
             </Link>
             <Link
               href="/contact"
               className="inline-flex items-center justify-center rounded-full border  h-10 border-white/10 bg-white/5 px-8 py-3 text-sm font-bold text-white hover:border-purple-300 hover:text-purple-200 transition-all"
             >
-              Contactez-nous
+              Contact us
             </Link>
           </div>
         </section>

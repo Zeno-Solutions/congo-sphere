@@ -41,11 +41,11 @@ export default function Contact() {
             Contact
           </p>
           <h1 className="text-5xl md:text-7xl font-extrabold text-white leading-tight mb-6">
-            Besoin d&apos;aide ? Nous sommes là pour vous.
+            Need help? We're here for you.
           </h1>
           <p className="mx-auto max-w-3xl text-base md:text-xl text-slate-300 leading-8">
-            Posez-nous vos questions, partagez vos idées ou planifiez une
-            collaboration avec notre équipe Congo Sphere.
+            Ask us your questions, share your ideas or plan a collaboration with
+            our Congo Sphere team.
           </p>
         </div>
       </section>
@@ -54,11 +54,10 @@ export default function Contact() {
         <div className="max-w-6xl mx-auto space-y-16">
           <section className="grid gap-8 lg:grid-cols-2">
             <div className="rounded-[32px] border border-white/10 bg-slate-900/70 p-10 shadow-[0_30px_60px_rgba(0,0,0,0.25)]">
-              <h2 className="text-3xl font-bold mb-4">Nous contacter</h2>
+              <h2 className="text-3xl font-bold mb-4">Contact Us</h2>
               <p className="text-slate-300 leading-8 mb-8">
-                Pour toute question sur les événements, les partenariats ou
-                votre expérience sur Congo Sphere, notre équipe est prête à vous
-                répondre rapidement.
+                For any questions about events, partnerships or your experience
+                on Congo Sphere, our team is ready to respond quickly.
               </p>
               <div className="space-y-6">
                 <div className="rounded-3xl border border-white/10 bg-slate-950/70 p-6">
@@ -71,49 +70,47 @@ export default function Contact() {
                 </div>
                 <div className="rounded-3xl border border-white/10 bg-slate-950/70 p-6">
                   <p className="text-purple-300 uppercase tracking-[0.4em] text-xs mb-2">
-                    Téléphone
+                    Phone
                   </p>
                   <p className="text-white font-semibold">+242 06 000 00 00</p>
                 </div>
                 <div className="rounded-3xl border border-white/10 bg-slate-950/70 p-6">
                   <p className="text-purple-300 uppercase tracking-[0.4em] text-xs mb-2">
-                    Adresse
+                    Address
                   </p>
                   <p className="text-white font-semibold">
-                    Brazzaville, République du Congo
+                    Brazzaville, Republic of the Congo
                   </p>
                 </div>
               </div>
             </div>
 
             <div className="rounded-[32px] border border-white/10 bg-slate-900/70 p-10 shadow-[0_30px_60px_rgba(0,0,0,0.25)]">
-              <h2 className="text-3xl font-bold mb-4">
-                Envoyez-nous un message
-              </h2>
+              <h2 className="text-3xl font-bold mb-4">Send us a message</h2>
               <form className="space-y-6">
                 <div>
                   <label className="block text-sm font-medium mb-2 text-slate-300">
-                    Nom complet
+                    Full name
                   </label>
-                  <Input type="text" placeholder="Votre nom" name="name" />
+                  <Input type="text" placeholder="Your name" name="name" />
                 </div>
                 <div>
                   <label className="block text-sm font-medium mb-2 text-slate-300">
-                    Adresse email
+                    Email address
                   </label>
                   <Input
                     type="email"
-                    placeholder="vous@example.com"
+                    placeholder="you@example.com"
                     name="email"
                   />
                 </div>
                 <div>
                   <label className="block text-sm font-medium mb-2 text-slate-300">
-                    Sujet
+                    Subject
                   </label>
                   <Input
                     type="text"
-                    placeholder="Sujet de votre message"
+                    placeholder="Subject of your message"
                     name="subject"
                   />
                 </div>
@@ -124,7 +121,7 @@ export default function Contact() {
                   <textarea
                     rows={5}
                     name="message"
-                    placeholder="Écrivez votre message ici..."
+                    placeholder="Write your message here..."
                     className="w-full resize-none rounded-3xl border border-slate-700 bg-slate-950/80 px-4 py-3 text-white outline-none focus:border-purple-400 focus:ring-2 focus:ring-purple-500/20"
                   ></textarea>
                 </div>
@@ -132,7 +129,7 @@ export default function Contact() {
                   type="submit"
                   className="w-full rounded-full shadow-[0_0_20px_rgba(204,151,255,0.4)] hover:shadow-[0_0_30px_rgba(204,151,255,0.6)]  px-6 py-3 text-white font-bold cursor-pointer transition-all active:scale-95"
                 >
-                  Envoyer le message
+                  Send Message
                 </button>
               </form>
             </div>
@@ -142,15 +139,15 @@ export default function Contact() {
             {[
               {
                 title: "Support 24/7",
-                text: "Un accompagnement réactif pour les organisateurs et participants.",
+                text: "Responsive support for organizers and participants.",
               },
               {
-                title: "Partenariats",
-                text: "Collaborez avec nous pour créer des expériences plus grandes.",
+                title: "Partnerships",
+                text: "Collaborate with us to create greater experiences.",
               },
               {
-                title: "Retour utilisateur",
-                text: "Votre voix aide à améliorer la plateforme chaque jour.",
+                title: "User feedback",
+                text: "Your voice helps improve the platform every day.",
               },
             ].map((item) => (
               <div

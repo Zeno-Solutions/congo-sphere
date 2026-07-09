@@ -8,9 +8,9 @@ export default function Navbar() {
   const Islogin = Auths();
 
   const menu = [
-    { name: "Accueil", href: "/" },
-    { name: "Événements", href: "/events" },
-    { name: "A propos", href: "/about" },
+    { name: "Home", href: "/" },
+    { name: "Events", href: "/events" },
+    { name: "About", href: "/about" },
     { name: "FAQ", href: "/faq" },
     { name: "Contact", href: "/contact" },
   ];

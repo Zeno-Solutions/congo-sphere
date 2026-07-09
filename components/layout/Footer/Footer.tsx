@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { FaFacebook, FaInstagram, FaYoutube, FaTwitter } from "react-icons/fa";
 import { Mail, MapPin, ChevronRight } from "lucide-react";
-import Contenaire from "../Contenaire";
+import Contenaire from "@/components/Contenaire";
 
 export default function Footer() {
   return (
@@ -15,8 +15,8 @@ export default function Footer() {
                 Congo Sphere
               </p>
               <p className="mt-3 text-sm leading-7 text-on-surface-variant">
-                Une plateforme immersive pour découvrir, gérer et vivre les
-                événements les plus captivants du Congo.
+                An immersive platform to discover, manage and experience the
+                most captivating events in Congo.
               </p>
             </div>
             <div className="space-y-3 text-sm text-on-surface-variant">
@@ -42,10 +42,9 @@ export default function Footer() {
             </h3>
             <ul className="space-y-3 text-sm text-on-surface-variant">
               {[
-                { label: "Accueil", href: "/" },
-                { label: "Événements", href: "/events" },
-                { label: "Services", href: "/pages/services" },
-                { label: "À propos", href: "/pages/about" },
+                { label: "Home", href: "/" },
+                { label: "Events", href: "/events" },
+                { label: "About", href: "/pages/about" },
                 { label: "FAQ", href: "/pages/faq" },
               ].map((link) => (
                 <li key={link.href}>
@@ -67,10 +66,10 @@ export default function Footer() {
             </h3>
             <ul className="space-y-3 text-sm text-on-surface-variant">
               {[
-                { label: "Centre d'aide", href: "/pages/contact" },
-                { label: "Sécurité", href: "/pages/about" },
-                { label: "Politique de confidentialité", href: "/privacy" },
-                { label: "Conditions générales", href: "/terms" },
+                { label: "Help center", href: "/pages/contact" },
+                { label: "Security", href: "/pages/about" },
+                { label: "Privacy policy", href: "/privacy" },
+                { label: "Terms of service", href: "/terms" },
               ].map((link) => (
                 <li key={link.href}>
                   <Link
@@ -91,8 +90,8 @@ export default function Footer() {
                 Newsletter
               </h3>
               <p className="text-sm leading-7 text-on-surface-variant">
-                Recevez les dernières annonces d&apos;événements, exclusivités
-                VIP et invitations premium.
+                Receive the latest event announcements, VIP exclusives and
+                premium invitations.
               </p>
             </div>
             <form className="space-y-4">
@@ -103,7 +102,7 @@ export default function Footer() {
                 <input
                   id="footer-newsletter-email"
                   type="email"
-                  placeholder="Votre adresse email"
+                  placeholder="Your email address"
                   className="w-full rounded-2xl border border-outline-variant/30 bg-surface-container-high px-4 py-3 text-sm text-on-surface placeholder:text-on-surface-variant focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
                 />
                 <button
@@ -139,13 +138,9 @@ export default function Footer() {
 
         <div className=" border-t border-white/10 pt-6 text-sm text-on-surface-variant flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
           <p>
-            &copy; {new Date().getFullYear()} Congo Sphere. Tous droits
-            réservés.
+            &copy; {new Date().getFullYear()} Congo Sphere. All rights reserved.
           </p>
-          <p>
-            Conçu pour une expérience événementielle premium, fluide et
-            sécurisée.
-          </p>
+          <p>Designed for a premium, seamless and secure event experience.</p>
         </div>
       </Contenaire>
     </footer>
