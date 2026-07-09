@@ -18,32 +18,9 @@ interface TicketType {
   price: number;
   event: string;
 }
-interface Event {
-  id: string;
-  title: string;
-  imageUrl: string;
-  description: string;
-  location: string;
-  startDate: Date;
-  endDate: Date;
-  isFeatured: boolean;
-  category: string;
-  eventType: EventType;
-  ticketTypes: TicketType[];
-  participants: EventUser[];
-  createdAt: Date;
-  updatedAt: Date;
-}
 
-interface EventUser {
-  userId: string;
-  eventId: string;
-  role: EventRole;
-  joinedAt: Date;
-  user: User;
-  event: Event;
-  tickets: Ticket[];
-}
+
+
 interface Ticket {
   id: string;
   userId: string;
@@ -56,8 +33,41 @@ interface Ticket {
   ticketType: TicketType;
 }
 
-type EventType = "FREE" | "PAID";
 type EventRole = "HOST" | "ATTENDEE";
 type UserRole = "ADMIN" | "USER";
 
 type PaymentStatus = "PENDING" | "COMPLETED" | "FAILED" | "REFUNDED";
+
+
+
+export interface Event {
+  id: string;
+  title: string;
+  imageUrl: string;
+  description: string;
+  location: string;
+  startDate: string;
+  endDate: string;
+  isFeatured: boolean;
+  category: string;
+  eventType: EventType;
+  createdAt: string;
+  updatedAt: string;
+  participants: EventParticipant[];
+}
+
+export type EventType = "FREE" | "PAID";
+
+export interface EventParticipant {
+  role: ParticipantRole;
+  user: EventUser;
+}
+
+export type ParticipantRole = "HOST" | "ORGANIZER" | "SPEAKER" | "PARTICIPANT";
+
+export interface EventUser {
+  id: string;
+  name: string;
+  email: string;
+  avatarUrl: string;
+}
