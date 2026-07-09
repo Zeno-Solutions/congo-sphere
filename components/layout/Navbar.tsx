@@ -16,13 +16,19 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="sticky top-0 left-0 z-100">
-      <Contenaire className="bg-slate-950/50   backdrop-blur-xl z-50 shadow-[0_20px_40px_rgba(138,43,226,0.15)]">
+    <nav className="sticky top-0  left-0 z-100 ">
+      <Contenaire className="bg-slate-950/50  max-h-18 flex backdrop-blur-xl z-50 shadow-[0_20px_40px_rgba(138,43,226,0.15)]">
         <div className=" w-full flex justify-evenly items-center px-6 py-4">
           <div className="flex items-center gap-3">
-            <span className="text-2xl font-black bg-linear-to-r from-[#cc97ff] to-[#ff67ad] bg-clip-text text-transparent font-headline">
-              <Image src="/icon.jpg" alt="Logo" width={40} height={40} />
-            </span>
+            <Link href="/">
+              <Image
+                src="/logo.png"
+                alt="Logo"
+                width={90}
+                height={100}
+                className="rounded-full "
+              />
+            </Link>
           </div>
           <div className="hidden lg:flex items-center gap-8">
             <ul className="flex items-center gap-6">
