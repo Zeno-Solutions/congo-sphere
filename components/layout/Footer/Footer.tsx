@@ -103,7 +103,8 @@ export default function Footer() {
                   id="footer-newsletter-email"
                   type="email"
                   placeholder="Your email address"
-                  className="w-full rounded-2xl border border-outline-variant/30 bg-surface-container-high px-4 py-3 text-sm text-on-surface placeholder:text-on-surface-variant focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+                  className="w-full rounded-2xl border outline-amber-300 bg-surface-container-high px-4 py-3 text-sm text-on-surface placeholder:text-on-surface-variant focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+                  required
                 />
                 <button
                   type="submit"
