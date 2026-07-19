@@ -4,6 +4,10 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { Eye, EyeOff, ArrowRight, Apple, Mail } from "lucide-react";
 import Input from "@/components/ui/input";
+export const metadata = {
+  title: "Login - Congo Sphere",
+  description: "Connectez-vous pour continuer votre experience",
+};
 
 export default function Page() {
   const [showPassword, setShowPassword] = useState(false);
