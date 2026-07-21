@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import SearchBar from "../SearchBar/SearchBar";
 export default function Hero() {
   return (
@@ -42,9 +43,12 @@ export default function Hero() {
         <p className="text-lg md:text-2xl text-gray-300 mb-8">
           Explore events, festivals, and categories around you.
         </p>
-        <button className="px-8 py-4 cursor-pointer bg-purple-500 hover:bg-purple-600 text-white rounded-full transition-colors">
+        <Link
+          href={"/events"}
+          className="px-8 py-4 cursor-pointer bg-purple-500 hover:bg-purple-600 text-white rounded-full transition-colors"
+        >
           Get Started
-        </button>
+        </Link>
       </section>
 
       {/* <!-- Scroll Indicator --> */}

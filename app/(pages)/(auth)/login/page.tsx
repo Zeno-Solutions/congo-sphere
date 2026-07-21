@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import Link from "next/link";
-import { Eye, EyeOff, ArrowRight, Apple, Mail } from "lucide-react";
+import { Eye, EyeOff, ArrowRight, Mail } from "lucide-react";
 import { FaApple } from "react-icons/fa";
 import { FaGoogle } from "react-icons/fa6";
 import Input from "@/components/ui/input";
