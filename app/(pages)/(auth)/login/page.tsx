@@ -4,9 +4,8 @@ import { useState } from "react";
 import Link from "next/link";
 import { Eye, EyeOff, ArrowRight, Apple, Mail } from "lucide-react";
 import { FaApple } from "react-icons/fa";
-
-import Input from "@/components/ui/input";
 import { FaGoogle } from "react-icons/fa6";
+import Input from "@/components/ui/input";
 
 export default function Page() {
   const [showPassword, setShowPassword] = useState(false);
