@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function ticket() {
   return (
     <div>
-      <div className="bg-white border rounded-lg shadow-lg px-6 py-8 max-w-md mx-auto mt-8">
+      <div className=" bg-white border rounded-lg shadow-lg px-6 py-8 max-w-md mx-auto mt-8">
         <h1 className="font-bold text-2xl my-4 text-center text-purple-400">
           UPP COMERCE
         </h1>
@@ -56,7 +56,7 @@ export default function ticket() {
         </div>
       </div>
 
-      <div className=" bg-cover border rounded-lg shadow-lg px-6 py-8 max-w-4xl mx-auto mt-8">
+      <div className="bg-[url('/bg1.jpeg')] bg-no-repeat  bg-cover border rounded-lg shadow-lg px-6 py-8 max-w-4xl mx-auto mt-8">
         <h1 className="font-bold text-2xl my-4 text-center text-purple-400">
           UPP COMERCE
         </h1>
