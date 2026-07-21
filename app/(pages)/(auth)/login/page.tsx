@@ -3,7 +3,10 @@ import Image from "next/image";
 import { useState } from "react";
 import Link from "next/link";
 import { Eye, EyeOff, ArrowRight, Apple, Mail } from "lucide-react";
+import { FaApple } from "react-icons/fa";
+
 import Input from "@/components/ui/input";
+import { FaGoogle } from "react-icons/fa6";
 
 export default function Page() {
   const [showPassword, setShowPassword] = useState(false);
@@ -152,23 +155,17 @@ export default function Page() {
                 {/* Social Buttons */}
                 <div className="grid grid-cols-2 gap-4">
                   <button
-                    className="flex items-center justify-center space-x-2 bg-surface-container-highest hover:bg-white/10 text-on-surface py-3 rounded-lg border border-outline-variant/20 transition-all"
+                    className="flex items-center justify-center space-x-2 bg-surface-container-highest hover:bg-white/10 text-on-surface py-3 rounded-full border border-outline-variant/20 transition-all"
                     type="button"
                   >
-                    <Image
-                      alt="Google"
-                      className="w-5 h-5"
-                      src="https://lh3.googleusercontent.com/aida-public/AB6AXuCulMJq7t2rtAgT_JjSSGBhgpDV1aogpvPfFA0dHV8OAUI5eO2lPQUsxjWoDSg3imf6cIxV7ltsJnvRg9zZa7_VYTeo1Gy2tIJYTvj4lovDBmSp_yjn0L0NbjalGeCCOZJHKG1YRJoA8-RGotFk0AXg6C_mmVXz7vtWJhUsuWWETTPppbPURHBZweD922csRU50ZD3jOwSmJCbrw4K-lxy6VD0DWo-vq4GSjApo7k8mMupkxd3QL2NkD-KambfMDhgP6wmMC_ASt1nr"
-                      width={20}
-                      height={20}
-                    />
+                    <FaGoogle />
                     <span className="text-sm font-semibold">Google</span>
                   </button>
                   <button
-                    className="flex items-center justify-center space-x-2 bg-surface-container-highest hover:bg-white/10 text-on-surface py-3 rounded-lg border border-outline-variant/20 transition-all"
+                    className="flex items-center justify-center space-x-2 bg-surface-container-highest hover:bg-white/10 text-on-surface py-3 rounded-full border border-outline-variant/20 transition-all"
                     type="button"
                   >
-                    <Apple className="w-5 h-5" />
+                    <FaApple className="w-5 h-5" />
                     <span className="text-sm font-semibold">Apple</span>
                   </button>
                 </div>
