@@ -56,12 +56,12 @@ export default function ticket() {
         </div>
       </div>
 
-      <div className="bg-white border rounded-lg shadow-lg px-6 py-8 max-w-4xl mx-auto mt-8">
+      <div className="bg-[url(/bgTicket/bg2.png)] border rounded-lg shadow-lg px-6 py-8 max-w-4xl mx-auto mt-8">
         <h1 className="font-bold text-2xl my-4 text-center text-purple-400">
           UPP COMERCE
         </h1>
         <hr className="mb-2" />
-        <div className="flex justify-between mb-6 bg-red-500">
+        <div className="flex justify-between mb-6 ">
           <h1 className="text-lg font-bold">Invoice</h1>
           <div className="text-gray-700">
             <div>Date: 01/05/2023</div>
@@ -69,7 +69,7 @@ export default function ticket() {
           </div>
         </div>
 
-        <div className="flex justify-between bg-red-400 transform skew-[20px]">
+        <div className="flex justify-between transform skew-[20px]">
           <div className="bg-yellow-200 my-5 max-w-100">
             <h1 className="font-black ">
               <span className="text-black text-3xl">Martial OYAGA</span>
@@ -82,7 +82,7 @@ export default function ticket() {
           </div>
 
           <div>
-            <Image src={"/qr.jpeg"} height={100} width={203} alt={"fffy"} />
+            <Image src={"/qr.jpeg"} height={100} width={103} alt={"qr"} />
           </div>
         </div>
         <div className="text-gray-700 mb-2">Thank you for your business!</div>
