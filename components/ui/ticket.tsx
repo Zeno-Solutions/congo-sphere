@@ -56,7 +56,7 @@ export default function ticket() {
         </div>
       </div>
 
-      <div className="bg-[url(/bgTicket/bg2.png)] border rounded-lg shadow-lg px-6 py-8 max-w-4xl mx-auto mt-8">
+      <div className=" bg-cover border rounded-lg shadow-lg px-6 py-8 max-w-4xl mx-auto mt-8">
         <h1 className="font-bold text-2xl my-4 text-center text-purple-400">
           UPP COMERCE
         </h1>
