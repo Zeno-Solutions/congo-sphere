@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import FuzzyText from "../FuzzyText";
 import Contenaire from "../Contenaire";
 import Input from "../ui/input";
 export default function Newsletter() {
@@ -45,10 +46,27 @@ export default function Newsletter() {
 
             {/* Overlay sombre */}
 
-            <div className="absolute flex w-100 mx-auto my-25 h-20 inset-0">
+            <div className="absolute flex w-full justify-center  mx-auto my-25 h-20 inset-0">
               {/* Contenu */}
-              <div className="relative  mx-auto m-0 z-10 flex items-center justify-center">
-                <h1 className="text-5xl font-bold text-white">Congo Sphere</h1>
+              <div className=" w-full z-10 flex flex-col gap-5 items-center justify-center">
+                <FuzzyText
+                  baseIntensity={0.09}
+                  hoverIntensity={0.19}
+                  enableHover={false}
+                  fontSize={50}
+                  letterSpacing={2}
+                >
+                  Congo Sphere
+                </FuzzyText>
+                <FuzzyText
+                  baseIntensity={0.09}
+                  hoverIntensity={0.19}
+                  enableHover={false}
+                  fontSize={90}
+                  letterSpacing={2}
+                >
+                  2026
+                </FuzzyText>
               </div>
             </div>
           </div>
