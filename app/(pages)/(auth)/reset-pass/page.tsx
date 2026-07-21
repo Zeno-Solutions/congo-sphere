@@ -110,16 +110,15 @@ export default function Page() {
                 {/* Social Buttons */}
                 <div className="grid grid-cols-2 gap-4">
                   <button
-                    className="flex items-center justify-center space-x-2 bg-surface-container-highest hover:bg-white/10 text-on-surface py-3 rounded-lg border border-outline-variant/20 transition-all"
+                    className="flex items-center justify-center space-x-2 bg-surface-container-highest hover:bg-white/10 text-on-surface py-3 rounded-full border border-outline-variant/20 transition-all"
                     type="button"
                   >
                     <span className="text-sm font-semibold">Register</span>
                   </button>
                   <button
-                    className="flex items-center justify-center space-x-2 bg-surface-container-highest hover:bg-white/10 text-on-surface py-3 rounded-lg border border-outline-variant/20 transition-all"
+                    className="flex items-center justify-center space-x-2 bg-surface-container-highest hover:bg-white/10 text-on-surface py-3 rounded-full border border-outline-variant/20 transition-all"
                     type="button"
                   >
-                    <Apple className="w-5 h-5" />
                     <span className="text-sm font-semibold">Login</span>
                   </button>
                 </div>
