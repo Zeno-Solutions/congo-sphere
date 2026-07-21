@@ -1,7 +1,6 @@
 import React from "react";
 import Contenaire from "../Contenaire";
 import Input from "../ui/input";
-import Image from "next/image";
 export default function Newsletter() {
   return (
     <Contenaire className="mt-10">
@@ -31,13 +30,27 @@ export default function Newsletter() {
             </p>
           </div>
           <div className="hidden md:block relative">
-            <Image
-              className="rounded-4xl w-full h-75 object-cover shadow-2xl rotate-3 scale-105 opacity-80 border border-white/10"
-              alt="Abstract composition of swirling cosmic lights and neon trails against a deep black void"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDc79PFMhPlZTMZy-MYYzUNerf-kSmIDNXRaIalo_YN7DseMgCzhmxCp-8kDLIeZl-BMqkwlTsY71OW3BhtufsBVD8RQHlSXdr16fUXZ2R2X0Mim702UY_l4g-nEqMnuyaT2y7EPJDuoe0oLsrr7aOULOLjaWI6-x8WwXPyGUx4ieVcK6GpEa6Yxsv-pSi_gQiZzZg73i9a97yitS4WvpA8iowUfP9ANTaz5sMbAhJRCCf9dXVW3DRAfaawpyva6ufngjZhNEWzp0Tz"
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
               width={600}
               height={600}
-            />
+              className="rounded-4xl w-full h-75 object-cover shadow-2xl rotate-3 scale-105 opacity-80 border border-white/10"
+            >
+              {" "}
+              <source src="/aurora.webm" type="video/mp4" />
+            </video>
+
+            {/* Overlay sombre */}
+
+            <div className="absolute flex w-100 mx-auto my-25 h-20 inset-0">
+              {/* Contenu */}
+              <div className="relative  mx-auto m-0 z-10 flex items-center justify-center">
+                <h1 className="text-5xl font-bold text-white">Congo Sphere</h1>
+              </div>
+            </div>
           </div>
         </div>
       </section>
