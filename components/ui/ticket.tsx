@@ -56,7 +56,7 @@ export default function ticket() {
         </div>
       </div>
 
-      <div className="bg-[url('/bg1.jpeg')] bg-no-repeat  bg-cover border rounded-lg shadow-lg px-6 py-4 max-w-4xl mx-auto mt-8">
+      <div className="bg-[url('/bg1.jpeg')] overflow-hidden bg-no-repeat  bg-cover border rounded-lg shadow-lg px-6 py-4 max-w-4xl mx-auto mt-8">
         <h1 className="font-bold text-2xl my-2 text-center text-white">
           CONGO SHERE
         </h1>
@@ -69,11 +69,11 @@ export default function ticket() {
           </div>
         </div>
 
-        <div className="flex justify-between overflow-hidden max-h-50 bg-red-300 p-0">
+        <div className="relative flex justify-between z-8 max-h-50  p-0">
           <div className="flex ">
-            <div className="bg-yellow-200 z-20  min-w-100">
-              <h1 className="font-black ">
-                <span className="text-black text-3xl">Martial OYAGA</span>
+            <div className="bg-blue-950  min-w-100">
+              <h1 className="font-black  ">
+                <span className="text-black text-3xl ">Martial OYAGA</span>
               </h1>
               <div className="flex flex-col ">
                 <p className="text-gray-700 font-black">123 Main St.</p>
@@ -85,13 +85,13 @@ export default function ticket() {
               src={"/loginTest.jpg"}
               alt="dgd"
               width={300}
-              height={130}
-              className="transform skew-9 h-100"
+              height={30}
+              className="transform skew-x-9 h-70 z-15 scale-x-100 absolute left-99 top-0"
             />
           </div>
-          <div className="bg-red-500 flex flex-col ">
-            <div className="h-1/2 flex items-center justify-center">
-              <span className="text-5xl font-black">VIP</span>
+          <div className=" flex flex-col ">
+            <div className="h-1/2 flex items-center scale-y-125 bg-red-500 justify-center shadow-md/50">
+              <span className="text-5xl font-black  ">VIP</span>
             </div>
 
             <Image src={"/qr.jpeg"} height={100} width={130} alt={"qr"} />
