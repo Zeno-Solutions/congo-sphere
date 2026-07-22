@@ -62,22 +62,24 @@ export default function ticket() {
         </h1>
         <hr className="mb-2 bg-purple-500" />
         <div className="flex justify-between mb-1">
-          <h1 className="text-lg font-bold">Invoice</h1>
+          <h1 className="text-4xl font-black text-white">
+            Cyber Punk Nights Underground
+          </h1>
           <div className=" pb-2">
             <div>Date: 01/05/2023</div>
             <div>
-              Mtriculr: <span className="font-black">INV12345</span>
+              Mtricule: <span className="font-black">INV12345</span>
             </div>
           </div>
         </div>
 
         <div className="relative flex justify-between z-8 max-h-50  p-0">
           <div className="flex ">
-            <div className="bg-[#020d557d]  min-w-100 z-10">
-              <h1 className="font-black z-15">
-                <span className="text-white text-3xl z-30 ">Martial OYAGA</span>
+            <div className="bg-gray-50 skew-x-9 pl-3 min-w-105 z-10">
+              <h1 className="font-black max-w-80 overflow-hidden max-h-18 z-15 text-purple-500  flex-wrap text-3xl ">
+                Martial OYAGA
               </h1>
-              <div className="flex flex-col z-15 text-purple-300">
+              <div className="flex flex-col z-15  text-black">
                 <p className=" font-black">123 Main St.</p>
                 <p className="">Anytown, USA 12345</p>
                 <p className="">johndoe@example.com</p>
@@ -99,7 +101,7 @@ export default function ticket() {
             <Image src={"/qr.jpeg"} height={100} width={130} alt={"qr"} />
           </div>
         </div>
-        <div className="text-purple-300 mb-2">Thank you for your business!</div>
+        <div className="text-purple-300 mb-2">Thank you for ticket!</div>
         <div className="text-purple-300 text-sm">
           Please remit payment within 30 days.
         </div>
