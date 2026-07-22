@@ -60,7 +60,7 @@ export default function ticket() {
         <h1 className="font-bold text-2xl my-2 text-center text-white">
           CONGO SHERE
         </h1>
-        <hr className="mb-2" />
+        <hr className="mb-2 bg-purple-500" />
         <div className="flex justify-between mb-1">
           <h1 className="text-lg font-bold">Invoice</h1>
           <div className="text-purple-300 pb-2">
