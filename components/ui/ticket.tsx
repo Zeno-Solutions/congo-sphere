@@ -88,11 +88,11 @@ export default function ticket() {
               alt="dgd"
               width={300}
               height={30}
-              className="transform skew-x-9 h-70 z-15 scale-x-100 absolute left-99 top-0"
+              className="transform skew-x-11 h-70 z-15 scale-x-100 absolute left-99 top-0"
             />
           </div>
           <div className=" flex flex-col ">
-            <div className="h-1/2 flex items-center scale-y-125 bg-red-500 justify-center shadow-md/50">
+            <div className="h-1/2 flex items-center scale-y-125 skew-x-9 bg-red-500 justify-center shadow-md/50">
               <span className="text-5xl font-black  ">VIP</span>
             </div>
 
