@@ -63,22 +63,24 @@ export default function ticket() {
         <hr className="mb-2 bg-purple-500" />
         <div className="flex justify-between mb-1">
           <h1 className="text-lg font-bold">Invoice</h1>
-          <div className="text-purple-300 pb-2">
+          <div className=" pb-2">
             <div>Date: 01/05/2023</div>
-            <div>Invoice #: INV12345</div>
+            <div>
+              Mtriculr: <span className="font-black">INV12345</span>
+            </div>
           </div>
         </div>
 
         <div className="relative flex justify-between z-8 max-h-50  p-0">
           <div className="flex ">
-            <div className="bg-[#020d557d] blur-xl min-w-100 z-10">
+            <div className="bg-[#020d557d]  min-w-100 z-10">
               <h1 className="font-black z-15">
-                <span className="text-white text-3xl z-30">Martial OYAGA</span>
+                <span className="text-white text-3xl z-30 ">Martial OYAGA</span>
               </h1>
-              <div className="flex flex-col z-15">
-                <p className="text-gray-700 font-black">123 Main St.</p>
-                <p className="text-gray-700">Anytown, USA 12345</p>
-                <p className="text-gray-700">johndoe@example.com</p>
+              <div className="flex flex-col z-15 text-purple-300">
+                <p className=" font-black">123 Main St.</p>
+                <p className="">Anytown, USA 12345</p>
+                <p className="">johndoe@example.com</p>
               </div>
             </div>
             <Image
