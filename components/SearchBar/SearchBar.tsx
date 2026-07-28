@@ -6,12 +6,14 @@ type SearchBarProps = {
   placeholder: string;
   className?: string;
   value?: string;
+  name?: string;
 };
 export default function SearchBar({
   onChange,
   placeholder,
   className,
   value,
+  name,
 }: SearchBarProps) {
   return (
     <div
@@ -26,6 +28,7 @@ export default function SearchBar({
           className="w-full rounded-full pl-12 h-14 border border-slate-700 bg-slate-950/80 px-4 py-3 text-white outline-none focus:border-purple-400 focus:ring-2 focus:ring-purple-500/20"
           placeholder={placeholder}
           type="text"
+          name={name}
           value={value}
           onChange={(e) => onChange?.(e.target.value)}
         />

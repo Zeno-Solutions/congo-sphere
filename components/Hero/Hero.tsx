@@ -5,8 +5,11 @@ export default function Hero() {
   return (
     <section className="relative px-6 min-h-screen bg-[#06060c] flex items-center justify-center overflow-hidden pt-20">
       {/* <!-- Background Effects --> */}
-      <form action="" method="get">
-        <SearchBar placeholder="Search events, festivals, or categories..." />
+      <form action="/search" method="get">
+        <SearchBar
+          placeholder="Search events, festivals, or categories..."
+          name="q"
+        />
       </form>
       <div className="absolute inset-0 bg-linear-to-b from-violet-950/20 via-transparent to-[#0a0a0f]"></div>
       <div className="hero-glow top-1/4 left-1/4"></div>
