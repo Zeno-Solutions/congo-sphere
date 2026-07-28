@@ -48,7 +48,7 @@ export default function EventCard({ event, className = "" }: EventCardProps) {
         <div className="flex items-center justify-between text-[#cc97ff] gap-2 text-xs font-bold uppercase tracking-wider mb-3">
           <div className="flex flex-col">
             <span className="material-symbols-outlined text-[14px] ">
-              calendar_today
+              <Calendar />
             </span>
             {formatDate(event.date)}
           </div>
