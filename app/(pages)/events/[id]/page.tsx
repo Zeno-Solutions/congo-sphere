@@ -72,9 +72,9 @@ export default function EventDetailPage() {
                     key={index}
                     className={`px-4 py-1.5 rounded-full backdrop-blur-md text-xs font-bold uppercase tracking-widest border ${
                       tag === "Featured Experience"
-                        ? "bg-primary/20 text-primary border-primary/20"
+                        ? "bg-primary/20 text-white border-primary/20"
                         : tag === "Premium Experience"
-                          ? "bg-secondary/20 text-secondary border-secondary/20"
+                          ? "bg-secondary/20 text-white border-secondary"
                           : "bg-tertiary/20 text-tertiary border-tertiary/20"
                     }`}
                   >
