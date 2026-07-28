@@ -48,13 +48,13 @@ export default function EventsPage() {
         {/* Top Navigation */}
 
         <main className=" p-6">
-          <div className="max-w-7xl w-full lg:px-10 mx-auto">
+          <div className="max-w-7xl w-full lg:px-10 mx-auto text-center">
             {/* Header */}
-            <div className="mx-5 mb-12 lg:ml-20">
+            <div className="mx-5 mb-12 lg:ml-20 text-center">
               <h2 className="text-4xl md:text-6xl font-extrabold font-headline text-on-surface mt-2 tracking-tighter">
                 Discover the Sphere
               </h2>
-              <p className="text-on-surface-variant font-body mt-4 max-w-xl text-lg leading-relaxed">
+              <p className="mt-5">
                 Explore immersive experiences that push the boundaries of
                 reality and creativity.
               </p>
