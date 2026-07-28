@@ -33,11 +33,6 @@ export default function Page() {
                 Step into the <br />
                 <span className="text-primary-fixed">Luminescent Void.</span>
               </h2>
-              <p className="text-on-surface-variant text-lg max-w-md leading-relaxed">
-                The ultimate event management ecosystem. Join an exclusive
-                community of creators and attendees in a space designed for
-                light and depth.
-              </p>
             </div>
             {/* Featured Image Card (Visual Anchor) */}
             <div className="relative group">
