@@ -42,17 +42,17 @@ export default function Page() {
             {/* Featured Image Card (Visual Anchor) */}
             <div className="relative group">
               <div className="absolute inset-0 signature-gradient opacity-20 blur-2xl group-hover:opacity-30 transition-opacity"></div>
-              <div className="relative h-64 w-full rounded-xl overflow-hidden shadow-2xl">
+              <div className="relative h-120 w-full mb-30 rounded-xl overflow-hidden shadow-2xl">
                 <Image
                   alt="Premium event atmosphere"
                   className="w-full h-full object-cover"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuDaPkmhMexwJDUlFEMC-V7k3eyjOKVEzpnDAfYHEezDbMXes7sjptjZarFR26Z6NTWW_QoT8oAwVzXXxVWqpSv7iktc_dM3g6S2s2fiNw_p7pcFfAyk1oJs0fGcLwWQCS2B5WBfTVaByxe6DccKlCTUWge4B_57LKbSqpkMJwWFh7DYpdxJ-3PneVKx4dqxZJb0FYq0yad0uCPVDPol19gwP9YLVnrXF3iU8E3hEaz5hiDov5BDA6SyUNlQTOQSZ4mSD-Nfgy7rnfd-"
+                  src="/loginTest2.jpg"
                   width={600}
-                  height={350}
+                  height={600}
                 />
                 <div className="absolute inset-0 bg-linear-to-t from-surface via-transparent to-transparent"></div>
-                <div className="absolute bottom-6 left-6 right-6">
-                  <p className="text-xs uppercase tracking-widest font-bold text-secondary mb-1 font-label">
+                <div className="absolute bottom-6 animate-bounce left-6 right-6">
+                  <p className="text-xs uppercase tracking-widest font-black mb-1 font-label">
                     Coming Tonight
                   </p>
                   <p className="text-xl font-bold font-headline">
