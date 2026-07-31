@@ -7,13 +7,12 @@ import Contenaire from "../Contenaire";
 import Auths from "@/app/(pages)/(users)/libs/Auth";
 import { usePathname } from "next/navigation";
 
-export default function Navbar() {
+export default function Testnav() {
   const path = usePathname();
   const isPathActive = (href: string) => {
     if (href === "/") {
       return path === "/";
     }
-
     return path.startsWith(href);
   };
 
@@ -101,7 +100,7 @@ export default function Navbar() {
               type="button"
               onClick={() => setIsMenuOpen((prev) => !prev)}
               aria-label="Toggle navigation menu"
-              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-slate-200  hover:bg-white/10 hover:text-white lg:hidden transition"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-slate-200  hover:bg-white/10 hover:text-white lg:hidden transition-opacity"
             >
               {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
             </button>
@@ -114,7 +113,11 @@ export default function Navbar() {
               {menu.map((item, index) => (
                 <li key={index}>
                   <Link
-                    className={`block rounded-xl px-3 py-2 text-sm font-semibold text-slate-300 ${isPathActive(item.path) ? "shadow-[0_0_5px_rgba(204,151,255,0.4)" : ""}]`}
+                    className={
+                      isPathActive(item.path)
+                        ? "block rounded-xl px-3 py-2 text-sm font-semibold text-slate-300 shadow-[0_0_5px_rgba(204,151,255,0.4)]"
+                        : "block rounded-xl px-3 py-2 text-sm font-semibold text-slate-300"
+                    }
                     href={item.href}
                     onClick={closeMenu}
                   >

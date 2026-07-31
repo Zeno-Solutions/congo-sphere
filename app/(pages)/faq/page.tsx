@@ -7,7 +7,7 @@ export const metadata = {
 export default function FAQ() {
   return (
     <>
-      <section className="relative min-h-screen bg-[#06060c] flex items-center justify-center overflow-hidden pt-20">
+      <section className="relative min-h-80 md:min-h-170 lg:min-h-screen bg-[#06060c] flex items-center justify-center overflow-hidden pt-20">
         <div className="absolute inset-0 bg-linear-to-b from-violet-950/20 via-transparent to-[#0a0a0f]"></div>
         <div className="hero-glow top-1/4 left-1/4"></div>
         <div
