@@ -7,7 +7,7 @@ import Contenaire from "../Contenaire";
 import Auths from "@/app/(pages)/(users)/libs/Auth";
 import { usePathname } from "next/navigation";
 
-export default function Testnav() {
+export default function Navbar() {
   const path = usePathname();
   const isPathActive = (href: string) => {
     if (href === "/") {
