@@ -4,7 +4,7 @@ import { events } from "@/lib/data";
 import EventCard from "../ui/EventCard";
 import Contenaire from "../Contenaire";
 export default function Recommended() {
-  const [selectedCategory, setSelectedCategory] = useState("All");                                     
+  const [selectedCategory, setSelectedCategory] = useState("All");
 
   const filterOptions = [
     { label: "All Events", value: "All" },
@@ -27,9 +27,9 @@ export default function Recommended() {
       : events.filter((event) => event.category === selectedCategory);
 
   return (
-    <Contenaire>
-      <section className="px-6 mx-auto max-w-400">
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
+    <Contenaire className=" w-full ">
+      <section className="px-2 mx-auto max-w-400 flex flex-col justify-center">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8 bg-amber-800">
           <h2 className="text-3xl font-bold font-headline text-white">
             Recommended For You
           </h2>
@@ -50,10 +50,12 @@ export default function Recommended() {
           </div>
         </div>
         {/* <!-- Bento Grid inspired layout --> */}
-        <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ">
-          {filteredEvents.map((event) => (
-            <EventCard key={event.id} event={event} />
-          ))}
+        <div className="min-w-full mx-auto">
+          <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-10 ">
+            {filteredEvents.map((event) => (
+              <EventCard key={event.id} event={event} />
+            ))}
+          </div>
         </div>
       </section>
     </Contenaire>

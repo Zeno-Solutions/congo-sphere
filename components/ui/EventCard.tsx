@@ -33,9 +33,9 @@ export default function EventCard({ event, className = "" }: EventCardProps) {
     <Link
       href={`/events/${event.id}`}
       key={event.id}
-      className="rounded-3xl shadow-[-2px_12px_18px_-5px_#111d39] bg-surface-container-low  overflow-hidden flex flex-col group border border-white/5 hover:border-primary/30 transition-all"
+      className="rounded-3xl min-w-80 lg:min-w-60 shadow-[-2px_12px_18px_-5px_#111d39] bg-surface-container-low  overflow-hidden flex flex-col group border border-white/5 hover:border-primary/30 transition-all"
     >
-      <div className="relative h-48 overflow-hidden">
+      <div className="relative h-33 md:45 overflow-hidden">
         <Image
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
           alt={event.title}
@@ -57,7 +57,7 @@ export default function EventCard({ event, className = "" }: EventCardProps) {
             <span className="max-w-30 text-[9px]">{event.location}</span>
           </div>
         </div>
-        <h4 className="text-xl line-clamp-2 overflow-hidden font-bold font-headline text-white mb-4 leading-tight">
+        <h4 className="text-xl text-left line-clamp-2 overflow-hidden font-bold font-headline text-white mb-4 leading-tight">
           {event.title}
         </h4>
         <div className="flex items-center gap-2 text-on-surface-variant text-sm mb-4">
@@ -70,7 +70,7 @@ export default function EventCard({ event, className = "" }: EventCardProps) {
             </span>
           ))}
         </div>
-        <p className="text-on-surface-variant min-h-10 text-sm font-body line-clamp-2 mb-6">
+        <p className="text-on-surface-variant min-h-10 text-sm text-left font-body line-clamp-2 mb-6">
           {event.description}
         </p>
         <div className="mt-auto flex-1 flex justify-between px-3 items-center pt-4 border-t border-white/5 ">
