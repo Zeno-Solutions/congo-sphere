@@ -1,5 +1,3 @@
-import BottomNav from "@/components/BottomNav/BottomNav";
-
 export const metadata = {
   title: "FAQ - Congo Sphere",
   description:
@@ -88,7 +86,6 @@ export default function FAQ() {
           </div>
         </div>
       </main>
-      <BottomNav />
     </>
   );
 }

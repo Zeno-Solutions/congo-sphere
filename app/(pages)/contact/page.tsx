@@ -1,4 +1,3 @@
-import BottomNav from "@/components/BottomNav/BottomNav";
 import Input from "@/components/ui/input";
 export const metadata = {
   title: "Contact - Congo Sphere",
@@ -163,7 +162,6 @@ export default function Contact() {
           </section>
         </div>
       </main>
-      <BottomNav />
     </>
   );
 }
