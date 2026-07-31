@@ -96,12 +96,12 @@ export default function Testnav() {
         </div>
 
         {isMenuOpen && (
-          <div className="border-t border-white/10 rounded-xl bg-slate-950 w-80 absolute right-5 top-20 px-4 py-4 backdrop-blur-xl lg:hidden">
+          <div className="border  border-purple-300/20 rounded-xl bg-slate-950 w-80 absolute right-5 top-20 px-4 py-4 backdrop-blur-xl lg:hidden">
             <ul className="flex flex-col gap-2">
               {menu.map((item, index) => (
                 <li key={index}>
                   <Link
-                    className="block rounded-xl px-3 py-2 text-sm font-semibold text-slate-300 transition hover:bg-blue-700/50 hover:text-white"
+                    className="block rounded-xl px-3 py-2 text-sm font-semibold text-slate-300  hover:shadow-[0_0_5px_rgba(204,151,255,0.4)] transition-all"
                     href={item.href}
                     onClick={closeMenu}
                   >
@@ -137,13 +137,13 @@ export default function Testnav() {
                 <div className="w-full flex justify-evenly items-center px-2 sm:flex lg:px-10">
                   <Link
                     href="/login"
-                    className="cursor-pointer rounded-full px-4 py-2 text-sm font-bold text-slate-400 transition-all hover:text-white active:scale-95"
+                    className="cursor-pointer rounded-full px-8 py-2.5 text-sm font-bold text-white shadow-[0_0_2px_rgba(204,151,255,0.4)] active:scale-95"
                   >
                     Login
                   </Link>
                   <Link
                     href="/register"
-                    className="cursor-pointer rounded-full px-6 py-2.5 text-sm font-bold text-white shadow-[0_0_20px_rgba(204,151,255,0.4)] transition-all hover:shadow-[0_0_30px_rgba(204,151,255,0.6)] active:scale-95"
+                    className="cursor-pointer rounded-full px-6 py-2.5 text-sm font-bold text-white shadow-[0_0_7px_rgba(204,151,255,0.4)] transition-all hover:shadow-[0_0_9px_rgba(204,151,255,0.6)] active:scale-95"
                   >
                     Register
                   </Link>
