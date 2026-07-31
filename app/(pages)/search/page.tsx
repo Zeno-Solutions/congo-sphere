@@ -46,7 +46,7 @@ export default function SearchPage() {
               <div className="rounded-full relative w-200 bg-[#050b37be] cursor-none">
                 <Search className="material-symbols-outlined z-10 absolute left-5 top-1/2 transform -translate-y-1/2 " />
                 <input
-                  className="w-full min-w-85 md:min-w-169 rounded-full pl-12 h-14 border border-slate-700 bg-slate-950/80 px-4 py-3 text-white outline-none focus:border-purple-400 focus:ring-2 focus:ring-purple-500/20"
+                  className="w-full min-w-80 md:min-w-169 rounded-full pl-12 h-14 border border-slate-700 bg-slate-950/80 px-4 py-3 text-white outline-none focus:border-purple-400 focus:ring-2 focus:ring-purple-500/20"
                   placeholder="Chercher des événements..."
                   type="text"
                   value={searchTerm}
