@@ -4,10 +4,13 @@ import { Menu, X, LogOut } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import Contenaire from "../Contenaire";
-
 import Auths from "@/app/(pages)/(users)/libs/Auth";
+import { usePathname } from "next/navigation";
 
 export default function Testnav() {
+  const path = usePathname();
+  console.log(path);
+
   const Islogin = Auths();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -42,7 +45,11 @@ export default function Testnav() {
               {menu.map((item, index) => (
                 <li key={index}>
                   <Link
-                    className="text-sm font-bold text-slate-400 transition-colors hover:text-white"
+                    className={
+                      path == item.href
+                        ? ` text-sm font-bold text-purple-600 transition-colors`
+                        : "text-sm font-bold text-slate-400 transition-colors hover:text-white"
+                    }
                     href={item.href}
                   >
                     {item.name}
