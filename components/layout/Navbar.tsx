@@ -114,7 +114,7 @@ export default function Navbar() {
               {menu.map((item, index) => (
                 <li key={index}>
                   <Link
-                    className={` block rounded-xl px-3 py-2 text-sm font-semibold text-slate-300 ${isPathActive(item.path) ? "shadow-[0_0_5px_rgba(204,151,255,0.4)" : ""}]`}
+                    className={`block rounded-xl px-3 py-2 text-sm font-semibold text-slate-300 ${isPathActive(item.path) ? "shadow-[0_0_5px_rgba(204,151,255,0.4)" : ""}]`}
                     href={item.href}
                     onClick={closeMenu}
                   >
