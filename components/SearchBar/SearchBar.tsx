@@ -25,7 +25,7 @@ export default function SearchBar({
         </span>
 
         <input
-          className="w-full min-w-85 rounded-full pl-12 h-14 border border-slate-700 bg-slate-950/80 px-4 py-3 text-white outline-none focus:border-purple-400 focus:ring-2 focus:ring-purple-500/20"
+          className="w-full min-w-85 md:min-w-169 rounded-full pl-12 h-14 border border-slate-700 bg-slate-950/80 px-4 py-3 text-white outline-none focus:border-purple-400 focus:ring-2 focus:ring-purple-500/20"
           placeholder={placeholder}
           type="text"
           name={name}
