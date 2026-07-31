@@ -110,7 +110,6 @@ export default function EventsPage() {
             )}
           </div>
         </main>
-        {/* Bottom Navigation (Mobile Only) */}
       </div>
     </Contenaire>
   );

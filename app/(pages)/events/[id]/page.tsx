@@ -125,9 +125,9 @@ export default function EventDetailPage() {
                 {event.features.map((feature: string, index: number) => (
                   <div
                     key={index}
-                    className="bg-surface-container-low p-6 rounded-xl flex items-center gap-4 group hover:bg-surface-container transition-colors"
+                    className="bg-surface-container-low p-2 rounded-xl flex items-center gap-2 group hover:bg-surface-container transition-colors"
                   >
-                    <span className="material-symbols-outlined text-3xl text-primary">
+                    <span className="material-symbols-outlined text-lg lg:text-3xl text-primary">
                       <CircleCheckBig size={20} className="text-green-500" />
                     </span>
                     <span className="font-medium text-on-surface">
@@ -212,60 +212,6 @@ export default function EventDetailPage() {
             </div>
           </section>
         </main>
-
-        {/* Bottom Navigation (Mobile Only) */}
-        <nav className="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center pb-6 pt-3 px-4 bg-slate-950/80 backdrop-blur-2xl border-t border-white/5 shadow-[0_-10px_40px_rgba(0,0,0,0.5)]">
-          <Link
-            href="/"
-            className="flex flex-col items-center justify-center text-slate-500 hover:text-purple-300 transition-all"
-          >
-            <span className="material-symbols-outlined">explore</span>
-            <span className="text-[10px] uppercase font-bold tracking-widest font-label mt-1">
-              Explore
-            </span>
-          </Link>
-          <Link
-            href="/events"
-            className="flex flex-col items-center justify-center text-[#cc97ff] bg-purple-500/10 rounded-full px-4 py-1"
-          >
-            <span
-              className="material-symbols-outlined"
-              style={{ fontVariationSettings: "'FILL' 1" }}
-            >
-              event_available
-            </span>
-            <span className="text-[10px] uppercase font-bold tracking-widest font-label mt-1">
-              Events
-            </span>
-          </Link>
-          <Link
-            href="/user-profile"
-            className="flex flex-col items-center justify-center text-slate-500 hover:text-purple-300 transition-all"
-          >
-            <span className="material-symbols-outlined">person_pin</span>
-            <span className="text-[10px] uppercase font-bold tracking-widest font-label mt-1">
-              Profile
-            </span>
-          </Link>
-          <Link
-            href="#"
-            className="flex flex-col items-center justify-center text-slate-500 hover:text-purple-300 transition-all"
-          >
-            <span className="material-symbols-outlined">mail</span>
-            <span className="text-[10px] uppercase font-bold tracking-widest font-label mt-1">
-              Inbox
-            </span>
-          </Link>
-        </nav>
-
-        {/* Floating Action Button */}
-        <div className="fixed bottom-28 right-6 md:bottom-12 md:right-12 z-40 lg:hidden">
-          <button className="w-16 h-16 rounded-full bg-secondary shadow-2xl shadow-secondary/40 flex items-center justify-center text-on-secondary active:scale-90 transition-transform">
-            <span className="material-symbols-outlined text-3xl">
-              local_activity
-            </span>
-          </button>
-        </div>
       </div>
     </Contenaire>
   );
