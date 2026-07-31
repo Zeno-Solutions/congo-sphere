@@ -7,7 +7,7 @@ import Contenaire from "../Contenaire";
 
 import Auths from "@/app/(pages)/(users)/libs/Auth";
 
-export default function Navbar() {
+export default function Testnav() {
   const Islogin = Auths();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -52,7 +52,7 @@ export default function Navbar() {
             </ul>
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 bg-red-300">
             {Islogin ? (
               <Link
                 href="/user-profile"
@@ -96,7 +96,7 @@ export default function Navbar() {
         </div>
 
         {isMenuOpen && (
-          <div className="border-t border-white/10 bg-slate-950/90 px-4 py-4 backdrop-blur-xl lg:hidden">
+          <div className="border-t border-white/10 bg-green-500 px-4 py-4 backdrop-blur-xl lg:hidden">
             <ul className="flex flex-col gap-2">
               {menu.map((item, index) => (
                 <li key={index}>
