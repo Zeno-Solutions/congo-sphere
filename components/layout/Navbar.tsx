@@ -80,7 +80,7 @@ export default function Testnav() {
                 />
               </Link>
             ) : (
-              <div className="hidden items-center gap-4 px-2 sm:flex lg:px-10">
+              <div className="hidden items-center gap-4 px-2 lg:flex lg:px-10">
                 <Link
                   href="/login"
                   className="cursor-pointer rounded-full px-4 py-2 text-sm font-bold text-slate-400 transition-all hover:text-white active:scale-95"
@@ -116,7 +116,7 @@ export default function Testnav() {
                     className={
                       isPathActive(item.path)
                         ? "block rounded-xl px-3 py-2 text-sm font-semibold text-slate-300 shadow-[0_0_5px_rgba(204,151,255,0.4)]"
-                        : "block rounded-xl px-3 py-2 text-sm font-semibold text-slate-300"
+                        : "block rounded-xl px-3 py-2 text-sm font-semibold text-slate-300 hover:ring hover:ring-purple-300/25 "
                     }
                     href={item.href}
                     onClick={closeMenu}
