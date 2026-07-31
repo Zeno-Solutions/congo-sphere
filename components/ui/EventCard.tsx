@@ -33,7 +33,7 @@ export default function EventCard({ event }: EventCardProps) {
     <Link
       href={`/events/${event.id}`}
       key={event.id}
-      className="rounded-3xl min-w-80 lg:min-w-60 shadow-[-2px_12px_18px_-5px_#111d39] bg-surface-container-low  overflow-hidden flex flex-col group border border-white/5 hover:border-primary/30 transition-all"
+      className="rounded-3xl min-w-70 lg:min-w-60 shadow-[-2px_12px_18px_-5px_#111d39] bg-surface-container-low  overflow-hidden flex flex-col group border border-white/5 hover:border-primary/30 transition-all"
     >
       <div className="relative h-45 overflow-hidden">
         <Image
