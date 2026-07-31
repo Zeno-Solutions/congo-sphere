@@ -9,17 +9,24 @@ import { usePathname } from "next/navigation";
 
 export default function Testnav() {
   const path = usePathname();
-  console.log(path);
+
+  const isActive = (href: string) => {
+    if (href === "/") {
+      return path === "/";
+    }
+
+    return path.startsWith(href);
+  };
 
   const Islogin = Auths();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const menu = [
-    { name: "Home", href: "/" },
-    { name: "Events", href: "/events" },
-    { name: "About", href: "/about" },
-    { name: "FAQ", href: "/faq" },
-    { name: "Contact", href: "/contact" },
+    { name: "Home", href: "/", path: "/" },
+    { name: "Events", href: "/events", path: "/events" },
+    { name: "About", href: "/about", path: "/about" },
+    { name: "FAQ", href: "/faq", path: "/faq" },
+    { name: "Contact", href: "/contact", path: "/contact" },
   ];
 
   const closeMenu = () => setIsMenuOpen(false);
@@ -46,7 +53,7 @@ export default function Testnav() {
                 <li key={index}>
                   <Link
                     className={
-                      path == item.href
+                      isActive(item.path)
                         ? ` text-sm font-bold text-purple-600 transition-colors`
                         : "text-sm font-bold text-slate-400 transition-colors hover:text-white"
                     }
