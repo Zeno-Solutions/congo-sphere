@@ -30,7 +30,7 @@ export default function Newsletter() {
               No spam. Only magic. Unsubscribe anytime.
             </p>
           </div>
-          <div className="hidden md:block relative">
+          <div className="hidden lg:block relative">
             <video
               autoPlay
               muted
