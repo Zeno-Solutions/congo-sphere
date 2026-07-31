@@ -7,7 +7,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <div>
       {" "}
-      <Navbar />
       <Testnav />
       {children}
       <Footer />
