@@ -9,8 +9,7 @@ import { usePathname } from "next/navigation";
 
 export default function Testnav() {
   const path = usePathname();
-
-  const isActive = (href: string) => {
+  const isPathActive = (href: string) => {
     if (href === "/") {
       return path === "/";
     }
@@ -53,7 +52,7 @@ export default function Testnav() {
                 <li key={index}>
                   <Link
                     className={
-                      isActive(item.path)
+                      isPathActive(item.path)
                         ? ` text-sm font-bold text-purple-600 transition-colors`
                         : "text-sm font-bold text-slate-400 transition-colors hover:text-white"
                     }
@@ -115,7 +114,7 @@ export default function Testnav() {
               {menu.map((item, index) => (
                 <li key={index}>
                   <Link
-                    className="block rounded-xl px-3 py-2 text-sm font-semibold text-slate-300  hover:shadow-[0_0_5px_rgba(204,151,255,0.4)] transition-all"
+                    className={` block rounded-xl px-3 py-2 text-sm font-semibold text-slate-300 ${isPathActive(item.path) ? "shadow-[0_0_5px_rgba(204,151,255,0.4)" : ""}]`}
                     href={item.href}
                     onClick={closeMenu}
                   >
