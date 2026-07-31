@@ -3,7 +3,7 @@ import Link from "next/link";
 import SearchBar from "../SearchBar/SearchBar";
 export default function Hero() {
   return (
-    <section className="relative px-6 min-h-130 md:min-h-screen bg-[#06060c] flex items-center justify-center overflow-hidden pt-20">
+    <section className="relative px-6 min-h-130 md:min-h-160 lg:min-h-screen bg-[#06060c] flex items-center justify-center overflow-hidden pt-20">
       {/* <!-- Background Effects --> */}
       <form action="/search" method="get">
         <SearchBar
