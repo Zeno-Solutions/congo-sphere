@@ -101,7 +101,7 @@ export default function Testnav() {
               {menu.map((item, index) => (
                 <li key={index}>
                   <Link
-                    className="block rounded-xl px-3 py-2 text-sm font-semibold text-slate-300 transition hover:bg-white/10 hover:text-white"
+                    className="block rounded-xl px-3 py-2 text-sm font-semibold text-slate-300 transition hover:bg-blue-700/50 hover:text-white"
                     href={item.href}
                     onClick={closeMenu}
                   >
@@ -134,7 +134,7 @@ export default function Testnav() {
                   </button>
                 </div>
               ) : (
-                <div className="border border-amber-50 w-full flex justify-evenly items-center px-2 sm:flex lg:px-10">
+                <div className="w-full flex justify-evenly items-center px-2 sm:flex lg:px-10">
                   <Link
                     href="/login"
                     className="cursor-pointer rounded-full px-4 py-2 text-sm font-bold text-slate-400 transition-all hover:text-white active:scale-95"
