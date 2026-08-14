@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Apple, Mail } from "lucide-react";
+import { ArrowRight , Mail } from "lucide-react";
 import Input from "@/components/ui/input";
 
 export default function Page() {
