@@ -9,8 +9,6 @@ export const metadata = {
     "Découvrez des événements uniques près de chez vous. Concerts, meetups, expositions — rejoignez une communauté passionnée.",
 };
 export default function Home() {
-const API_BASE_URL = process.env.API_URL || 'https://iftplbackend.onrender.com';
-console.log(API_BASE_URL);
 
   return (
     <>
