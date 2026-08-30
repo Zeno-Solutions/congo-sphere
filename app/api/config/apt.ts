@@ -1,3 +1,5 @@
+import { register } from "module";
+
 /**
  * Configuration centralisée de l'API
  * Utilise VITE_API_URL depuis .env, sinon localhost:5000
@@ -8,6 +10,7 @@ export const API_ENDPOINTS = {
         login: '/api/auth/login',
         me: '/api/auth/me',
         logout: '/api/auth/logout',
+        register: '/api/auth/register'
     },
     formations: {
         list: '/api/formations',
