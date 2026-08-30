@@ -10,30 +10,31 @@ export const API_ENDPOINTS = {
         login: '/auth/login',
         me: '/auth/me',
         logout: '/api/auth/logout',
-        register: '/auth/register'
-
+        register: '/auth/register',
+        forgot_pwd:'/auth/forgot-password',
+        reset_pwd:'/auth/reset-password'
     },
-    formations: {
-        list: '/api/formations',
-        getById: (id) => `/api/formations/${id}`,
-        byCategory: (categorie) => `/api/formations/categorie/${categorie}`,
+    events: {
+        list: '/events',
+        getById: (id:string) => `/events/${id}`,
+        byCategory: (categorie:string) => `/api/formations/categorie/${categorie}`,
         create: '/api/formations',
-        update: (id) => `/api/formations/${id}`,
-        delete: (id) => `/api/formations/${id}`,
+        update: (id:string) => `/api/formations/${id}`,
+        delete: (id:string) => `/api/formations/${id}`,
     },
     galerie: {
         list: '/api/galerie',
-        getById: (id) => `/api/galerie/${id}`,
+        getById: (id:string) => `/api/galerie/${id}`,
         create: '/api/galerie',
-        update: (id) => `/api/galerie/${id}`,
-        delete: (id) => `/api/galerie/${id}`,
+        update: (id:string) => `/api/galerie/${id}`,
+        delete: (id:string) => `/api/galerie/${id}`,
     },
     actualites: {
         list: '/api/actualites',
-        getById: (id) => `/api/actualites/${id}`,
+        getById: (id:string) => `/api/actualites/${id}`,
         create: '/api/actualites',
-        update: (id) => `/api/actualites/${id}`,
-        delete: (id) => `/api/actualites/${id}`,
+        update: (id:string) => `/api/actualites/${id}`,
+        delete: (id:string) => `/api/actualites/${id}`,
     },
     commentaires: {
         list: '/api/commentaire',
