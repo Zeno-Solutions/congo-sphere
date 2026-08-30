@@ -7,10 +7,11 @@ import { register } from "module";
 export const API_BASE_URL = process.env.API_URL || 'https://iftplbackend.onrender.com';
 export const API_ENDPOINTS = {
     auth: {
-        login: '/api/auth/login',
-        me: '/api/auth/me',
+        login: '/auth/login',
+        me: '/auth/me',
         logout: '/api/auth/logout',
-        register: '/api/auth/register'
+        register: '/auth/register'
+
     },
     formations: {
         list: '/api/formations',
