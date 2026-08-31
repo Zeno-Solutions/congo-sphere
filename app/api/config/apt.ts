@@ -15,10 +15,10 @@ export const API_ENDPOINTS = {
     events: {
         list: '/events',
         getById: (id:string) => `/events/${id}`,
-        byCategory: (categorie:string) => `/api/formations/categorie/${categorie}`,
-        create: '/api/formations',
-        update: (id:string) => `/api/formations/${id}`,
-        delete: (id:string) => `/api/formations/${id}`,
+        byCategory: (categorie:string) => `/events/${categorie}`,
+        create: '/events',
+        update: (id:string) => `/events/${id}`,
+        delete: (id:string) => `/events/${id}`,
     },
     galerie: {
         list: '/api/galerie',
