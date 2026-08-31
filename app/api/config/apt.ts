@@ -1,5 +1,3 @@
-import { register } from "module";
-
 /**
  * Configuration centralisée de l'API
  * Utilise VITE_API_URL depuis .env, sinon localhost:5000
