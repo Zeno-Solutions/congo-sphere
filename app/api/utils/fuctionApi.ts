@@ -1,11 +1,66 @@
 import { API_ENDPOINTS, API_BASE_URL } from "../config/api";
 
+const AUTH_TOKEN_KEY = "congo_sphere_token";
+
+type TokenPayload = {
+  token?: string;
+  accessToken?: string;
+  jwt?: string;
+  access_token?: string;
+  data?: {
+    token?: string;
+    accessToken?: string;
+    jwt?: string;
+  };
+};
+
+export function getStoredToken() {
+  if (typeof window === "undefined") {
+    return null;
+  }
+
+  return window.localStorage.getItem(AUTH_TOKEN_KEY);
+}
+
+export function setStoredToken(token: string) {
+  if (typeof window === "undefined") {
+    return;
+  }
+
+  window.localStorage.setItem(AUTH_TOKEN_KEY, token);
+}
+
+export function clearStoredToken() {
+  if (typeof window === "undefined") {
+    return;
+  }
+
+  window.localStorage.removeItem(AUTH_TOKEN_KEY);
+}
+
+export function getTokenFromResponse(payload: unknown) {
+  const data = payload as TokenPayload;
+
+  return (
+    data?.token ||
+    data?.accessToken ||
+    data?.jwt ||
+    data?.access_token ||
+    data?.data?.token ||
+    data?.data?.accessToken ||
+    data?.data?.jwt ||
+    null
+  );
+}
+
 export async function fetchApi<T>(endpoint: string, options: RequestInit = {}, token?: string): Promise<T> {
   const headers = new Headers(options.headers);
   headers.set("Content-Type", "application/json");
 
-  if (token) {
-    headers.set("Authorization", `Bearer ${token}`);
+  const authToken = token || getStoredToken() || undefined;
+
+  if (authToken) {
+    headers.set("Authorization", `Bearer ${authToken}`);
   }
 
   const response = await fetch(`${API_BASE_URL}${endpoint}`, {
@@ -105,17 +160,31 @@ export async function deleteUser<T = unknown>(id: string, token?: string) {
 }
 
 export async function registerUser<T = unknown>(payload: unknown) {
-  return fetchApi<T>(API_ENDPOINTS.auth.register, {
+  const response = await fetchApi<T>(API_ENDPOINTS.auth.register, {
     method: "POST",
     body: JSON.stringify(payload),
   });
+
+  const token = getTokenFromResponse(response as unknown);
+  if (token) {
+    setStoredToken(token);
+  }
+
+  return response;
 }
 
 export async function loginUser<T = unknown>(payload: unknown) {
-  return fetchApi<T>(API_ENDPOINTS.auth.login, {
+  const response = await fetchApi<T>(API_ENDPOINTS.auth.login, {
     method: "POST",
     body: JSON.stringify(payload),
   });
+
+  const token = getTokenFromResponse(response as unknown);
+  if (token) {
+    setStoredToken(token);
+  }
+
+  return response;
 }
 
 export async function getCurrentUser<T = unknown>(token?: string) {
@@ -137,9 +206,12 @@ export async function resetPassword<T = unknown>(payload: unknown) {
 }
 
 export async function logoutUser<T = unknown>(token?: string) {
-  return fetchApi<T>(API_ENDPOINTS.auth.logout, {
+  const response = await fetchApi<T>(API_ENDPOINTS.auth.logout, {
     method: "POST",
   }, token);
+
+  clearStoredToken();
+  return response;
 }
 
 export async function getAllTickets<T = unknown>(token?: string) {
@@ -165,6 +237,9 @@ export const authApi = {
   forgotPassword,
   resetPassword,
   logout: logoutUser,
+  getStoredToken,
+  setStoredToken,
+  clearStoredToken,
 };
 
 export const userApi = {
