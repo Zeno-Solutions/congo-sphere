@@ -1,11 +1,41 @@
 "use client";
-
+import { API_BASE_URL } from "@/app/api/config/api";
 import { useEffect, useMemo, useState } from "react";
 import { events as fallbackEvents } from "@/lib/data";
 import EventCard from "../ui/EventCard";
 import Contenaire from "../Contenaire";
 import { getAllEvent } from "@/app/api/utils/fuctionApi";
+
 type Event = (typeof fallbackEvents)[number];
+export interface comment {
+  postId: number;
+  id: number;
+  name: string;
+  body: string;
+}
+const element = [
+  {
+    postId: 1,
+    id: 1,
+    name: "id labore ex et quam laborum",
+    email: "Eliseo@gardner.biz",
+    body: "laudantium enim quasi est quidem magnam voluptate ipsam eos\ntempora quo necessitatibus\ndolor quam autem quasi\nreiciendis et nam sapiente accusantium",
+  },
+  {
+    postId: 1,
+    id: 2,
+    name: "quo vero reiciendis velit similique earum",
+    email: "Jayne_Kuhic@sydney.com",
+    body: "est natus enim nihil est dolore omnis voluptatem numquam\net omnis occaecati quod ullam at\nvoluptatem error expedita pariatur\nnihil sint nostrum voluptatem reiciendis et",
+  },
+  {
+    postId: 1,
+    id: 3,
+    name: "odio adipisci rerum aut animi",
+    email: "Nikita@garfield.biz",
+    body: "quia molestiae reprehenderit quasi aspernatur\naut expedita occaecati aliquam eveniet laudantium\nomnis quibusdam delectus saepe quia accusamus maiores nam est\ncum et ducimus et vero voluptates excepturi deleniti ratione",
+  },
+];
 
 type EventApiResponse =
   | Event[]
@@ -15,20 +45,17 @@ type EventApiResponse =
 
 export default function Recommended() {
   const [selectedCategory, setSelectedCategory] = useState("All");
-  const [events, setEvents] = useState<Event[]>(fallbackEvents);
+  const [events, setEvents] = useState(fallbackEvents);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    async function getElements() {
-      const data = await getAllEvent();
-      console.log(data);
-    }
-    try {
-      getElements();
-    } catch (error) {
-      console.log(error);
-    }
+    const getInfon = async () => {
+      const reponse = await fetch("http://localhost:8000/");
+      const data = await reponse.json();
+      setEvents(data);
+    };
+    getInfon();
   }, []);
 
   const filterOptions = useMemo(() => {

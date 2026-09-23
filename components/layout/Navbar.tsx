@@ -40,7 +40,7 @@ export default function Testnav() {
                 alt="Logo"
                 width={90}
                 height={100}
-                className="rounded-full"
+                className="rounded-full w-20 h-15"
               />
             </Link>
           </div>
