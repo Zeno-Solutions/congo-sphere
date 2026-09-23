@@ -1,7 +1,5 @@
-/**
- * Configuration centralisée de l'API
- */
-export const API_BASE_URL = process.env.API_URL || "https://api.congo-sphere.lemy.dev";
+// Configuration centralisée de l'API
+export const API_BASE_URL = process.env.API_URL || "https://jsonplaceholder.typicode.com/posts";
 
 export const API_ENDPOINTS = {
   auth: {

@@ -3,14 +3,14 @@ import Slider from "@/components/Slider/Slider";
 import Recommended from "@/components/Recommended/Recommended";
 import Newsletter from "@/components/Newsletter/Newsletter";
 import "../globals.css";
-import {getAllEvents} from "@/app/api/utils/fuctionApi";
+
 export const metadata = {
   title: "Congo Sphere - Explorez les événements près de chez vous",
   description:
     "Découvrez des événements uniques près de chez vous. Concerts, meetups, expositions — rejoignez une communauté passionnée.",
 };
-export default async function Home() {
-  const data = await getAllEvents();
+export default function Home() {
+
   return (
     <>
       <Hero />

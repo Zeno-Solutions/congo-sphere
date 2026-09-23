@@ -16,40 +16,7 @@ export default function Recommended() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
-    let isActive = true;
 
-    const fetchEvents = async () => {
-      setLoading(true);
-      setError(null);
-
-      try {
-        const data = (await getAllEvents()) as EventApiResponse;
-        const normalizedEvents = normalizeEvents(data);
-
-        if (isActive) {
-          setEvents(normalizedEvents);
-        }
-      } catch (err) {
-        if (isActive) {
-          setError("Impossible de charger les événements.");
-          setEvents(fallbackEvents);
-        }
-
-        console.error("Error fetching events:", err);
-      } finally {
-        if (isActive) {
-          setLoading(false);
-        }
-      }
-    };
-
-    fetchEvents();
-
-    return () => {
-      isActive = false;
-    };
-  }, []);
 
   const filterOptions = useMemo(
     () => {
