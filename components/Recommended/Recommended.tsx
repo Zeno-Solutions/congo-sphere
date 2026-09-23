@@ -7,7 +7,11 @@ import Contenaire from "../Contenaire";
 import { getAllEvent } from "@/app/api/utils/fuctionApi";
 type Event = (typeof fallbackEvents)[number];
 
-type EventApiResponse = Event[] | { events?: Event[] } | { data?: Event[] } | { items?: Event[] };
+type EventApiResponse =
+  | Event[]
+  | { events?: Event[] }
+  | { data?: Event[] }
+  | { items?: Event[] };
 
 export default function Recommended() {
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -15,32 +19,19 @@ export default function Recommended() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  useEffect(()=>{
-    async function getElements(){
-      const data:EventApiResponse = await getAllEvent()
-      setEvents(data)
-    }
-    try {
-      getElements()
-    } catch (error) {
-      console.log(error)
-    }
-  },[])
+  const filterOptions = useMemo(() => {
+    const categories = Array.from(
+      new Set(events.map((event) => event.category)),
+    ).slice(0, 3);
 
-  const filterOptions = useMemo(
-    () => {
-      const categories = Array.from(new Set(events.map((event) => event.category))).slice(0, 3);
-
-      return [
-        { label: "All Events", value: "All" },
-        ...categories.map((category) => ({
-          label: category,
-          value: category,
-        })),
-      ];
-    },
-    [events],
-  );
+    return [
+      { label: "All Events", value: "All" },
+      ...categories.map((category) => ({
+        label: category,
+        value: category,
+      })),
+    ];
+  }, [events]);
 
   const filteredEvents = useMemo(
     () =>
@@ -81,9 +72,7 @@ export default function Recommended() {
           </div>
         )}
 
-        {error && (
-          <div className="text-red-300 text-sm mb-4">{error}</div>
-        )}
+        {error && <div className="text-red-300 text-sm mb-4">{error}</div>}
 
         <div className="min-w-70 mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

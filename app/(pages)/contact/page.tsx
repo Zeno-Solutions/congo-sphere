@@ -40,7 +40,7 @@ export default function Contact() {
             Contact
           </p>
           <h1 className="text-5xl md:text-7xl font-extrabold text-white leading-tight mb-6">
-            Need help? We're here for you.
+            Need help? We&apos;re here for you.
           </h1>
           <p className="mx-auto max-w-3xl text-base md:text-xl text-slate-300 leading-8">
             Ask us your questions, share your ideas or plan a collaboration with

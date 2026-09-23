@@ -54,7 +54,8 @@ export default function FAQ() {
                 How do I create an account?
               </h3>
               <p className="text-gray-400">
-                Click on "Register" in the navigation bar and fill out the form.
+                Click on &apos;Register&apos; in the navigation bar and fill out
+                the form.
               </p>
             </div>
             <div className="bg-slate-900 p-6 rounded-lg">

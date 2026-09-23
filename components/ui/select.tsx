@@ -22,6 +22,11 @@ export function Select({
   const [selected, setSelected] = useState<Option | null>(null);
   const ref = useRef<HTMLDivElement>(null);
 
+  const resolvedSelected =
+    value !== undefined
+      ? (options.find((opt) => opt.value === value) ?? null)
+      : selected;
+
   // Fermer si clic extérieur
   useEffect(() => {
     function handleClickOutside(e: MouseEvent) {
@@ -34,18 +39,10 @@ export function Select({
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // Sync selected with value prop
-  useEffect(() => {
-    if (value) {
-      const option = options.find((opt) => opt.value === value);
-      setSelected(option || null);
-    } else {
-      setSelected(null);
-    }
-  }, [value, options]);
-
   const handleSelect = (option: Option) => {
-    setSelected(option);
+    if (value === undefined) {
+      setSelected(option);
+    }
     setOpen(false);
     onChange?.(option.value);
   };
@@ -58,9 +55,11 @@ export function Select({
         className="w-full flex items-center justify-between px-6 py-4 bg-surface-container-low border border-slate-700 bg-slate-950/80 rounded-[40px] shadow-sm outline-none focus:border-purple-400 focus:ring-2 focus:ring-purple-500/20 transition-all text-on-surface"
       >
         <span
-          className={selected ? "text-on-surface" : "text-on-surface-variant "}
+          className={
+            resolvedSelected ? "text-on-surface" : "text-on-surface-variant "
+          }
         >
-          {selected ? selected.label : placeholder}
+          {resolvedSelected ? resolvedSelected.label : placeholder}
         </span>
 
         <svg
@@ -81,7 +80,7 @@ export function Select({
               key={option.value}
               onClick={() => handleSelect(option)}
               className={`px-4 py-3 cursor-pointer transition ${
-                selected?.value === option.value
+                resolvedSelected?.value === option.value
                   ? "bg-primary/10 text-primary"
                   : "hover:bg-[#050309d1] hover:text-primary rounded-2xl mx-2 text-on-surface"
               }`}

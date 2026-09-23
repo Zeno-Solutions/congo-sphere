@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { HelpCircle, ArrowLeft, MessageSquare, LifeBuoy } from "lucide-react";
+import { HelpCircle, ArrowLeft, MessageSquare } from "lucide-react";
 
 export default function SupportPage() {
   return (
@@ -27,13 +27,13 @@ export default function SupportPage() {
                   Assistance
                 </p>
                 <h1 className="text-4xl font-extrabold font-headline text-on-surface">
-                  Besoin d'aide ? Nous sommes là.
+                  Besoin d&apos;aide ? Nous sommes là.
                 </h1>
               </div>
             </div>
             <p className="max-w-3xl text-on-surface-variant leading-relaxed">
-              Consultez notre centre d'aide, envoyez une demande ou parlez à un
-              conseiller pour résoudre vos questions rapidement.
+              Consultez notre centre d&apos;aide, envoyez une demande ou parlez
+              à un conseiller pour résoudre vos questions rapidement.
             </p>
           </div>
         </section>
@@ -43,7 +43,7 @@ export default function SupportPage() {
             <div className="flex items-center justify-between gap-4 mb-8">
               <div>
                 <h2 className="text-2xl font-bold font-headline text-on-surface">
-                  Centre d'aide
+                  Centre d&apos;aide
                 </h2>
                 <p className="text-on-surface-variant mt-2">
                   Trouvez une réponse rapide parmi nos ressources les plus
@@ -94,7 +94,7 @@ export default function SupportPage() {
               </h2>
               <p className="text-on-surface-variant mt-3 leading-relaxed">
                 Notre équipe est prête à vous aider sur les questions techniques
-                et l'expérience utilisateur.
+                et l&apos;expérience utilisateur.
               </p>
               <button className="mt-6 inline-flex items-center justify-center rounded-full bg-linear-to-r from-purple-500 to-secondary px-6 py-3 text-sm font-bold text-white shadow-[0_0_20px_rgba(204,151,255,0.25)] hover:opacity-95 transition">
                 Ouvrir une demande

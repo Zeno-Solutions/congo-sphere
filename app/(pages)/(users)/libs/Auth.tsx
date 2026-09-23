@@ -1,18 +1,18 @@
-import { redirect } from "next/navigation";
+// import { redirect } from "next/navigation";
 
-type User = {
-  name: string;
-  password: string;
-};
+// type User = {
+//   name: string;
+//   password: string;
+// };
 export default function Auth() {
-  const User: User = {
-    name: "martial",
-    password: "Azerty",
-  };
-  const User2: User = {
-    name: "martial",
-    password: "Azerty",
-  };
+  // const User: User = {
+  //   name: "martial",
+  //   password: "Azerty",
+  // };
+  // const User2: User = {
+  //   name: "martial",
+  //   password: "Azerty",
+  // };
   let Islogin: boolean = true;
   if (false) {
     Islogin = true;

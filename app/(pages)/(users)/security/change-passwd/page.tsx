@@ -56,7 +56,7 @@ export default function ChangePasswordPage() {
       setValues({ current: "", password: "", confirm: "" });
       setTimeout(() => setSuccess(false), 3500);
     } catch (err) {
-      setErrors({ submit: "Erreur lors de la mise à jour" });
+      setErrors({ submit: `${err}Erreur lors de la mise à jour` });
     } finally {
       setLoading(false);
     }
@@ -65,8 +65,8 @@ export default function ChangePasswordPage() {
   return (
     <div className="min-h-screen bg-surface text-on-surface font-body selection:bg-primary/30 overflow-x-hidden pb-20">
       <div className="fixed inset-0 bg-mesh z-0 pointer-events-none" />
-      <div className="fixed -top-[20%] -left-[10%] w-[60%] h-[60%] bg-primary/10 blur-[120px] rounded-full pointer-events-none" />
-      <div className="fixed -bottom-[20%] -right-[10%] w-[60%] h-[60%] bg-secondary/10 blur-[120px] rounded-full pointer-events-none" />
+      <div className="fixed top-[-20%] left-[-10%] w-[60%] h-[60%] bg-primary/10 blur-[120px] rounded-full pointer-events-none" />
+      <div className="fixed bottom-[-20%] right-[-10%] w-[60%] h-[60%] bg-secondary/10 blur-[120px] rounded-full pointer-events-none" />
 
       <main className="pt-24 px-6 max-w-2xl mx-auto">
         {success && (
