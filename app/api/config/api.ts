@@ -1,5 +1,6 @@
+import * as dotenv from "dotenv";
 // Configuration centralisée de l'API
-export const API_BASE_URL = process.env.API_URL || "https://jsonplaceholder.typicode.com/posts";
+export const API_BASE_URL = process.env.API_URL;
 
 export const API_ENDPOINTS = {
   auth: {
@@ -28,7 +29,8 @@ export const API_ENDPOINTS = {
     host: (id: string) => `/events/${id}/host`,
     attendees: (id: string) => `/events/${id}/attendees`,
     myEvents: "/events/my-events",
-    byCategory: (category: string) => `/events?category=${encodeURIComponent(category)}`,
+    byCategory: (category: string) =>
+      `/events?category=${encodeURIComponent(category)}`,
   },
   tickets: {
     list: "/tickets",
