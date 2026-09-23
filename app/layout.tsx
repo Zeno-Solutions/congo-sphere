@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans, Manrope, Geist } from "next/font/google";
+import { Plus_Jakarta_Sans, Manrope} from "next/font/google";
 import "./globals.css";
 import type { ReactNode } from "react";
 import { cn } from "@/lib/utils";
-
-const geist = Geist({ subsets: ["latin"], variable: "--font-sans" });
+import {geist} from '@/fonts/font'
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   variable: "--font-plus-jakarta-sans",
@@ -26,15 +25,9 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" className={cn("dark", "font-sans", geist.variable)}>
-      <head>
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
-        />
-      </head>
+    <html lang="en" className={cn("dark", "font-sans",geist.variable )}>
       <body
-        className={`bg-slate-950 ${plusJakartaSans.variable} ${manrope.variable} antialiased`}
+        className={`bg-slate-950 antialiased`}
       >
         {children}
       </body>

@@ -4,8 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import { events as fallbackEvents } from "@/lib/data";
 import EventCard from "../ui/EventCard";
 import Contenaire from "../Contenaire";
-import { getAllEvents } from "@/app/api/utils/fuctionApi";
-
+import { getAllEvent } from "@/app/api/utils/fuctionApi";
 type Event = (typeof fallbackEvents)[number];
 
 type EventApiResponse = Event[] | { events?: Event[] } | { data?: Event[] } | { items?: Event[] };
@@ -16,7 +15,17 @@ export default function Recommended() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-
+  useEffect(()=>{
+    async function getElements(){
+      const data:EventApiResponse = await getAllEvent()
+      setEvents(data)
+    }
+    try {
+      getElements()
+    } catch (error) {
+      console.log(error)
+    }
+  },[])
 
   const filterOptions = useMemo(
     () => {
