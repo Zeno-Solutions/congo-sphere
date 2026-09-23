@@ -1,6 +1,6 @@
-import * as dotenv from "dotenv";
 // Configuration centralisée de l'API
-export const API_BASE_URL = process.env.API_URL;
+export const API_BASE_URL =
+  process.env.API_URL || "https://jsonplaceholder.typicode.com/posts";
 
 export const API_ENDPOINTS = {
   auth: {

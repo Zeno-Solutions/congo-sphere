@@ -22,7 +22,7 @@ export default function Recommended() {
   console.log(API_BASE_URL);
   useEffect(() => {
     const getInfon = async () => {
-      const reponse = await fetch("http://localhost:8000/0");
+      const reponse = await fetch(API_BASE_URL);
       const data = await reponse.json();
       setEvents(data);
       console.log(data);
