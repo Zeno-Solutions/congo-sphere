@@ -19,6 +19,18 @@ export default function Recommended() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  useEffect(() => {
+    async function getElements() {
+      const data = await getAllEvent();
+      console.log(data);
+    }
+    try {
+      getElements();
+    } catch (error) {
+      console.log(error);
+    }
+  }, []);
+
   const filterOptions = useMemo(() => {
     const categories = Array.from(
       new Set(events.map((event) => event.category)),
