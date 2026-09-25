@@ -1,10 +1,17 @@
 import { API_BASE_URL, API_ENDPOINTS } from "@/app/api/config/api";
+import { redirect } from "next/navigation";
 async function fetchEvents() {
-  const response = await fetch(API_BASE_URL);
-  if (!response.ok) {
-    throw new Error("Failed to fetch events");
+  try {
+    const response = await fetch(API_BASE_URL);
+    if (!response.ok) {
+      throw new Error("Failed to fetch events");
+    }
+    return response.json();
+  } catch (error) {
+    console.error("Error fetching events:", error);
+
+    // redirect("/error");
   }
-  return response.json();
 }
 
 export const events = await fetchEvents();
