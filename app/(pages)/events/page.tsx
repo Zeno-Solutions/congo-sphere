@@ -18,10 +18,13 @@ export default function EventsPage() {
     "All",
     ...new Set(events.map((event: { category: string }) => event.category)),
   ];
-  const categoryOptions = categories.map((category) => ({
-    label: category,
-    value: category,
-  }));
+
+  const categoryOptions: { label: string; value: string }[] = categories.map(
+    (category) => ({
+      label: category as string,
+      value: category as string,
+    }),
+  );
 
   const filteredEvents = useMemo(() => {
     let filtered = events;
@@ -95,12 +98,9 @@ export default function EventsPage() {
               </div>
             ) : (
               <div className="grid grid-cols-1 px-5 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {filteredEvents.map(
-                  (event: Event) => (
-                    console.log(event.id),
-                    (<EventCard key={event.id as string} event={event} />)
-                  ),
-                )}
+                {filteredEvents.map((event: Event) => (
+                  <EventCard key={event.id as string} event={event} />
+                ))}
               </div>
             )}
 
