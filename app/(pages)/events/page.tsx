@@ -14,7 +14,10 @@ export default function EventsPage() {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [isLoading, setIsLoading] = useState(false);
 
-  const categories = ["All", ...new Set(events.map((event) => event.category))];
+  const categories = [
+    "All",
+    ...new Set(events.map((event: { category: string }) => event.category)),
+  ];
   const categoryOptions = categories.map((cat) => ({ label: cat, value: cat }));
 
   const filteredEvents = useMemo(() => {
@@ -26,7 +29,7 @@ export default function EventsPage() {
 
     if (searchTerm) {
       filtered = filtered.filter(
-        (event) =>
+        (event: { title: string; description: string; location: string }) =>
           event.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
           event.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
           event.location.toLowerCase().includes(searchTerm.toLowerCase()),
