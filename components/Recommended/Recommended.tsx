@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import { events as fallbackEvents } from "@/lib/data";
 import EventCard from "../ui/EventCard";
 import Contenaire from "../Contenaire";
+import { Event } from "@/types/types";
 
 type EventApiResponse =
   | Event[]
@@ -16,49 +17,48 @@ export default function Recommended() {
   const [events, setEvents] = useState(fallbackEvents);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  console.log(API_BASE_URL);
 
-  const getInfon = async () => {
-    try {
-      setError(null);
-      setLoading(true);
+  // const getInfon = async () => {
+  //   try {
+  //     setError(null);
+  //     setLoading(true);
 
-      const response = await fetch(API_BASE_URL);
-      if (!response.ok) {
-        throw new Error(`Request failed with status ${response.status}`);
-      }
+  //     const response = await fetch(API_BASE_URL);
+  //     if (!response.ok) {
+  //       throw new Error(`Request failed with status ${response.status}`);
+  //     }
 
-      const data = await response.json();
-      setEvents(Array.isArray(data) ? data : fallbackEvents);
-    } catch (err) {
-      const message =
-        err instanceof Error ? err.message : "Unable to load events.";
-      setError(message);
-      setEvents(fallbackEvents);
-    } finally {
-      setLoading(false);
-    }
-  };
+  //     const data = await response.json();
+  //     setEvents(Array.isArray(data) ? data : fallbackEvents);
+  //   } catch (err) {
+  //     const message =
+  //       err instanceof Error ? err.message : "Unable to load events.";
+  //     setError(message);
+  //     setEvents(fallbackEvents);
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
 
-  useEffect(() => {
-    let active = true;
+  // useEffect(() => {
+  //   let active = true;
 
-    const load = () => {
-      if (!active) return;
-      void getInfon();
-    };
+  //   const load = () => {
+  //     if (!active) return;
+  //     void getInfon();
+  //   };
 
-    const timeoutId = setTimeout(load, 0);
+  //   const timeoutId = setTimeout(load, 0);
 
-    return () => {
-      active = false;
-      clearTimeout(timeoutId);
-    };
-  }, []);
+  //   return () => {
+  //     active = false;
+  //     clearTimeout(timeoutId);
+  //   };
+  // }, []);
 
   const filterOptions = useMemo(() => {
     const categories = Array.from(
-      new Set(events.map((event) => event.category)),
+      new Set(events.map((event: Event) => event.category)),
     ).slice(0, 3);
 
     return [
@@ -74,7 +74,7 @@ export default function Recommended() {
     () =>
       selectedCategory === "All"
         ? events
-        : events.filter((event) => event.category === selectedCategory),
+        : events.filter((event: Event) => event.category === selectedCategory),
     [events, selectedCategory],
   );
 
@@ -89,15 +89,15 @@ export default function Recommended() {
           <div className="flex gap-3 overflow-x-auto no-scrollbar rounded-3xl">
             {filterOptions.map((option) => (
               <button
-                key={option.value}
-                onClick={() => setSelectedCategory(option.value)}
+                key={option.value as string}
+                onClick={() => setSelectedCategory(option.value as string)}
                 className={`px-3 py-2 cursor-pointer hover:bg-[#00000049] rounded-full text-[12px] font-bold whitespace-nowrap transition-colors ${
                   option.value === selectedCategory
                     ? "text-on-primary-fixed bg-purple-500 hover:bg-purple-500"
                     : "bg-[#000000af] text-on-surface-variant hover:bg-surface-container-highest"
                 }`}
               >
-                {option.label}
+                {option.label as string}
               </button>
             ))}
           </div>
@@ -113,8 +113,8 @@ export default function Recommended() {
 
         <div className="min-w-70 mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredEvents.map((event) => (
-              <EventCard key={event.id} event={event} />
+            {filteredEvents.map((event: Event) => (
+              <EventCard key={event.id as string} event={event} />
             ))}
           </div>
         </div>

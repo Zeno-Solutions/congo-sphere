@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
+import { useState, useMemo } from "react";
 
 import { Search } from "lucide-react";
 import { events, getEventsByCategory } from "@/lib/data";
@@ -8,7 +8,7 @@ import EventCard from "@/components/ui/EventCard";
 import Loader from "@/components/ui/Loader";
 import { Select } from "@/components/ui/select";
 import Contenaire from "@/components/Contenaire";
-
+import { Event } from "@/types/types";
 export default function EventsPage() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -18,7 +18,10 @@ export default function EventsPage() {
     "All",
     ...new Set(events.map((event: { category: string }) => event.category)),
   ];
-  const categoryOptions = categories.map((cat) => ({ label: cat, value: cat }));
+  const categoryOptions = categories.map((category) => ({
+    label: category,
+    value: category,
+  }));
 
   const filteredEvents = useMemo(() => {
     let filtered = events;
@@ -92,9 +95,12 @@ export default function EventsPage() {
               </div>
             ) : (
               <div className="grid grid-cols-1 px-5 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {filteredEvents.map((event) => (
-                  <EventCard key={event.id} event={event} />
-                ))}
+                {filteredEvents.map(
+                  (event: Event) => (
+                    console.log(event.id),
+                    (<EventCard key={event.id as string} event={event} />)
+                  ),
+                )}
               </div>
             )}
 
