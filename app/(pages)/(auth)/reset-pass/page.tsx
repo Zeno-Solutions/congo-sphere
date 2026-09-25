@@ -1,8 +1,9 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight , Mail } from "lucide-react";
+import { ArrowRight, Mail } from "lucide-react";
 import Input from "@/components/ui/input";
+import { TbChartBubble } from "react-icons/tb";
 
 export default function Page() {
   return (
@@ -18,7 +19,7 @@ export default function Page() {
           <div className="hidden lg:flex flex-col space-y-8">
             <div className="flex items-center space-x-3">
               <span className="material-symbols-outlined text-4xl text-primary">
-                bubble_chart
+                <TbChartBubble />
               </span>
               <h1 className="text-3xl font-black bg-linear-to-r from-[#cc97ff] to-[#ff67ad] bg-clip-text text-transparent font-headline">
                 Congo Sphere
