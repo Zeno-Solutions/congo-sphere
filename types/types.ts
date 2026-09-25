@@ -19,8 +19,6 @@ interface TicketType {
   event: string;
 }
 
-
-
 interface Ticket {
   id: string;
   userId: string;
@@ -38,16 +36,14 @@ type UserRole = "ADMIN" | "USER";
 
 type PaymentStatus = "PENDING" | "COMPLETED" | "FAILED" | "REFUNDED";
 
-
-
 export interface Event {
   id: string;
   title: string;
-  imageUrl: string;
+  image: string;
   description: string;
   location: string;
   startDate: string;
-  endDate: string;
+  endDate?: string;
   isFeatured: boolean;
   category: string;
   eventType: EventType;

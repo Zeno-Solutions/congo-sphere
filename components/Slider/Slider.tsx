@@ -1,11 +1,11 @@
 "use client";
-import React, { useState, useRef } from "react";
+import { useState, useRef } from "react";
 import { ChevronRight, ChevronLeft, ArrowRight } from "lucide-react";
 import Contenaire from "../Contenaire";
 import Link from "next/link";
 import { events } from "@/lib/data";
 import Image from "next/image";
-
+import { Event } from "@/types/types";
 export default function Slider() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const carouselContainerRef = useRef<HTMLDivElement>(null);
@@ -111,7 +111,7 @@ export default function Slider() {
             scrollBehavior: "smooth",
           }}
         >
-          {featuredEvents.map((event, index) => (
+          {featuredEvents.map((event: Event, index: number) => (
             <div
               key={event.id}
               className={`min-w-[320px]  md:w-150 h-87.5 rounded-2xl relative overflow-hidden group snap-center shrink-0 transition-transform duration-500 ease-out ${
@@ -119,11 +119,11 @@ export default function Slider() {
               }`}
             >
               <Image
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                className="absolute inset-0 object-cover transition-transform duration-700 group-hover:scale-110 min-w-full min-h-full"
                 alt={event.title}
                 src={event.image}
-                width={600}
-                height={350}
+                width={700}
+                height={450}
               />
               <div className="absolute inset-0 bg-linear-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
               <div className="absolute bottom-0 left-0 p-8 w-full">
@@ -134,7 +134,7 @@ export default function Slider() {
                     {event.category}
                   </span>
                   <span className="text-white/60 text-xs font-body">
-                    • {formatDate(event.date)}
+                    • {formatDate(event.startDate)}
                   </span>
                 </div>
                 <h3 className="text-3xl font-bold font-headline text-white mb-2 group-hover:text-primary transition-colors">
