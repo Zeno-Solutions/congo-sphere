@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Eye, EyeOff, ArrowRight, Mail } from "lucide-react";
 import { FaApple } from "react-icons/fa";
 import { FaGoogle } from "react-icons/fa6";
+import { TbChartBubble } from "react-icons/tb";
 import Input from "@/components/ui/input";
 
 export default function Page() {
@@ -23,7 +24,7 @@ export default function Page() {
           <div className="hidden lg:flex flex-col space-y-8">
             <div className="flex items-center space-x-3">
               <span className="material-symbols-outlined text-4xl text-primary">
-                bubble_chart
+                <TbChartBubble />
               </span>
               <h1 className="text-3xl font-black bg-linear-to-r from-[#cc97ff] to-[#ff67ad] bg-clip-text text-transparent font-headline">
                 Congo Sphere
