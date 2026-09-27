@@ -3,7 +3,7 @@ import { ArrowRight, Calendar, MapPin, Sparkles } from "lucide-react";
 import { events } from "@/lib/data";
 import Contenaire from "@/components/Contenaire";
 import Image from "next/image";
-
+import { Event } from "@/types/types";
 export default function DashboardPage() {
   const upcoming = events.slice(0, 3);
   const userStat = [
@@ -157,7 +157,7 @@ export default function DashboardPage() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              {upcoming.map((event) => (
+              {upcoming.map((event: Event) => (
                 <article
                   key={event.id}
                   className="rounded-3xl bg-surface-container-low border border-white/10 p-6 hover:border-primary/30 transition"
@@ -177,7 +177,7 @@ export default function DashboardPage() {
                   <div className="mt-6 flex flex-wrap gap-3 text-sm text-on-surface-variant">
                     <span className="inline-flex items-center gap-2">
                       <Calendar size={14} />{" "}
-                      {new Date(event.date).toLocaleDateString("fr-FR", {
+                      {new Date(event.startDate).toLocaleDateString("fr-FR", {
                         day: "2-digit",
                         month: "short",
                       })}

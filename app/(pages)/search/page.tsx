@@ -6,6 +6,7 @@ import { useSearchParams } from "next/navigation";
 import { events } from "@/lib/data";
 import EventCard from "@/components/ui/EventCard";
 import Contenaire from "@/components/Contenaire";
+import { Event } from "@/types/types";
 
 function matchesSearch(event: (typeof events)[number], query: string) {
   const normalized = query.trim().toLowerCase();
@@ -14,7 +15,7 @@ function matchesSearch(event: (typeof events)[number], query: string) {
     event.description.toLowerCase().includes(normalized) ||
     event.location.toLowerCase().includes(normalized) ||
     event.category.toLowerCase().includes(normalized) ||
-    event.tags.some((tag) => tag.toLowerCase().includes(normalized))
+    event.tags.some((tag: string) => tag.toLowerCase().includes(normalized))
   );
 }
 
@@ -25,7 +26,7 @@ export default function SearchPage() {
 
   const filteredEvents = useMemo(() => {
     if (!query.trim()) return [];
-    return events.filter((event) => matchesSearch(event, query));
+    return events.filter((event: Event) => matchesSearch(event, query));
   }, [query]);
 
   return (
@@ -64,7 +65,7 @@ export default function SearchPage() {
             {query.trim() ? (
               filteredEvents.length ? (
                 <div className="grid grid-cols-1 px-5 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {filteredEvents.map((event) => (
+                  {filteredEvents.map((event: Event) => (
                     <EventCard key={event.id} event={event} />
                   ))}
                 </div>
