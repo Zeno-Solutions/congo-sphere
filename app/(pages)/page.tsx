@@ -10,8 +10,6 @@ export const metadata = {
     "Découvrez des événements uniques près de chez vous. Concerts, meetups, expositions — rejoignez une communauté passionnée.",
 };
 export default function Home() {
-  console.log(process.env.API_URL);
-
   return (
     <>
       <Hero />
