@@ -10,6 +10,8 @@ export const metadata = {
     "Découvrez des événements uniques près de chez vous. Concerts, meetups, expositions — rejoignez une communauté passionnée.",
 };
 export default function Home() {
+  const nv = process.env.API_URL;
+  console.log(nv);
 
   return (
     <>
@@ -18,7 +20,6 @@ export default function Home() {
         <Slider />
         <Recommended />
         <Newsletter />
-        
       </main>
     </>
   );

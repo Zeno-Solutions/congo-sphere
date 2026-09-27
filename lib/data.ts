@@ -3,6 +3,8 @@ import { redirect } from "next/navigation";
 async function fetchEvents() {
   try {
     const response = await fetch(API_BASE_URL);
+    console.log(API_BASE_URL);
+
     if (!response.ok) {
       throw new Error("Failed to fetch events");
     }

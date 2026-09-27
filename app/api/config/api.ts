@@ -1,5 +1,5 @@
 // Configuration centralisée de l'API
-export const API_BASE_URL = process.env.API_URL || "http://localhost:8000/0";
+export const API_BASE_URL = process.env.API_URL || "http://localhost:8000/0"; // Valeur par défaut si la variable d'environnement n'est pas définie
 
 export const API_ENDPOINTS = {
   auth: {
