@@ -7,6 +7,7 @@ import { FaApple } from "react-icons/fa";
 import { FaGoogle } from "react-icons/fa6";
 import { TbChartBubble } from "react-icons/tb";
 import Input from "@/components/ui/input";
+import { getLoginData } from "./loginAction";
 
 export default function Page() {
   const [showPassword, setShowPassword] = useState(false);
@@ -79,7 +80,7 @@ export default function Page() {
                 </p>
               </div>
 
-              <form className="space-y-6">
+              <form className="space-y-6" action={getLoginData}>
                 {/* Email Field */}
                 <div className="space-y-2">
                   <label className="text-xs font-bold font-label uppercase tracking-widest text-on-surface-variant ml-1">

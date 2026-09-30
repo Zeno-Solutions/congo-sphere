@@ -7,7 +7,7 @@ import Input from "@/components/ui/input";
 import { FaApple } from "react-icons/fa";
 import { FaGoogle } from "react-icons/fa6";
 import { TbChartBubble } from "react-icons/tb";
-
+import { registerAction } from "./rgisterAction";
 export default function Page() {
   const [showPassword, setShowPassword] = useState(false);
 
@@ -84,7 +84,7 @@ export default function Page() {
                 </p>
               </div>
 
-              <form className="space-y-6">
+              <form className="space-y-6" action={registerAction}>
                 <div className="grid grid-cols-2b gap-4">
                   {/* Name Field */}
                   <div className="space-y-2">
