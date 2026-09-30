@@ -1,9 +1,9 @@
 import Link from "next/link";
 import { ArrowRight, Calendar, MapPin, Sparkles } from "lucide-react";
 import { events } from "@/lib/data";
+import { Event } from "@/types/types";
 import Contenaire from "@/components/Contenaire";
 import Image from "next/image";
-import { Event } from "@/types/types";
 export default function DashboardPage() {
   const upcoming = events.slice(0, 3);
   const userStat = [

@@ -50,7 +50,7 @@ export default function EventDetailPage() {
             <Image
               className="w-full h-full object-cover blur-sm brightness-60"
               alt={event.title}
-              src={event.image}
+              src={event.imageUrl}
               width={1920}
               height={1080}
             />
@@ -67,7 +67,7 @@ export default function EventDetailPage() {
             {/* Floating Hero Labels */}
             <div className="absolute bottom-12 left-6 right-6 md:left-12 lg:left-24 max-w-4xl">
               <div className="flex flex-wrap gap-3 mb-6">
-                {event.tags.map((tag: string, index: number) => (
+                {/* {event.tags.map((tag: string, index: number) => (
                   <span
                     key={index}
                     className={`px-4 py-1.5 rounded-full backdrop-blur-md text-xs font-bold uppercase tracking-widest border ${
@@ -80,7 +80,7 @@ export default function EventDetailPage() {
                   >
                     {tag}
                   </span>
-                ))}
+                ))} */}
               </div>
               <h2 className="text-4xl md:text-6xl font-extrabold font-headline leading-tight tracking-tighter text-on-surface mb-4">
                 {event.title}
@@ -122,7 +122,7 @@ export default function EventDetailPage() {
 
               {/* Features Grid */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {event.features.map((feature: string, index: number) => (
+                {/* {event.features.map((feature: string, index: number) => (
                   <div
                     key={index}
                     className="bg-surface-container-low p-2 rounded-xl flex items-center gap-2 group hover:bg-surface-container transition-colors"
@@ -134,7 +134,7 @@ export default function EventDetailPage() {
                       {feature}
                     </span>
                   </div>
-                ))}
+                ))} */}
               </div>
             </div>
 

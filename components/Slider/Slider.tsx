@@ -4,8 +4,8 @@ import { ChevronRight, ChevronLeft, ArrowRight } from "lucide-react";
 import Contenaire from "../Contenaire";
 import Link from "next/link";
 import { events } from "@/lib/data";
-import Image from "next/image";
 import { Event } from "@/types/types";
+import Image from "next/image";
 export default function Slider() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const carouselContainerRef = useRef<HTMLDivElement>(null);
@@ -111,7 +111,7 @@ export default function Slider() {
             scrollBehavior: "smooth",
           }}
         >
-          {featuredEvents.map((event: Event, index: number) => (
+          {featuredEvents.map((event: Event, index: unknown) => (
             <div
               key={event.id}
               className={`min-w-[320px]  md:w-150 h-87.5 rounded-2xl relative overflow-hidden group snap-center shrink-0 transition-transform duration-500 ease-out ${
@@ -121,7 +121,10 @@ export default function Slider() {
               <Image
                 className="absolute inset-0 object-cover transition-transform duration-700 group-hover:scale-110 min-w-full min-h-full"
                 alt={event.title}
-                src={event.image}
+                src={
+                  event.image ??
+                  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdH12NNmRpsUnFOqfLMbK7AJozFX4tACwgkmxVG_kN2nH3Zz6-JLPvee9g&s=10"
+                }
                 width={700}
                 height={450}
               />

@@ -4,7 +4,6 @@ import "./globals.css";
 import type { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 import { geist } from "@/fonts/font";
-import { testFunct } from "@/api/test";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   variable: "--font-plus-jakarta-sans",

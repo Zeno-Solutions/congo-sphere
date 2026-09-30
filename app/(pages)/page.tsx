@@ -17,7 +17,6 @@ export default function Home() {
         <Slider />
         <Recommended />
         <Newsletter />
-        <p>{process.env.API_URL}</p>
       </main>
     </>
   );
