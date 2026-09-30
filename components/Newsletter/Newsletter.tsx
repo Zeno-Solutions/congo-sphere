@@ -1,4 +1,5 @@
 "use client";
+
 import FuzzyText from "../FuzzyText";
 import Contenaire from "../Contenaire";
 import Input from "../ui/input";
@@ -16,15 +17,18 @@ export default function Newsletter() {
               Get exclusive access to pre-sale tickets, secret events, and
               monthly curated highlights delivered to your inbox.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Input
-                className="bg-surface-container-highest border-none rounded-full px-6 py-4 grow text-white placeholder:text-outline ring-2 ring-primary/50 font-body "
-                placeholder="your@email.com"
-                type="email"
-              />
-              <button className="text-on-primary-fixed font-bold font-label px-8 py-4 rounded-full shadow-[0_0_20px_rgba(204,151,255,0.4)] hover:shadow-[0_0_30px_rgba(204,151,255,0.6)] transition-all active:scale-95 cursor-pointer">
-                Subscribe
-              </button>
+            <div>
+              <form className="flex flex-col sm:flex-row gap-4" action="">
+                <Input
+                  className="bg-surface-container-highest border-none rounded-full px-6 py-4 grow text-white placeholder:text-outline ring-2 ring-primary/50 font-body "
+                  placeholder="your@email.com"
+                  type="email"
+                  required
+                />
+                <button className="text-on-primary-fixed font-bold font-label px-8 py-4 rounded-full shadow-[0_0_20px_rgba(204,151,255,0.4)] hover:shadow-[0_0_30px_rgba(204,151,255,0.6)] transition-all active:scale-95 cursor-pointer">
+                  Subscribe
+                </button>
+              </form>
             </div>
             <p className="text-[10px] text-outline mt-4 uppercase tracking-widest font-bold">
               No spam. Only magic. Unsubscribe anytime.
