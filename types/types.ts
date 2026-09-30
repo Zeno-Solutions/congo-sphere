@@ -39,7 +39,7 @@ type PaymentStatus = "PENDING" | "COMPLETED" | "FAILED" | "REFUNDED";
 export interface Event {
   id: string;
   title: string;
-  image: string;
+  imageUrl: string;
   description: string;
   location: string;
   startDate: string;

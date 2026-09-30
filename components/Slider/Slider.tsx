@@ -121,10 +121,7 @@ export default function Slider() {
               <Image
                 className="absolute inset-0 object-cover transition-transform duration-700 group-hover:scale-110 min-w-full min-h-full"
                 alt={event.title}
-                src={
-                  event.image ??
-                  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdH12NNmRpsUnFOqfLMbK7AJozFX4tACwgkmxVG_kN2nH3Zz6-JLPvee9g&s=10"
-                }
+                src={event.imageUrl}
                 width={700}
                 height={450}
               />
