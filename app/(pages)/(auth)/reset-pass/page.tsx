@@ -57,10 +57,10 @@ export default function Page() {
               <div className="mb-10 text-center lg:text-left">
                 <div className="lg:hidden flex justify-center mb-6">
                   <span className="material-symbols-outlined text-5xl text-primary">
-                    bubble_chart
+                    <TbChartBubble />
                   </span>
                 </div>
-                <h3 className="text-3xl font-bold font-headline mb-2">
+                <h3 className="text-2xl md:text-3xl font-bold font-headline mb-2">
                   Reset your password
                 </h3>
                 <span className="text-sm text-gray-500 font bold">
