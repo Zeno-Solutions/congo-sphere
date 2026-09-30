@@ -67,3 +67,24 @@ export interface EventUser {
   email: string;
   avatarUrl: string;
 }
+
+export type EventCardEvent = {
+  id: string;
+  title: string;
+  description: string;
+  location: string;
+  date?: string;
+  startDate?: string;
+  endDate?: string;
+  image?: string;
+  imageUrl?: string;
+  tags?: string[];
+  price?: number;
+  availableTickets?: number;
+  category?: string;
+  eventType?: EventType;
+  isFeatured?: boolean;
+  createdAt?: string;
+  updatedAt?: string;
+  participants?: Array<unknown>;
+};
