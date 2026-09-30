@@ -1,5 +1,6 @@
-import { API_BASE_URL, API_ENDPOINTS } from "@/app/api/config/api";
-import { redirect } from "next/navigation";
+import { API_BASE_URL } from "@/api/config/api";
+import { backend } from "@/api/test";
+
 async function fetchEvents() {
   try {
     const response = await fetch("https://api.congo-sphere.lemy.dev/events");

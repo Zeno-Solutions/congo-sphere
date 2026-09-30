@@ -1,8 +1,7 @@
+"use server";
 import "dotenv/config";
+export const backend = () => {
+  return process.env.URL;
+};
 
-const backend = process.env.URL;
-
-export function testFunct() {
-  console.log(backend);
-}
-testFunct();
+console.log(backend());

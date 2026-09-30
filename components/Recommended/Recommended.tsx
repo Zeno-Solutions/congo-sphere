@@ -1,60 +1,21 @@
 "use client";
-import { API_BASE_URL } from "@/app/api/config/api";
 import { useEffect, useMemo, useState } from "react";
 import { events as fallbackEvents } from "@/lib/data";
 import EventCard from "../ui/EventCard";
 import Contenaire from "../Contenaire";
 import { Event } from "@/types/types";
 
-type EventApiResponse =
-  | Event[]
-  | { events?: Event[] }
-  | { data?: Event[] }
-  | { items?: Event[] };
+// type EventApiResponse =
+//   | Event[]
+//   | { events?: Event[] }
+//   | { data?: Event[] }
+//   | { items?: Event[] };
 
 export default function Recommended() {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [events, setEvents] = useState(fallbackEvents);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-
-  // const getInfon = async () => {
-  //   try {
-  //     setError(null);
-  //     setLoading(true);
-
-  //     const response = await fetch(API_BASE_URL);
-  //     if (!response.ok) {
-  //       throw new Error(`Request failed with status ${response.status}`);
-  //     }
-
-  //     const data = await response.json();
-  //     setEvents(Array.isArray(data) ? data : fallbackEvents);
-  //   } catch (err) {
-  //     const message =
-  //       err instanceof Error ? err.message : "Unable to load events.";
-  //     setError(message);
-  //     setEvents(fallbackEvents);
-  //   } finally {
-  //     setLoading(false);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   let active = true;
-
-  //   const load = () => {
-  //     if (!active) return;
-  //     void getInfon();
-  //   };
-
-  //   const timeoutId = setTimeout(load, 0);
-
-  //   return () => {
-  //     active = false;
-  //     clearTimeout(timeoutId);
-  //   };
-  // }, []);
 
   const filterOptions = useMemo(() => {
     const categories = Array.from(

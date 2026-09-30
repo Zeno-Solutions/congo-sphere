@@ -1,5 +1,8 @@
-// Configuration centralisée de l'API
-export const API_BASE_URL = process.env.URL || "http://localhost:8000"; // Valeur par défaut si la variable d'environnement n'est pas définie
+"use server";
+import { config } from "dotenv";
+config();
+// NEXT_PUBLIC_API_URL is required when the API is called from a client component.
+export const API_BASE_URL = process.env.URL;
 
 export const API_ENDPOINTS = {
   auth: {
