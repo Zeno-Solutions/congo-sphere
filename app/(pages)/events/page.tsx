@@ -8,6 +8,7 @@ import EventCard from "@/components/ui/EventCard";
 import Loader from "@/components/ui/Loader";
 import { Select } from "@/components/ui/select";
 import Contenaire from "@/components/Contenaire";
+import { Event } from "@/types/types";
 export default function EventsPage() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -97,7 +98,7 @@ export default function EventsPage() {
               </div>
             ) : (
               <div className="grid grid-cols-1 px-5 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {filteredEvents.map((event) => (
+                {filteredEvents.map((event: Event) => (
                   <EventCard key={event.id as string} event={event} />
                 ))}
               </div>

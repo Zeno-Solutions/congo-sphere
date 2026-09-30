@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import { events as fallbackEvents } from "@/lib/data";
 import EventCard from "../ui/EventCard";
 import Contenaire from "../Contenaire";
+import { Event } from "@/types/types";
 
 type EventApiResponse =
   | Event[]
@@ -57,7 +58,7 @@ export default function Recommended() {
 
   const filterOptions = useMemo(() => {
     const categories = Array.from(
-      new Set(events.map((event) => event.category)),
+      new Set(events.map((event: Event) => event.category)),
     ).slice(0, 3);
 
     return [
@@ -73,7 +74,7 @@ export default function Recommended() {
     () =>
       selectedCategory === "All"
         ? events
-        : events.filter((event) => event.category === selectedCategory),
+        : events.filter((event: Event) => event.category === selectedCategory),
     [events, selectedCategory],
   );
 
@@ -112,7 +113,7 @@ export default function Recommended() {
 
         <div className="min-w-70 mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredEvents.map((event) => (
+            {filteredEvents.map((event: Event) => (
               <EventCard key={event.id as string} event={event} />
             ))}
           </div>
